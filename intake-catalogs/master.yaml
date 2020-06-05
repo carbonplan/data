@@ -1,0 +1,29 @@
+description: 'CarbonPlan Master Data Catalog'
+sources:
+  projects:
+    args:
+      path: "{{CATALOG_DIR}}/projects.yaml"
+    description: 'CarbonPlan Projects Dataset Catalog'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  fire:
+    args:
+      path: "{{CATALOG_DIR}}/fire.yaml"
+    description: 'CarbonPlan Fire Dataset Catalog'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  forest:
+    args:
+      path: "{{CATALOG_DIR}}/forest.yaml"
+    description: 'CarbonPlan Forest Dataset Catalog'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  climate:
+    args:
+      path: "{{CATALOG_DIR}}/climate.yaml"
+    description: 'CarbonPlan Climate Dataset Catalog.'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}

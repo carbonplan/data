@@ -1,0 +1,51 @@
+plugins:
+  source:
+    - module: intake_xarray
+
+sources:
+
+  gridmet_opendap:
+    description: 'GRIDMET data from OpeNDAP'
+    args:
+      urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc
+      auth: urs
+      chunks:
+        lat: 585
+        lon: 1386
+    driver: opendap
+    parameters:
+      variable:
+        description: climate variable
+        type: str
+        default: pr
+        allowed: ["pr", "tmmn", "tmmx", "rmax", "rmin", "sph", "srad", "th", "vs", "bi", "fm100", "fm1000", "erc", "pdsi", "etr", "pet", "vpd"]
+      year:
+        description: year
+        type: int
+        default: 2000
+
+  maca_opendap:
+    description: 'MACA data from OpeNDAP'
+    args:
+      urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc
+      auth: urs
+      chunks:
+        lat: 585
+        lon: 1386
+    driver: opendap
+    parameters:
+      variable:
+        description: climate variable
+        type: str
+        default: pr
+        allowed: ["huss", "pr",  "rhsmin",  "rhsmax",  "rsds",  "tasmax",  "tasmin",  "uas",  "vas",  "vpd"]
+      gcm:
+        description: climate model
+        type: str
+        default: IPSL-CM5A-LR
+        # allowed: TODO: add list of defaults
+      scenario:
+        description: climate scenario
+        type: str
+        default: historical_1950_2005
+        allowed: ["historical_1950_2005", "rcp45_2006_2099",  "rcp85_2006_2099"]

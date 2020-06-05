@@ -1,0 +1,5 @@
+fastapi==0.54.1
+async-exit-stack
+async-generator
+requests
+pandas
