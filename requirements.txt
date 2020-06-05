@@ -1,4 +1,4 @@
-dask
+dask[complete]
 gcsfs
 intake
 intake-xarray
