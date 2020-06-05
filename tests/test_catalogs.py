@@ -25,4 +25,6 @@ def test_get_intake_source(catalog, dataset_name):
     if item.container == "catalog":
         item.reload()
     elif item.container in ["xarray", "dataframe"]:
+        if "opendap" in item.describe()["plugin"]:
+            pytest.skip("skipping opendap because auth seems to be flakey")
         _ = item.to_dask()
