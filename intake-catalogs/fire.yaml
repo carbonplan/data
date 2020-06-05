@@ -2,4 +2,18 @@ plugins:
   source:
     - module: intake_xarray
 
-sources: {}
+sources:
+  raw_mtbs:
+    description: CONUS
+    parameters:
+      year:
+        description: year
+        type: int
+        default: 1984
+    metadata:
+      url: https://www.mtbs.gov/
+      tags: fire, cog
+    driver: rasterio
+    args:
+      urlpath: "gs://carbonplan-data/raw/MTBS/{{ '%d' % year }}.tif"
+      chunks: {'y': 5120, 'x': 5120}
