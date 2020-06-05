@@ -3,6 +3,7 @@ gcsfs
 intake
 intake-xarray
 pandas
+pydap
 pytest
 rasterio
 xarray
