@@ -12,8 +12,8 @@ sources:
         default: 1984
     metadata:
       url: https://www.mtbs.gov/
-      tags: fire, cog
+      tags: [fire, cog]
     driver: rasterio
     args:
-      urlpath: "gs://carbonplan-data/raw/MTBS/{{ '%d' % year }}.tif"
+      urlpath: "gs://carbonplan-data/raw/MTBS/30m/{{ '%d' % year }}.tif"
       chunks: {'y': 5120, 'x': 5120}
