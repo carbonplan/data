@@ -15,5 +15,5 @@ sources:
       tags: [fire, cog]
     driver: rasterio
     args:
-      urlpath: "gs://carbonplan-data/raw/MTBS/30m/{{ '%d' % year }}.tif"
+      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/MTBS/30m/{{ '%d' % year }}.tif"
       chunks: {'y': 5120, 'x': 5120}
