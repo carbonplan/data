@@ -25,6 +25,9 @@ def test_get_intake_source(catalog, dataset_name):
     if item.container == "catalog":
         item.reload()
     elif item.container in ["xarray", "dataframe"]:
-        if "opendap" in item.describe()["plugin"]:
-            pytest.skip("skipping opendap because auth seems to be flakey")
+
+        if item.metadata.get("ci", None) == "skip":
+            pytest.skip("dataset marked as ci: skip")
+        elif item.metadata.get("ci", None) == "xfail":
+            pytest.xfail("dataset marked as ci: xfail")
         _ = item.to_dask()

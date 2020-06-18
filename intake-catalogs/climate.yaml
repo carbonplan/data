@@ -6,6 +6,8 @@ sources:
 
   gridmet_opendap:
     description: 'GRIDMET data from OpeNDAP'
+    metadata:
+      ci: xfail  # reason: opendap is flaky
     args:
       urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc
       auth: null
@@ -26,6 +28,8 @@ sources:
 
   maca_opendap:
     description: 'MACA data from OpeNDAP'
+    metadata:
+      ci: xfail  # reason: opendap is flaky
     args:
       urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc
       auth: null

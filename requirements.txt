@@ -1,6 +1,7 @@
 dask[complete]
 gcsfs
 intake
+intake-geopandas
 intake-xarray
 netcdf4
 pandas

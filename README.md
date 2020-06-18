@@ -6,18 +6,31 @@ This repository includes our master data catalog as well as our pre-processing u
 
 ## usage documentation
 
-Coming soon.
+```python
+# open the top level catalog
+cat = intake.open_catalog('https://raw.githubusercontent.com/carbonplan/data/master/intake-catalogs/master.yaml')
+
+# extract an entry as a Dask-backed Xarray Dataset
+cat.fire.mtbs_raster.to_dask()
+```
 
 -----
 
 ## developer documentation
 
-Coming soon.
-
 To run the unit and integration tests for this API, run:
 
 ```shell
 $ py.test -v
+```
+
+Catalog entries scan be marked as either *skip* or *xfail* by setting the `ci` key in the metadata dictionary:
+
+```yaml
+  foo:
+    description: "skip this entry in the CI tests"
+    metadata:
+      ci: skip
 ```
 
 ## license
