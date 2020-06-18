@@ -33,12 +33,15 @@ sources:
     driver: zarr
     args:
       urlpath: "gs://carbonplan-data/processed/MTBS/raster.zarr/{{ resolution }}/"
+      storage_options:
+        token: 'anon'
 
   mtbs_fod_shp:
     description: MTBS National - Fire Occurrence Dataset. The fire occurrence location dataset is a vector point ESRI shapefile of the centroids of all currently completed MTBS fires occurring in the continental United States, Alaska, Hawaii and Puerto Rico.
     metadata:
       url: https://www.mtbs.gov/
       tags: [fire, shapefile]
+      ci: skip  # reason: fiona is flaky
     driver: shapefile
     args:
       urlpath: "gs://carbonplan-data/raw/MTBS/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp"
@@ -48,6 +51,7 @@ sources:
     metadata:
       url: https://www.mtbs.gov/
       tags: [fire, shapefile]
+      ci: skip  # reason: fiona is flaky
     driver: shapefile
     args:
       urlpath: "gs://carbonplan-data/raw/MTBS/mtbs_perimeter_data/mtbs_perims_DD.shp"
