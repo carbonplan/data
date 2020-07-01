@@ -30,3 +30,8 @@ repos:
     rev: v4.3.21
     hooks:
     - id: isort
+
+-   repo: https://github.com/deathbeds/prenotebook
+    rev: master
+    hooks:
+    - id: prenotebook
