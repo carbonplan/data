@@ -7,17 +7,10 @@ sources:
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}
 
-  fire:
+  land:
     args:
-      path: "{{CATALOG_DIR}}/fire.yaml"
-    description: 'CarbonPlan Fire Dataset Catalog'
-    driver: intake.catalog.local.YAMLFileCatalog
-    metadata: {}
-
-  forest:
-    args:
-      path: "{{CATALOG_DIR}}/forest.yaml"
-    description: 'CarbonPlan Forest Dataset Catalog'
+      path: "{{CATALOG_DIR}}/land.yaml"
+    description: 'CarbonPlan Land Dataset Catalog'
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}
 

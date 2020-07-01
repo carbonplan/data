@@ -1,0 +1,47 @@
+plugins:
+  source:
+    - module: intake_xarray
+
+sources:
+
+  fire:
+    args:
+      path: "{{CATALOG_DIR}}/fire.yaml"
+    description: 'CarbonPlan Fire Dataset Catalog'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  fia:
+    args:
+      path: "{{CATALOG_DIR}}/fia.yaml"
+    description: 'CarbonPlan FIA Dataset Catalog'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  nlcd_land_cover_change_index_l48:
+    description: The burn severity mosaics consist of thematic raster images of MTBS burn severity classes for all currently completed MTBS fires for the continental United States. Mosaicked burn severity images are compiled annually for the continental United States. Data in this catalog have been converted to cloud optimized geotiff.
+    metadata:
+      url: https://www.mrlc.gov/data/nlcd-land-cover-change-index-conus
+      tags: [land cover, cog]
+      ci: xfail  # reason: cogs are flaky
+    driver: rasterio
+    args:
+      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mlrc/NLCD_Land_Cover_Change_Index_L48_20190424/30m/raster.tif"
+      chunks: {'y': 5120, 'x': 5120}
+
+  nlcd_land_cover_l48:
+    description: National Land Cover Database (NLCD) products.
+    parameters:
+      year:
+        description: year
+        type: int
+        default: 2016
+        allowed: [2001, 2004, 2006, 2008, 2011, 2013, 2016]
+    metadata:
+      url: https://www.mrlc.gov/data/nlcd-land-cover-conus-all-years
+      tags: [land cover, cog]
+      ci: xfail  # reason: cogs are flaky
+    driver: rasterio
+    args:
+      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mlrc/NLCD_Land_Cover_L48_20190424_full/30m/{{ '%d' % year }}.tif"
+      chunks: {'y': 5120, 'x': 5120}

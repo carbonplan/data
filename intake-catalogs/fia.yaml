@@ -1,0 +1,541 @@
+sources:
+
+  raw_soils_erosion:
+    description: SOILS_EROSION from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SOILS_EROSION.parquet"
+
+  raw_pop_plot_stratum_assgn:
+    description: POP_PLOT_STRATUM_ASSGN from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/POP_PLOT_STRATUM_ASSGN.parquet"
+
+  raw_dwm_visit:
+    description: DWM_VISIT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/DWM_VISIT.parquet"
+
+  raw_lichen_lab:
+    description: LICHEN_LAB from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/LICHEN_LAB.parquet"
+
+  raw_plot:
+    description: PLOT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/PLOT.parquet"
+
+  raw_subp_cond_chng_mtrx:
+    description: SUBP_COND_CHNG_MTRX from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SUBP_COND_CHNG_MTRX.parquet"
+
+  raw_subplot_regen:
+    description: SUBPLOT_REGEN from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SUBPLOT_REGEN.parquet"
+
+  raw_dwm_fine_woody_debris:
+    description: DWM_FINE_WOODY_DEBRIS from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/DWM_FINE_WOODY_DEBRIS.parquet"
+
+  raw_ozone_plot_summary:
+    description: OZONE_PLOT_SUMMARY from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/OZONE_PLOT_SUMMARY.parquet"
+
+  raw_sitetree:
+    description: SITETREE from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SITETREE.parquet"
+
+  raw_pop_eval_grp:
+    description: POP_EVAL_GRP from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/POP_EVAL_GRP.parquet"
+
+  raw_plotsnap:
+    description: PLOTSNAP from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/PLOTSNAP.parquet"
+
+  raw_soils_sample_loc:
+    description: SOILS_SAMPLE_LOC from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SOILS_SAMPLE_LOC.parquet"
+
+  raw_veg_subplot:
+    description: VEG_SUBPLOT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/VEG_SUBPLOT.parquet"
+
+  raw_ozone_validation:
+    description: OZONE_VALIDATION from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/OZONE_VALIDATION.parquet"
+
+  raw_ozone_biosite_summary:
+    description: OZONE_BIOSITE_SUMMARY from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/OZONE_BIOSITE_SUMMARY.parquet"
+
+  raw_tree_grm_threshold:
+    description: TREE_GRM_THRESHOLD from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/TREE_GRM_THRESHOLD.parquet"
+
+  raw_cond_dwm_calc:
+    description: COND_DWM_CALC from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/COND_DWM_CALC.parquet"
+
+  raw_dwm_duff_litter_fuel:
+    description: DWM_DUFF_LITTER_FUEL from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/DWM_DUFF_LITTER_FUEL.parquet"
+
+  raw_dwm_transect_segment:
+    description: DWM_TRANSECT_SEGMENT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/DWM_TRANSECT_SEGMENT.parquet"
+
+  raw_dwm_microplot_fuel:
+    description: DWM_MICROPLOT_FUEL from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/DWM_MICROPLOT_FUEL.parquet"
+
+  raw_veg_subplot_spp:
+    description: VEG_SUBPLOT_SPP from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/VEG_SUBPLOT_SPP.parquet"
+
+  raw_pop_eval_attribute:
+    description: POP_EVAL_ATTRIBUTE from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/POP_EVAL_ATTRIBUTE.parquet"
+
+  raw_ozone_plot:
+    description: OZONE_PLOT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/OZONE_PLOT.parquet"
+
+  raw_veg_quadrat:
+    description: VEG_QUADRAT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/VEG_QUADRAT.parquet"
+
+  raw_veg_visit:
+    description: VEG_VISIT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/VEG_VISIT.parquet"
+
+  raw_ozone_visit:
+    description: OZONE_VISIT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/OZONE_VISIT.parquet"
+
+  raw_p2veg_subplot_spp:
+    description: P2VEG_SUBPLOT_SPP from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/P2VEG_SUBPLOT_SPP.parquet"
+
+  raw_tree:
+    description: TREE from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/TREE.parquet"
+
+  raw_grnd_cvr:
+    description: GRND_CVR from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/GRND_CVR.parquet"
+
+  raw_subp_cond:
+    description: SUBP_COND from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SUBP_COND.parquet"
+
+  raw_pop_stratum:
+    description: POP_STRATUM from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/POP_STRATUM.parquet"
+
+  raw_cond:
+    description: COND from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/COND.parquet"
+
+  raw_county:
+    description: COUNTY from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/COUNTY.parquet"
+
+  raw_ozone_species_summary:
+    description: OZONE_SPECIES_SUMMARY from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/OZONE_SPECIES_SUMMARY.parquet"
+
+  raw_lichen_visit:
+    description: LICHEN_VISIT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/LICHEN_VISIT.parquet"
+
+  raw_soils_visit:
+    description: SOILS_VISIT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SOILS_VISIT.parquet"
+
+  raw_boundary:
+    description: BOUNDARY from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/BOUNDARY.parquet"
+
+  raw_pop_eval_typ:
+    description: POP_EVAL_TYP from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/POP_EVAL_TYP.parquet"
+
+  raw_subplot:
+    description: SUBPLOT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SUBPLOT.parquet"
+
+  raw_dwm_residual_pile:
+    description: DWM_RESIDUAL_PILE from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/DWM_RESIDUAL_PILE.parquet"
+
+  raw_seedling_regen:
+    description: SEEDLING_REGEN from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SEEDLING_REGEN.parquet"
+
+  raw_p2veg_subp_structure:
+    description: P2VEG_SUBP_STRUCTURE from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/P2VEG_SUBP_STRUCTURE.parquet"
+
+  raw_lichen_plot_summary:
+    description: LICHEN_PLOT_SUMMARY from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/LICHEN_PLOT_SUMMARY.parquet"
+
+  raw_tree_grm_midpt:
+    description: TREE_GRM_MIDPT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/TREE_GRM_MIDPT.parquet"
+
+  raw_pop_estn_unit:
+    description: POP_ESTN_UNIT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/POP_ESTN_UNIT.parquet"
+
+  raw_plotgeom:
+    description: PLOTGEOM from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/PLOTGEOM.parquet"
+
+  raw_tree_grm_begin:
+    description: TREE_GRM_BEGIN from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/TREE_GRM_BEGIN.parquet"
+
+  raw_tree_grm_component:
+    description: TREE_GRM_COMPONENT from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/TREE_GRM_COMPONENT.parquet"
+
+  raw_seedling:
+    description: SEEDLING from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SEEDLING.parquet"
+
+  raw_soils_lab:
+    description: SOILS_LAB from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SOILS_LAB.parquet"
+
+  raw_survey:
+    description: SURVEY from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/SURVEY.parquet"
+
+  raw_tree_woodland_stems:
+    description: TREE_WOODLAND_STEMS from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/TREE_WOODLAND_STEMS.parquet"
+
+  raw_plot_regen:
+    description: PLOT_REGEN from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/PLOT_REGEN.parquet"
+
+  raw_dwm_coarse_woody_debris:
+    description: DWM_COARSE_WOODY_DEBRIS from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/DWM_COARSE_WOODY_DEBRIS.parquet"
+
+  raw_veg_plot_species:
+    description: VEG_PLOT_SPECIES from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/VEG_PLOT_SPECIES.parquet"
+
+  raw_tree_grm_estn:
+    description: TREE_GRM_ESTN from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/TREE_GRM_ESTN.parquet"
+
+  raw_pop_eval:
+    description: POP_EVAL from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/POP_EVAL.parquet"
+
+  raw_tree_regional_biomass:
+    description: TREE_REGIONAL_BIOMASS from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/TREE_REGIONAL_BIOMASS.parquet"
+
+  raw_invasive_subplot_spp:
+    description: INVASIVE_SUBPLOT_SPP from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
+    metadata:
+      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+      tags: [forest, parquet]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fia/INVASIVE_SUBPLOT_SPP.parquet"

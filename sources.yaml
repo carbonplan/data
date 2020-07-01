@@ -1,0 +1,49 @@
+
+mtbs:
+  description: Raw datasets from MTBS
+  metadata:
+    url: https://www.mtbs.gov/
+  data:
+    burned_area_extent_shapefile:
+      actions: [download, unzip]
+      urlpath:
+        - https://edcintl.cr.usgs.gov/downloads/sciweb1/shared/MTBS_Fire/data/composite_data/burned_area_extent_shapefile/mtbs_perimeter_data.zip
+    fod_pt_shapefile:
+      actions: [wget, unzip]
+      urlpath:
+        - https://edcintl.cr.usgs.gov/downloads/sciweb1/shared/MTBS_Fire/data/composite_data/fod_pt_shapefile/mtbs_fod_pts_data.zip
+
+mlrc:
+  description: Raw datasets from MRLC
+  metadata:
+    url: https://www.mrlc.gov/data
+  data:
+    NLCD_Land_Cover_Change_Index_L48_20190424:
+      actions: [download, unzip]
+      urlpath:
+        - https://s3-us-west-2.amazonaws.com/mrlc/NLCD_Land_Cover_Change_Index_L48_20190424.zip
+    NLCD_Land_Cover_L48_20190424_full_zip:
+      actions: [wget, unzip]
+      urlpath:
+        - https://s3-us-west-2.amazonaws.com/mrlc/NLCD_Land_Cover_L48_20190424_full_zip.zip
+    NLCD_Land_Cover_AK_20200213:
+      actions: [download, unzip]
+      urlpath:
+        - https://s3-us-west-2.amazonaws.com/mrlc/NLCD_2001_Land_Cover_AK_20200213.zip
+        - https://s3-us-west-2.amazonaws.com/mrlc/NLCD_2011_Land_Cover_AK_20200213.zip
+        - https://s3-us-west-2.amazonaws.com/mrlc/NLCD_2016_Land_Cover_AK_20200213.zip
+    nlcd_treecanopy_2019_08_31:
+      actions: [download, unzip]
+      urlpath:
+        - https://s3-us-west-2.amazonaws.com/mrlc/nlcd_2011_treecanopy_2019_08_31.zip
+        - https://s3-us-west-2.amazonaws.com/mrlc/nlcd_2016_treecanopy_2019_08_31.zip
+
+fia:
+  description: Raw datasets from Forest Inventory Analysis
+  metadata:
+    url: https://apps.fs.usda.gov/fia/datamart/datamart.html
+  data:
+    entire:
+      actions: [download, unzip]
+      urlpath:
+        - https://apps.fs.usda.gov/fia/datamart/CSV/ENTIRE.zip

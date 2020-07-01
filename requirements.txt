@@ -1,5 +1,7 @@
 dask[complete]
 gcsfs
+fastparquet
+google-cloud-storage
 intake
 intake-geopandas
 intake-xarray
@@ -8,5 +10,6 @@ pandas
 pydap
 pytest
 rasterio
+wget
 xarray
 zarr
