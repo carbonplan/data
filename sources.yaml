@@ -47,3 +47,46 @@ fia:
       actions: [download, unzip]
       urlpath:
         - https://apps.fs.usda.gov/fia/datamart/CSV/ENTIRE.zip
+
+gcp:
+  description: Raw datasets from the Global Carbon Budget.
+  metadata:
+    url: https://www.icos-cp.eu/global-carbon-budget-2019
+  data:
+    global_budget_2019:
+      actions: [manual]
+      urlpath:
+        - https://doi.org/10.18160/GCP-2019
+    national_emissions_2019:
+      actions: [manual]
+      urlpath:
+        - https://doi.org/10.18160/GCP-2019
+
+iiasa:
+  description: Raw datasets from the Global Carbon Budget.
+  metadata:
+    url:
+  data:
+    SSP_IAM_V2_201811:
+      actions: [manual]
+      urlpath:
+        - https://tntcat.iiasa.ac.at/SspDb/download/iam_v2/SSP_IAM_V2_201811.csv.zip
+    SSP_CMIP6_201811:
+      actions: [manual]
+      urlpath:
+        - https://tntcat.iiasa.ac.at/SspDb/download/cmip6/SSP_CMIP6_201811.csv.zip
+        - https://tntcat.iiasa.ac.at/SspDb/download/cmip6/cmip6_iam_model_region_mapping.xlsx
+    SSP_BASIC_ELEMENTS:
+      actions: [manual]
+      urlpath:
+        - https://tntcat.iiasa.ac.at/SspDb/download/basic_elements/SspDb_compare_regions_2013-06-12.csv.zip
+        - https://tntcat.iiasa.ac.at/SspDb/download/basic_elements/SspDb_country_data_2013-06-12.csv.zip
+    RCP_CMIP5:
+      actions: [manual]
+      urlpath:
+        - https://tntcat.iiasa.ac.at/RcpDb/download/CMIP5RECOMMENDATIONS/PICNTRL_MIDYR_CONC.zip
+        - https://tntcat.iiasa.ac.at/RcpDb/download/CMIP5RECOMMENDATIONS/PRE2005_MIDYR_CONC.zip
+        - https://tntcat.iiasa.ac.at/RcpDb/download/CMIP5RECOMMENDATIONS/RCP3PD_MIDYR_CONC.zip
+        - https://tntcat.iiasa.ac.at/RcpDb/download/CMIP5RECOMMENDATIONS/RCP45_MIDYR_CONC.zip
+        - https://tntcat.iiasa.ac.at/RcpDb/download/CMIP5RECOMMENDATIONS/RCP6_MIDYR_CONC.zip
+        - https://tntcat.iiasa.ac.at/RcpDb/download/CMIP5RECOMMENDATIONS/RCP85_MIDYR_CONC.zip
