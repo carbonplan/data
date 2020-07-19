@@ -1,10 +1,24 @@
-# CarbonPlan Data
+<img
+  src='https://carbonplan-assets.s3.amazonaws.com/monogram/dark-small.png'
+  height='48'
+/>
 
-![CI](https://github.com/carbonplan/data/workflows/CI/badge.svg)
+# carbonplan / data
+
+**data catalog and curation**
+
+[![GitHub][github-badge]][github]
+![Build Status][]
+![MIT License][]
+
+[github]: https://github.com/carbonplan/data
+[github-badge]: https://flat.badgen.net/badge/-/github?icon=github&label
+[build status]: https://flat.badgen.net/github/checks/carbonplan/data
+[mit license]: https://flat.badgen.net/badge/license/MIT/blue
 
 This repository includes our master data catalog as well as our pre-processing utilities.
 
-## usage documentation
+## usage
 
 ```python
 # open the top level catalog
