@@ -7,7 +7,7 @@ root = pathlib.Path(__file__).parents[1]
 
 
 def get_master_catalog():
-    fname = root / "intake-catalogs" / "master.yaml"
+    fname = root / "catalogs" / "master.yaml"
     return intake.open_catalog(fname.as_posix())
 
 
