@@ -38,6 +38,28 @@ mlrc:
         - https://s3-us-west-2.amazonaws.com/mrlc/nlcd_2011_treecanopy_2019_08_31.zip
         - https://s3-us-west-2.amazonaws.com/mrlc/nlcd_2016_treecanopy_2019_08_31.zip
 
+usfs:
+  desription: Raw raster datasets from the US Forest Service raster gateway
+  metadata:
+    url: https://data.fs.usda.gov/geodata/rastergateway/
+  data:
+    conus_forestgroup:
+      actions: [download, unzip]
+      urlpath:
+        - https://data.fs.usda.gov/geodata/rastergateway/forest_type/conus_forestgroup.zip
+    conus_foresttype:
+      actions: [download, unzip]
+      urlpath:
+        - https://data.fs.usda.gov/geodata/rastergateway/forest_type/conus_forest-type.zip
+    ak_forestgroup:
+      actions: [download, unzip]
+      urlpath:
+        - https://data.fs.usda.gov/geodata/rastergateway/forest_type/ak_forestgroup.zip
+    ak_foresttype:
+      actions: [download, unzip]
+      urlpath:
+        - https://data.fs.usda.gov/geodata/rastergateway/forest_type/ak_forest-type.zip
+
 fia:
   description: Raw datasets from Forest Inventory Analysis
   metadata:
