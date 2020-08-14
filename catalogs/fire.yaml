@@ -18,6 +18,7 @@ sources:
     metadata:
       url: https://www.mtbs.gov/
       tags: [fire, cog]
+      ci: xfail  # reason: opendap is flaky
     driver: rasterio
     args:
       urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"

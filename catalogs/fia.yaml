@@ -86,9 +86,9 @@ sources:
     metadata:
       url: https://apps.fs.usda.gov/fia/datamart/datamart.html
       tags: [forest, parquet]
-    driver: csv
+    driver: parquet
     args:
-      urlpath: "gs://carbonplan-data/raw/fia/sitetree.csv"  # TODO: update to parquet
+      urlpath: "gs://carbonplan-data/raw/fia/sitetree.parquet"
 
   raw_pop_eval_grp:
     description: POP_EVAL_GRP from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
