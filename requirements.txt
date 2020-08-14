@@ -5,6 +5,7 @@ google-cloud-storage
 intake
 intake-geopandas
 intake-xarray
+intake-parquet
 netcdf4
 pandas
 pydap
