@@ -1,5 +1,4 @@
 sources:
-
   raw_soils_erosion:
     description: SOILS_EROSION from the Forest Inventory and Analysis Database (FIADB) comma-delimited files in FIADB version 1.8.0.02 format.
     metadata:

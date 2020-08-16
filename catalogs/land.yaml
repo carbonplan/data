@@ -3,18 +3,17 @@ plugins:
     - module: intake_xarray
 
 sources:
-
   fire:
     args:
       path: "{{CATALOG_DIR}}/fire.yaml"
-    description: 'CarbonPlan Fire Dataset Catalog'
+    description: "CarbonPlan Fire Dataset Catalog"
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}
 
   fia:
     args:
       path: "{{CATALOG_DIR}}/fia.yaml"
-    description: 'CarbonPlan FIA Dataset Catalog'
+    description: "CarbonPlan FIA Dataset Catalog"
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}
 
@@ -51,7 +50,7 @@ sources:
     metadata:
       url: https://www.mrlc.gov/
       tags: [land cover, cog]
-      ci: xfail  # reason: cogs are flaky
+      ci: xfail # reason: cogs are flaky
     parameters:
       option:
         description: year (int) or change
@@ -66,20 +65,20 @@ sources:
     driver: rasterio
     args:
       urlpath: "https://storage.googleapis.com/carbonplan-data/raw/nlcd/{{ region }}/30m/{{ option }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
+      chunks: { "y": 5120, "x": 5120 }
 
   nlcd_raster:
     description: NLCD Land Cover Change Index
     metadata:
       url: https://www.mrlc.gov/
       tags: [land cover, cog]
-      ci: xfail  # reason: cogs are flaky
+      ci: xfail # reason: cogs are flaky
     parameters:
       option:
         description: year (int) or change
         type: str
         default: 2016
-        allowed: [2001, 2004, 2006, 2008, 2011, 2013, 2016]  # where is "change"?
+        allowed: [2001, 2004, 2006, 2008, 2011, 2013, 2016] # where is "change"?
       resolution:
         description: pixel resolution in meters
         type: str
@@ -93,14 +92,14 @@ sources:
     driver: rasterio
     args:
       urlpath: "https://storage.googleapis.com/carbonplan-data/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
+      chunks: { "y": 5120, "x": 5120 }
 
   raw_nftd_raster:
     description: Extent, distribution, and forest type composition of the nation’s forests.
     metadata:
       url: https://data.fs.usda.gov/geodata/rastergateway/forest_type/
       tags: [land cover, cog]
-      ci: xfail  # reason: cogs are flaky
+      ci: xfail # reason: cogs are flaky
     parameters:
       option:
         description: year (int) or change
@@ -120,15 +119,14 @@ sources:
     driver: rasterio
     args:
       urlpath: "https://storage.googleapis.com/carbonplan-data/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
-
+      chunks: { "y": 5120, "x": 5120 }
 
   nftd_raster:
     description: Extent, distribution, and forest type composition of the nation’s forests.
     metadata:
       url: https://data.fs.usda.gov/geodata/rastergateway/forest_type/
       tags: [land cover, cog]
-      ci: xfail  # reason: cogs are flaky
+      ci: xfail # reason: cogs are flaky
     parameters:
       region:
         description: conus or ak
@@ -148,21 +146,27 @@ sources:
     driver: rasterio
     args:
       urlpath: "https://storage.googleapis.com/carbonplan-data/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
+      chunks: { "y": 5120, "x": 5120 }
 
   raw_global_biomass:
     description: Global Aboveground and Belowground Biomass Carbon Density Maps for the Year 2010
     metadata:
       url: https://doi.org/10.3334/ORNLDAAC/1763
       tags: [biomass, cog]
-      ci: xfail  # reason: cogs are flaky
+      ci: xfail # reason: cogs are flaky
     parameters:
       variable:
         description: aboveground, aboveground_uncertainty, belowground, or belowground_uncertainty
         type: str
         default: aboveground
-        allowed: [aboveground, aboveground_uncertainty, belowground, belowground_uncertainty]
+        allowed:
+          [
+            aboveground,
+            aboveground_uncertainty,
+            belowground,
+            belowground_uncertainty,
+          ]
     driver: rasterio
     args:
       urlpath: "https://storage.googleapis.com/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
+      chunks: { "y": 5120, "x": 5120 }
