@@ -20,8 +20,6 @@ async function parseCatalogs(file) {
     catalogs[key] = YAML.parse(file)
   })
 
-  console.log('result', catalogs)
-
   return catalogs
 }
 
