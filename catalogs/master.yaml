@@ -1,5 +1,48 @@
 description: 'CarbonPlan Master Data Catalog'
 sources:
+
+  fia:
+    args:
+      path: "{{CATALOG_DIR}}/fia.yaml"
+    description: 'Catalog for data from Forest Inventory Analysis (FIA) database'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  fluxnet:
+    args:
+      path: "{{CATALOG_DIR}}/fluxnet.yaml"
+    description: 'Catalog for data from the FLUXNET dataset'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  gcb:
+    args:
+      path: "{{CATALOG_DIR}}/gcp.yaml"
+    description: 'Catalog for data from the Global Carbon Project'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  mtbs:
+    args:
+      path: "{{CATALOG_DIR}}/mtbs.yaml"
+    description: 'Catalog for data from the Monitoring Trends in Burn Severity (MTBS) dataset'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  nftd:
+    args:
+      path: "{{CATALOG_DIR}}/nftd.yaml"
+    description: 'Catalog for data from the National Forest Type Database (NFTD)'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
+  nlcd:
+    args:
+      path: "{{CATALOG_DIR}}/nlcd.yaml"
+    description: 'Catalog for data from the National Land Cover Database Database (NLCD)'
+    driver: intake.catalog.local.YAMLFileCatalog
+    metadata: {}
+
   projects:
     args:
       path: "{{CATALOG_DIR}}/projects.yaml"
@@ -7,16 +50,9 @@ sources:
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}
 
-  land:
+  spawnetal2020:
     args:
-      path: "{{CATALOG_DIR}}/land.yaml"
-    description: 'CarbonPlan Land Dataset Catalog'
-    driver: intake.catalog.local.YAMLFileCatalog
-    metadata: {}
-
-  climate:
-    args:
-      path: "{{CATALOG_DIR}}/climate.yaml"
-    description: 'CarbonPlan Climate Dataset Catalog.'
+      path: "{{CATALOG_DIR}}/nlcd.yaml"
+    description: 'Catalog for data from Global Aboveground and Belowground Biomass Carbon Density Maps for the Year 2010 from Spawn et al (2020)'
     driver: intake.catalog.local.YAMLFileCatalog
     metadata: {}

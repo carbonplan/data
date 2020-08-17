@@ -1,0 +1,54 @@
+plugins:
+  source:
+    - module: intake_xarray
+
+sources:
+
+  raw_raster:
+    description: NLCD Land Cover Change Index
+    metadata:
+      url: https://www.mrlc.gov/
+      tags: [land cover, cog]
+      ci: xfail  # reason: cogs are flaky
+    parameters:
+      option:
+        description: year (int) or change
+        type: str
+        default: 2016
+        allowed: [2001, 2004, 2006, 2008, 2011, 2013, 2016, change]
+      region:
+        description: conus or ak
+        type: str
+        default: conus
+        allowed: [conus, ak]
+    driver: rasterio
+    args:
+      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/nlcd/{{ region }}/30m/{{ option }}.tif"
+      chunks: {'y': 5120, 'x': 5120}
+
+  raster:
+    description: NLCD Land Cover Change Index
+    metadata:
+      url: https://www.mrlc.gov/
+      tags: [land cover, cog]
+      ci: xfail  # reason: cogs are flaky
+    parameters:
+      option:
+        description: year (int) or change
+        type: str
+        default: 2016
+        allowed: [2001, 2004, 2006, 2008, 2011, 2013, 2016]  # where is "change"?
+      resolution:
+        description: pixel resolution in meters
+        type: str
+        default: 4000m
+        allowed: [250m, 4000m]
+      region:
+        description: conus or ak
+        type: str
+        default: conus
+        allowed: [conus, ak]
+    driver: rasterio
+    args:
+      urlpath: "https://storage.googleapis.com/carbonplan-data/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif"
+      chunks: {'y': 5120, 'x': 5120}

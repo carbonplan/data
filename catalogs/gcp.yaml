@@ -1,6 +1,6 @@
 sources:
 
-  reports:
+  raw_table:
     description: CarbonPlan Reports Data
     driver: csv
     args:

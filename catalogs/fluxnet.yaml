@@ -1,0 +1,33 @@
+plugins:
+  source:
+    - module: intake_parquet
+
+sources:
+
+  raw_table:
+    description: Raw fluxnet data
+    metadata:
+      url:
+      tags: [fluxnet, parquet]
+    parameters:
+      station:
+        description: fluxnet station code
+        type: str
+        default: at-neu
+      kind:
+        description: fluxnet data stream
+        type: str
+        default: fullset
+        allowed: [auxmeteo, auxnee, erai, fullset]
+      freq:
+        description: temporal frequency
+        type: str
+        default: dd
+        allowed: [dd, hh, mm, ww, yy]
+      suffix:
+        description: temporary keyword arg to make catalog work. (TODO --> FIXME!)
+        type: str
+        default: 2002-2012_1-4
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fluxnet/flx_{{ station }}_fluxnet2015_{{ kind }}_{{ freq }}_{{ suffix }}.parquet"
