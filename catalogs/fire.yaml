@@ -10,29 +10,39 @@ sources:
         description: year
         type: int
         default: 1984
+      region:
+        description: mtbs region
+        type: str
+        default: conus
+        allowed: [conus, ak]
     metadata:
       url: https://www.mtbs.gov/
       tags: [fire, cog]
-      ci: xfail  # reason: cogs are flaky
+      ci: xfail  # reason: opendap is flaky
     driver: rasterio
     args:
-      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/MTBS/30m/{{ '%d' % year }}.tif"
+      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
       chunks: {'y': 5120, 'x': 5120}
 
   mtbs_raster:
     description: The burn severity mosaics consist of thematic raster images of MTBS burn severity classes for all currently completed MTBS fires for the continental United States. Mosaicked burn severity images are compiled annually for the continental United States. Data in this catalog have been converted upscaled and converted to Zarr.
     parameters:
+      region:
+        description: conus or ak
+        type: str
+        default: conus
+        allowed: [conus, ak]
       resolution:
         description: Pixel resolution in meters
         type: str
-        default: "4000m"
-        allowed: ["4000m"]
+        default: "4000"
+        allowed: ["4000"]
     metadata:
       url: https://www.mtbs.gov/
       tags: [fire, cog]
     driver: zarr
     args:
-      urlpath: "gs://carbonplan-data/processed/MTBS/raster.zarr/{{ resolution }}/"
+      urlpath: "gs://carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr/"
       storage_options:
         token: 'anon'
 
