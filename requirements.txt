@@ -15,4 +15,5 @@ rasterio
 requests
 wget
 xarray
+xlrd
 zarr

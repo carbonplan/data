@@ -4,30 +4,50 @@ plugins:
 
 sources:
 
-  raw_table:
-    description: Raw fluxnet data
+  raw_aux:
+    description: Raw Aux FLUXNET data
     metadata:
-      url:
+      url: https://fluxnet.org/
       tags: [fluxnet, parquet]
     parameters:
       station:
         description: fluxnet station code
         type: str
-        default: at-neu
+        default: it-noe
       kind:
         description: fluxnet data stream
         type: str
-        default: fullset
-        allowed: [auxmeteo, auxnee, erai, fullset]
+        default: auxmeteo
+        allowed: [auxmeteo, auxnee]
       freq:
         description: temporal frequency
         type: str
         default: dd
         allowed: [dd, hh, mm, ww, yy]
-      suffix:
-        description: temporary keyword arg to make catalog work. (TODO --> FIXME!)
-        type: str
-        default: 2002-2012_1-4
     driver: parquet
     args:
-      urlpath: "gs://carbonplan-data/raw/fluxnet/flx_{{ station }}_fluxnet2015_{{ kind }}_{{ freq }}_{{ suffix }}.parquet"
+      urlpath: "gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet"
+
+  raw_fullset:
+    description: Raw Fullset FLUXNET data
+    metadata:
+      url: https://fluxnet.org/
+      tags: [fluxnet, parquet]
+    parameters:
+      station:
+        description: fluxnet station code
+        type: str
+        default: it-noe
+      kind:
+        description: fluxnet data stream
+        type: str
+        default: fullset
+        allowed: [erai, fullset]
+      freq:
+        description: temporal frequency
+        type: str
+        default: dd
+        allowed: [dd, hh, mm, ww, yy]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet"
