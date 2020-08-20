@@ -1,0 +1,58 @@
+plugins:
+  source:
+    - module: intake_xarray
+
+sources:
+  raw_raster:
+    description: Extent, distribution, and forest type composition of the nation’s forests.
+    metadata:
+      url: https://data.fs.usda.gov/geodata/rastergateway/forest_type/
+      tags: [land cover, cog]
+      ci: xfail  # reason: cogs are flaky
+    parameters:
+      option:
+        description: year (int) or change
+        type: str
+        default: raster
+        allowed: [error, raster]
+      region:
+        description: conus or ak
+        type: str
+        default: conus
+        allowed: [conus, ak]
+      variable:
+        description: foresttype or forestgroup
+        type: str
+        default: foresttype
+        allowed: [foresttype, forestgroup]
+    driver: rasterio
+    args:
+      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif"
+      chunks: {'y': 5120, 'x': 5120}
+
+  raster:
+    description: Extent, distribution, and forest type composition of the nation’s forests.
+    metadata:
+      url: https://data.fs.usda.gov/geodata/rastergateway/forest_type/
+      tags: [land cover, cog]
+      ci: xfail  # reason: cogs are flaky
+    parameters:
+      region:
+        description: conus or ak
+        type: str
+        default: conus
+        allowed: [conus, ak]
+      option:
+        description: group/type [optional _error]
+        type: str
+        default: type
+        allowed: [group, type, group_error, type_error]
+      resolution:
+        description: pixel resolution in meters
+        type: str
+        default: 4000m
+        allowed: [250m, 4000m]
+    driver: rasterio
+    args:
+      urlpath: "https://storage.googleapis.com/carbonplan-data/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif"
+      chunks: {'y': 5120, 'x': 5120}

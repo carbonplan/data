@@ -1,0 +1,16 @@
+sources:
+
+  raw_table:
+    description: Global Carbon Budget 2019 raw data in parquet format
+    metadata:
+      url: https://www.globalcarbonproject.org/carbonbudget/19/data.htm
+      tags: [carbon cycle]
+    parameters:
+      name:
+        description: name of GCB dataset
+        type: str
+        default: global_carbon_budget
+        allowed: [global_carbon_budget, fossil_emissions_by_fuel_type, land_use_change_emissions, ocean_sink, terrestrial_sfink, historical_budget, consumption_emissions, territorial_emissions, transfer_emissions]
+    driver: parquet
+    args:
+      urlpath: gs://carbonplan-data/raw/gcp/{{ name }}.parquet

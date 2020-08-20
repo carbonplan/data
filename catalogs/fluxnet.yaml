@@ -1,0 +1,53 @@
+plugins:
+  source:
+    - module: intake_parquet
+
+sources:
+
+  raw_aux:
+    description: Raw Aux FLUXNET data
+    metadata:
+      url: https://fluxnet.org/
+      tags: [fluxnet, parquet]
+    parameters:
+      station:
+        description: fluxnet station code
+        type: str
+        default: it-noe
+      kind:
+        description: fluxnet data stream
+        type: str
+        default: auxmeteo
+        allowed: [auxmeteo, auxnee]
+      freq:
+        description: temporal frequency
+        type: str
+        default: dd
+        allowed: [dd, hh, mm, ww, yy]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet"
+
+  raw_fullset:
+    description: Raw Fullset FLUXNET data
+    metadata:
+      url: https://fluxnet.org/
+      tags: [fluxnet, parquet]
+    parameters:
+      station:
+        description: fluxnet station code
+        type: str
+        default: it-noe
+      kind:
+        description: fluxnet data stream
+        type: str
+        default: fullset
+        allowed: [erai, fullset]
+      freq:
+        description: temporal frequency
+        type: str
+        default: dd
+        allowed: [dd, hh, mm, ww, yy]
+    driver: parquet
+    args:
+      urlpath: "gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet"

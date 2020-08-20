@@ -1,9 +1,0 @@
-sources:
-
-  reports:
-    description: CarbonPlan Reports Data
-    driver: csv
-    args:
-      urlpath: 'https://api.carbonplan.org/projects.csv'
-    metadata:
-      origin_url: 'https://api.carbonplan.org/docs'
