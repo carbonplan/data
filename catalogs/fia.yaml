@@ -1,3 +1,7 @@
+plugins:
+  source:
+    - module: intake_parquet
+
 sources:
 
   raw_table:
@@ -12,12 +16,12 @@ sources:
       name:
         description: FIA data product name
         type: str
-        default: PLOT
-        allowed: [BOUNDARY, COND, COND_DWM_CALC, COUNTY, DWM_COARSE_WOODY_DEBRIS, DWM_DUFF_LITTER_FUEL, DWM_FINE_WOODY_DEBRIS, DWM_MICROPLOT_FUEL, DWM_RESIDUAL_PILE, DWM_TRANSECT_SEGMENT, DWM_VISIT, GRND_CVR, INVASIVE_SUBPLOT_SPP, LICHEN_LAB, LICHEN_PLOT_SUMMARY, LICHEN_VISIT, OZONE_BIOSITE_SUMMARY, OZONE_PLOT, OZONE_PLOT_SUMMARY, OZONE_SPECIES_SUMMARY, OZONE_VALIDATION, OZONE_VISIT, P2VEG_SUBPLOT_SPP, P2VEG_SUBP_STRUCTURE, PLOT, PLOTGEOM, PLOTSNAP, PLOT_REGEN, POP_ESTN_UNIT, POP_EVAL, POP_EVAL_ATTRIBUTE, POP_EVAL_GRP, POP_EVAL_TYP, POP_PLOT_STRATUM_ASSGN, POP_STRATUM, SEEDLING, SEEDLING_REGEN, SITETREE, SOILS_EROSION, SOILS_LAB, SOILS_SAMPLE_LOC, SOILS_VISIT, SUBPLOT, SUBPLOT_REGEN, SUBP_COND, SUBP_COND_CHNG_MTRX, SURVEY, TREE, TREE_GRM_BEGIN, TREE_GRM_COMPONENT, TREE_GRM_ESTN, TREE_GRM_MIDPT, TREE_GRM_THRESHOLD, TREE_REGIONAL_BIOMASS, TREE_WOODLAND_STEMS, VEG_PLOT_SPECIES, VEG_QUADRAT, VEG_SUBPLOT, VEG_SUBPLOT_SPP, VEG_VISIT]
+        default: plot
+        allowed: [boundary, cond, cond_dwm_calc, county, dwm_coarse_woody_debris, dwm_duff_litter_fuel, dwm_fine_woody_debris, dwm_microplot_fuel, dwm_residual_pile, dwm_transect_segment, dwm_visit, grnd_cvr, invasive_subplot_spp, lichen_lab, lichen_plot_summary, lichen_visit, ozone_biosite_summary, ozone_plot, ozone_plot_summary, ozone_species_summary, ozone_validation, ozone_visit, p2veg_subplot_spp, p2veg_subp_structure, plot, plotgeom, plotsnap, plot_regen, pop_estn_unit, pop_eval, pop_eval_attribute, pop_eval_grp, pop_eval_typ, pop_plot_stratum_assgn, pop_stratum, seedling, seedling_regen, sitetree, soils_erosion, soils_lab, soils_sample_loc, soils_visit, subplot, subplot_regen, subp_cond, subp_cond_chng_mtrx, survey, tree, tree_grm_begin, tree_grm_component, tree_grm_estn, tree_grm_midpt, tree_grm_threshold, tree_regional_biomass, tree_woodland_stems, veg_plot_species, veg_quadrat, veg_subplot, veg_subplot_spp, veg_visit]
       format:
         description: Pixel resolution in meters
         type: str
         default: "parquet"
         allowed: [csv, parquet]
     args:
-      urlpath: "gs://carbonplan-data/raw/fia/{{ name }}.{{ kind }}"
+      urlpath: "gs://carbonplan-data/raw/fia/{{ name }}.{{ format }}"
