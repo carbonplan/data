@@ -10,7 +10,7 @@ sources:
       url: https://apps.fs.usda.gov/fia/datamart/datamart.html
       tags: [forest, fia]
       todos:
-        - rename csv data to use lower case naming convention
+        - rename csv data to use lower case naming convention, add csv back to format
     driver: parquet
     parameters:
       name:
@@ -22,6 +22,6 @@ sources:
         description: Pixel resolution in meters
         type: str
         default: "parquet"
-        allowed: [csv, parquet]
+        allowed: [parquet]
     args:
       urlpath: "gs://carbonplan-data/raw/fia/{{ name }}.{{ format }}"

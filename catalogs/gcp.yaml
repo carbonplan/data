@@ -10,7 +10,7 @@ sources:
         description: name of GCB dataset
         type: str
         default: global_carbon_budget
-        allowed: [global_carbon_budget, fossil_emissions_by_fuel_type, land_use_change_emissions, ocean_sink, terrestrial_sfink, historical_budget, consumption_emissions, territorial_emissions, transfer_emissions]
+        allowed: [global_carbon_budget, fossil_emissions_by_fuel_type, land_use_change_emissions, ocean_sink, terrestrial_sink, historical_budget, consumption_emissions, territorial_emissions, transfer_emissions]
     driver: parquet
     args:
       urlpath: gs://carbonplan-data/raw/gcp/{{ name }}.parquet
