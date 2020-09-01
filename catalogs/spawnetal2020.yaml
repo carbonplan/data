@@ -9,7 +9,6 @@ sources:
     metadata:
       url: https://doi.org/10.3334/ORNLDAAC/1763
       tags: [biomass, cog]
-      ci: xfail  # reason: cogs are flaky
     parameters:
       variable:
         description: aboveground, aboveground_uncertainty, belowground, or belowground_uncertainty

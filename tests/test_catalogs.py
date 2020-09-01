@@ -19,7 +19,6 @@ def catalog():
 
 def get_item_params(item):
     user_parameters = item.describe()["user_parameters"]
-
     if not user_parameters:
         return []
 
@@ -55,7 +54,10 @@ def idfn(val):
 def test_get_intake_source(catalog, name_and_params):
     dataset_name, params = name_and_params
 
-    item = catalog[dataset_name](**params)
+    item = catalog[dataset_name]
+    if params:
+        item = item(**params)
+
     if item.container == "catalog":
         item.reload()
     elif item.container in ["xarray", "dataframe"]:

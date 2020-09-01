@@ -7,7 +7,7 @@ sources:
   raw_gridmet_opendap:
     description: 'GRIDMET data from OpeNDAP'
     metadata:
-      ci: xfail  # reason: opendap is flaky
+      url: http://www.climatologylab.org/gridmet.html
     args:
       urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc
       auth: null
@@ -29,7 +29,7 @@ sources:
   raw_maca_opendap:
     description: 'MACA data from OpeNDAP'
     metadata:
-      ci: xfail  # reason: opendap is flaky
+      url: http://www.climatologylab.org/maca.html
     args:
       urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc
       auth: null
