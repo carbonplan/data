@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: daily
   - package-ecosystem: npm
-    directory: web/
+    directory: /web
     schedule:
       interval: daily
   - package-ecosystem: github-actions

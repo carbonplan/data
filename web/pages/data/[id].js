@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { Box, Text, Heading, Container } from 'theme-ui'
-import parseCatalogs from '../../utils/intake'
 import childrenAndSources from '../../utils/utils'
 import Source from '../../components/source'
 import ChildCatalog from '../../components/childCatalog'
@@ -8,10 +7,12 @@ import ChildCatalog from '../../components/childCatalog'
 import Layout from '../../components/layout'
 import Filter from '../../components/filter'
 
+import data from '../../data'
+
 const Catalog = ({ catalogs }) => {
   const router = useRouter()
   const { id } = router.query
-  const catalog = catalogs[id]
+  const catalog = data[id]
 
   const description =
     catalog.description || 'No description provided for ' + id + '.'
@@ -78,25 +79,25 @@ const Catalog = ({ catalogs }) => {
   )
 }
 
-export async function getStaticProps({ params }) {
-  const catalogs = await parseCatalogs(params.id + '.yaml') //
+// export async function getStaticProps({ params }) {
+//   const catalogs = await parseCatalogs(params.id + '.yaml') //
 
-  return {
-    props: {
-      catalogs,
-    },
-  }
-}
+//   return {
+//     props: {
+//       catalogs,
+//     },
+//   }
+// }
 
-export async function getStaticPaths() {
-  const catalogs = await parseCatalogs()
-  const names = Object.keys(catalogs)
+// export async function getStaticPaths() {
+//   const catalogs = await parseCatalogs()
+//   const names = Object.keys(catalogs)
 
-  const paths = names.map((c) => ({
-    params: { id: c },
-  }))
+//   const paths = names.map((c) => ({
+//     params: { id: c },
+//   }))
 
-  return { paths, fallback: false }
-}
+//   return { paths, fallback: false }
+// }
 
 export default Catalog
