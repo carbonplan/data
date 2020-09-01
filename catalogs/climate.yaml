@@ -3,10 +3,10 @@ plugins:
     - module: intake_xarray
 
 sources:
-  gridmet_opendap:
+  raw_gridmet_opendap:
     description: "GRIDMET data from OpeNDAP"
     metadata:
-      ci: xfail # reason: opendap is flaky
+      url: http://www.climatologylab.org/gridmet.html
     args:
       urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc
       auth: null
@@ -44,10 +44,10 @@ sources:
         type: int
         default: 2000
 
-  maca_opendap:
+  raw_maca_opendap:
     description: "MACA data from OpeNDAP"
     metadata:
-      ci: xfail # reason: opendap is flaky
+      url: http://www.climatologylab.org/maca.html
     args:
       urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc
       auth: null
@@ -83,3 +83,36 @@ sources:
         type: str
         default: historical_1950_2005
         allowed: ["historical_1950_2005", "rcp45_2006_2099", "rcp85_2006_2099"]
+
+  raw_terraclimate:
+    description: TerraClimate is a dataset of monthly climate and climatic water balance for global terrestrial surfaces from 1958-2019.
+    metadata:
+      url: http://www.climatologylab.org/terraclimate.html
+      tags: [climate, zarr]
+    driver: zarr
+    args:
+      urlpath: "gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr"
+      storage_options:
+        token: "anon"
+
+  terraclimate:
+    description: TerraClimate is a dataset of monthly climate and climatic water balance for global terrestrial surfaces from 1958-2019.
+    metadata:
+      url: http://www.climatologylab.org/terraclimate.html
+      tags: [climate, zarr]
+    parameters:
+      region:
+        description: conus or ak
+        type: str
+        default: conus
+        allowed: [conus, ak]
+      resolution:
+        description: Pixel resolution in meters
+        type: str
+        default: "4000m"
+        allowed: ["4000m"]
+    driver: zarr
+    args:
+      urlpath: "gs://carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr"
+      storage_options:
+        token: "anon"
