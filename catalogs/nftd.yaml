@@ -8,10 +8,9 @@ sources:
     metadata:
       url: https://data.fs.usda.gov/geodata/rastergateway/forest_type/
       tags: [land cover, cog]
-      ci: xfail  # reason: cogs are flaky
     parameters:
       option:
-        description: year (int) or change
+        description: error or raster
         type: str
         default: raster
         allowed: [error, raster]
@@ -35,7 +34,6 @@ sources:
     metadata:
       url: https://data.fs.usda.gov/geodata/rastergateway/forest_type/
       tags: [land cover, cog]
-      ci: xfail  # reason: cogs are flaky
     parameters:
       region:
         description: conus or ak
