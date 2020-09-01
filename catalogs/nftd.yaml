@@ -26,8 +26,8 @@ sources:
         allowed: [foresttype, forestgroup]
     driver: rasterio
     args:
-      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
+      urlpath: 'https://storage.googleapis.com/carbonplan-data/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif'
+      chunks: { 'y': 5120, 'x': 5120 }
 
   raster:
     description: Extent, distribution, and forest type composition of the nation’s forests.
@@ -52,5 +52,5 @@ sources:
         allowed: [250m, 4000m]
     driver: rasterio
     args:
-      urlpath: "https://storage.googleapis.com/carbonplan-data/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
+      urlpath: 'https://storage.googleapis.com/carbonplan-data/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif'
+      chunks: { 'y': 5120, 'x': 5120 }

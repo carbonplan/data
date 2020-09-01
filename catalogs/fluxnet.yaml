@@ -3,7 +3,6 @@ plugins:
     - module: intake_parquet
 
 sources:
-
   raw_aux:
     description: Raw Aux FLUXNET data
     metadata:
@@ -26,7 +25,7 @@ sources:
         allowed: [dd, hh, mm, ww, yy]
     driver: parquet
     args:
-      urlpath: "gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet"
+      urlpath: 'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet'
 
   raw_fullset:
     description: Raw Fullset FLUXNET data
@@ -50,4 +49,4 @@ sources:
         allowed: [dd, hh, mm, ww, yy]
     driver: parquet
     args:
-      urlpath: "gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet"
+      urlpath: 'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet'

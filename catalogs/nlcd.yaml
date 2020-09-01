@@ -3,7 +3,6 @@ plugins:
     - module: intake_xarray
 
 sources:
-
   raw_raster:
     description: NLCD Land Cover Change Index
     metadata:
@@ -21,8 +20,8 @@ sources:
         allowed: [conus, ak]
     driver: rasterio
     args:
-      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/nlcd/{{ region }}/30m/{{ option }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
+      urlpath: 'https://storage.googleapis.com/carbonplan-data/raw/nlcd/{{ region }}/30m/{{ option }}.tif'
+      chunks: { 'y': 5120, 'x': 5120 }
 
   raster:
     description: NLCD Land Cover Change Index
@@ -46,5 +45,5 @@ sources:
         allowed: [conus, ak]
     driver: rasterio
     args:
-      urlpath: "https://storage.googleapis.com/carbonplan-data/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
+      urlpath: 'https://storage.googleapis.com/carbonplan-data/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif'
+      chunks: { 'y': 5120, 'x': 5120 }

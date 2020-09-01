@@ -1,57 +1,57 @@
-description: "CarbonPlan Master Data Catalog"
+description: 'CarbonPlan Master Data Catalog'
 sources:
   fia:
-    description: "Catalog for data from Forest Inventory Analysis (FIA) database"
+    description: 'Catalog for data from Forest Inventory Analysis (FIA) database'
     metadata: {}
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: "{{CATALOG_DIR}}/fia.yaml"
+      path: '{{CATALOG_DIR}}/fia.yaml'
 
   fluxnet:
-    description: "Catalog for data from the FLUXNET dataset"
+    description: 'Catalog for data from the FLUXNET dataset'
     metadata: {}
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: "{{CATALOG_DIR}}/fluxnet.yaml"
+      path: '{{CATALOG_DIR}}/fluxnet.yaml'
 
   gcb:
-    description: "Catalog for data from the Global Carbon Project"
+    description: 'Catalog for data from the Global Carbon Project'
     metadata: {}
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: "{{CATALOG_DIR}}/gcp.yaml"
+      path: '{{CATALOG_DIR}}/gcp.yaml'
 
   mtbs:
-    description: "Catalog for data from the Monitoring Trends in Burn Severity (MTBS) dataset"
+    description: 'Catalog for data from the Monitoring Trends in Burn Severity (MTBS) dataset'
     metadata: {}
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: "{{CATALOG_DIR}}/mtbs.yaml"
+      path: '{{CATALOG_DIR}}/mtbs.yaml'
 
   nftd:
-    description: "Catalog for data from the National Forest Type Database (NFTD)"
+    description: 'Catalog for data from the National Forest Type Database (NFTD)'
     metadata: {}
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: "{{CATALOG_DIR}}/nftd.yaml"
+      path: '{{CATALOG_DIR}}/nftd.yaml'
 
   nlcd:
-    description: "Catalog for data from the National Land Cover Database Database (NLCD)"
+    description: 'Catalog for data from the National Land Cover Database Database (NLCD)'
     metadata: {}
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: "{{CATALOG_DIR}}/nlcd.yaml"
+      path: '{{CATALOG_DIR}}/nlcd.yaml'
 
   projects:
-    description: "CarbonPlan Projects Dataset Catalog"
+    description: 'CarbonPlan Projects Dataset Catalog'
     metadata: {}
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: "{{CATALOG_DIR}}/projects.yaml"
+      path: '{{CATALOG_DIR}}/projects.yaml'
 
   spawnetal2020:
-    description: "Catalog for data from Global Aboveground and Belowground Biomass Carbon Density Maps for the Year 2010 from Spawn et al (2020)"
+    description: 'Catalog for data from Global Aboveground and Belowground Biomass Carbon Density Maps for the Year 2010 from Spawn et al (2020)'
     metadata: {}
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: "{{CATALOG_DIR}}/nlcd.yaml"
+      path: '{{CATALOG_DIR}}/nlcd.yaml'

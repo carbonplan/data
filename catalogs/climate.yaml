@@ -4,7 +4,7 @@ plugins:
 
 sources:
   raw_gridmet_opendap:
-    description: "GRIDMET data from OpeNDAP"
+    description: 'GRIDMET data from OpeNDAP'
     metadata:
       url: http://www.climatologylab.org/gridmet.html
     args:
@@ -21,23 +21,23 @@ sources:
         default: pr
         allowed:
           [
-            "pr",
-            "tmmn",
-            "tmmx",
-            "rmax",
-            "rmin",
-            "sph",
-            "srad",
-            "th",
-            "vs",
-            "bi",
-            "fm100",
-            "fm1000",
-            "erc",
-            "pdsi",
-            "etr",
-            "pet",
-            "vpd",
+            'pr',
+            'tmmn',
+            'tmmx',
+            'rmax',
+            'rmin',
+            'sph',
+            'srad',
+            'th',
+            'vs',
+            'bi',
+            'fm100',
+            'fm1000',
+            'erc',
+            'pdsi',
+            'etr',
+            'pet',
+            'vpd',
           ]
       year:
         description: year
@@ -45,7 +45,7 @@ sources:
         default: 2000
 
   raw_maca_opendap:
-    description: "MACA data from OpeNDAP"
+    description: 'MACA data from OpeNDAP'
     metadata:
       url: http://www.climatologylab.org/maca.html
     args:
@@ -62,16 +62,16 @@ sources:
         default: pr
         allowed:
           [
-            "huss",
-            "pr",
-            "rhsmin",
-            "rhsmax",
-            "rsds",
-            "tasmax",
-            "tasmin",
-            "uas",
-            "vas",
-            "vpd",
+            'huss',
+            'pr',
+            'rhsmin',
+            'rhsmax',
+            'rsds',
+            'tasmax',
+            'tasmin',
+            'uas',
+            'vas',
+            'vpd',
           ]
       gcm:
         description: climate model
@@ -82,7 +82,7 @@ sources:
         description: climate scenario
         type: str
         default: historical_1950_2005
-        allowed: ["historical_1950_2005", "rcp45_2006_2099", "rcp85_2006_2099"]
+        allowed: ['historical_1950_2005', 'rcp45_2006_2099', 'rcp85_2006_2099']
 
   raw_terraclimate:
     description: TerraClimate is a dataset of monthly climate and climatic water balance for global terrestrial surfaces from 1958-2019.
@@ -91,9 +91,9 @@ sources:
       tags: [climate, zarr]
     driver: zarr
     args:
-      urlpath: "gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr"
+      urlpath: 'gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr'
       storage_options:
-        token: "anon"
+        token: 'anon'
 
   terraclimate:
     description: TerraClimate is a dataset of monthly climate and climatic water balance for global terrestrial surfaces from 1958-2019.
@@ -109,10 +109,10 @@ sources:
       resolution:
         description: Pixel resolution in meters
         type: str
-        default: "4000m"
-        allowed: ["4000m"]
+        default: '4000m'
+        allowed: ['4000m']
     driver: zarr
     args:
-      urlpath: "gs://carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr"
+      urlpath: 'gs://carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
       storage_options:
-        token: "anon"
+        token: 'anon'

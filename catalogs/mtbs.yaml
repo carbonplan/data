@@ -21,7 +21,7 @@ sources:
     driver: rasterio
     args:
       urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
-      chunks: { "y": 5120, "x": 5120 }
+      chunks: { 'y': 5120, 'x': 5120 }
 
   raster:
     description: The burn severity mosaics consist of thematic raster images of MTBS burn severity classes for all currently completed MTBS fires for the continental United States. Mosaicked burn severity images are compiled annually for the continental United States. Data in this catalog have been converted upscaled and converted to Zarr.
@@ -34,16 +34,16 @@ sources:
       resolution:
         description: Pixel resolution in meters
         type: str
-        default: "4000"
-        allowed: ["4000"]
+        default: '4000'
+        allowed: ['4000']
     metadata:
       url: https://www.mtbs.gov/
       tags: [fire, cog]
     driver: zarr
     args:
-      urlpath: "gs://carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr"
+      urlpath: 'gs://carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
       storage_options:
-        token: "anon"
+        token: 'anon'
 
   fod_shp:
     description: MTBS National - Fire Occurrence Dataset. The fire occurrence location dataset is a vector point ESRI shapefile of the centroids of all currently completed MTBS fires occurring in the continental United States, Alaska, Hawaii and Puerto Rico.
@@ -53,7 +53,7 @@ sources:
       ci: skip # reason: fiona is flaky
     driver: shapefile
     args:
-      urlpath: "gs://carbonplan-data/raw/MTBS/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp"
+      urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp'
 
   perims_shp:
     description: MTBS National - Burned Area Boundaries Dataset. The burned area boundaries dataset is a vector polygon ESRI shapefile of the extent of the burned areas of all currently completed MTBS fires for the continental United States, Alaska, Hawaii and Puerto Rico.
@@ -63,4 +63,4 @@ sources:
       ci: skip # reason: fiona is flaky
     driver: shapefile
     args:
-      urlpath: "gs://carbonplan-data/raw/MTBS/mtbs_perimeter_data/mtbs_perims_DD.shp"
+      urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_perimeter_data/mtbs_perims_DD.shp'

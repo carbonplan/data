@@ -82,7 +82,7 @@ sources:
       format:
         description: Pixel resolution in meters
         type: str
-        default: "parquet"
+        default: 'parquet'
         allowed: [parquet]
     args:
-      urlpath: "gs://carbonplan-data/raw/fia/{{ name }}.{{ format }}"
+      urlpath: 'gs://carbonplan-data/raw/fia/{{ name }}.{{ format }}'

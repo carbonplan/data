@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import YAML from 'yaml'
 
-const catalogDir = '../catalogs'
+const catalogDir = './catalogs'
 
 async function parseCatalogs(file) {
   const catalogs = {}
