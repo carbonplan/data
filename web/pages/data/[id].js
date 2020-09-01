@@ -9,10 +9,11 @@ import Filter from '../../components/filter'
 
 import data from '../../data'
 
-const Catalog = ({ catalogs }) => {
+const Catalog = ({ catalog }) => {
   const router = useRouter()
   const { id } = router.query
-  const catalog = data[id]
+  // console.log('id...', id)
+  // const catalog = data[id]
 
   const description =
     catalog.description || 'No description provided for ' + id + '.'
@@ -79,25 +80,24 @@ const Catalog = ({ catalogs }) => {
   )
 }
 
-// export async function getStaticProps({ params }) {
-//   const catalogs = await parseCatalogs(params.id + '.yaml') //
+export async function getStaticProps({ params }) {
+  const catalog = data[params.id]
 
-//   return {
-//     props: {
-//       catalogs,
-//     },
-//   }
-// }
+  return {
+    props: {
+      catalog,
+    },
+  }
+}
 
-// export async function getStaticPaths() {
-//   const catalogs = await parseCatalogs()
-//   const names = Object.keys(catalogs)
+export async function getStaticPaths() {
+  const names = Object.keys(data)
 
-//   const paths = names.map((c) => ({
-//     params: { id: c },
-//   }))
+  const paths = names.map((c) => ({
+    params: { id: c },
+  }))
 
-//   return { paths, fallback: false }
-// }
+  return { paths, fallback: false }
+}
 
 export default Catalog
