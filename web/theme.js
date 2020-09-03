@@ -23,4 +23,11 @@ export default {
       fontFamily: 'monospace',
     },
   },
+  tags: {
+    ...base.tags,
+    climate: 'blue',
+    carbon: 'grey',
+    fire: 'red',
+    projects: 'pink',
+  },
 }

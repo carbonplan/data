@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import Layout from '../../components/layout'
-import ChildCatalog from '../../components/childCatalog'
+import ChildCatalog from '../../components/child-catalog'
 import Source from '../../components/source'
 import Filter from '../../components/filter'
 import childrenAndSources from '../../utils/utils'
@@ -18,8 +18,8 @@ function Index() {
     <Layout hideFooter={true}>
       <Container sx={{ px: [4] }}>
         <Box sx={{ paddingBottom: '20px' }}>
-          <Heading sx={{ my: [4, 5, 5], fontSize: [6, 7, 7] }}>data</Heading>
-          <Text sx={{ maxWidth: '700px', fontSize: [3] }}>
+          <Heading sx={{ my: [3, 4, 4], fontSize: [6, 6, 7] }}>data</Heading>
+          <Text sx={{ maxWidth: '600px', fontSize: [3] }}>
             This is a public catalog of datasets related to the study of carbon
             removal opporunities and climate solutions. At CarbonPlan, we
             maintain this data catalog for our own use and as a resource to the
@@ -29,17 +29,14 @@ function Index() {
         <Filter />
         {children.length > 0 && (
           <Box>
-            <Heading>Child Catalogs</Heading>
-            <Box>
-              {children.map((c) => (
-                <ChildCatalog
-                  name={c}
-                  obj={masterCatalog.sources[c]}
-                  catalog={data[c]}
-                  key={c}
-                ></ChildCatalog>
-              ))}
-            </Box>
+            {children.map((c) => (
+              <ChildCatalog
+                name={c}
+                obj={masterCatalog.sources[c]}
+                catalog={data[c]}
+                key={c}
+              ></ChildCatalog>
+            ))}
           </Box>
         )}
         {sources.length > 0 && (
