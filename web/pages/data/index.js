@@ -1,18 +1,14 @@
 /** @jsx jsx */
 import Layout from '../../components/layout'
 import ChildCatalog from '../../components/child-catalog'
-import Source from '../../components/source'
 import Filter from '../../components/filter'
-import childrenAndSources from '../../utils/utils'
-
 import data from '../../data'
 
 import { jsx, Box, Text, Heading, Container } from 'theme-ui'
 
 function Index() {
   const masterCatalog = data['master']
-
-  const [children, sources] = childrenAndSources(masterCatalog)
+  const children = Object.keys(masterCatalog.sources)
 
   return (
     <Layout hideFooter={true}>
@@ -39,34 +35,9 @@ function Index() {
             ))}
           </Box>
         )}
-        {sources.length > 0 && (
-          <Box>
-            <Heading>Sources</Heading>
-            <Box>
-              {sources.map((c) => (
-                <Source
-                  name={c}
-                  obj={masterCatalog.sources[c]}
-                  catalog={catalogs[c]}
-                  key={c}
-                ></Source>
-              ))}
-            </Box>
-          </Box>
-        )}
       </Container>
     </Layout>
   )
 }
-
-// export async function getStaticProps() {
-//   const catalogs = await parseCatalogs('master')
-
-//   return {
-//     props: {
-//       catalogs,
-//     },
-//   }
-// }
 
 export default Index

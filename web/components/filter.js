@@ -56,6 +56,7 @@ const Filter = () => {
         <Box>
           {allTags.map((tag) => (
             <Badge
+              key={tag}
               variant='primary'
               sx={getStyle(tag)}
               onClick={() => addOrRemove(tag)}

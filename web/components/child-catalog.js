@@ -4,7 +4,6 @@ import theme from '../theme'
 
 const ChildCatalog = ({ name, obj }) => {
   const as = '/data/' + name
-  console.log(obj)
   return (
     <Box
       sx={{
@@ -29,6 +28,7 @@ const ChildCatalog = ({ name, obj }) => {
           {obj.metadata.tags.map((tag) => (
             <Badge
               variant='primary'
+              key={tag}
               sx={{
                 borderColor: theme.tags[tag],
                 color: theme.tags[tag],
