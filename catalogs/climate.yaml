@@ -3,7 +3,6 @@ plugins:
     - module: intake_xarray
 
 sources:
-
   raw_gridmet_opendap:
     description: 'GRIDMET data from OpeNDAP'
     metadata:
@@ -20,7 +19,26 @@ sources:
         description: climate variable
         type: str
         default: pr
-        allowed: ["pr", "tmmn", "tmmx", "rmax", "rmin", "sph", "srad", "th", "vs", "bi", "fm100", "fm1000", "erc", "pdsi", "etr", "pet", "vpd"]
+        allowed:
+          [
+            'pr',
+            'tmmn',
+            'tmmx',
+            'rmax',
+            'rmin',
+            'sph',
+            'srad',
+            'th',
+            'vs',
+            'bi',
+            'fm100',
+            'fm1000',
+            'erc',
+            'pdsi',
+            'etr',
+            'pet',
+            'vpd',
+          ]
       year:
         description: year
         type: int
@@ -42,7 +60,19 @@ sources:
         description: climate variable
         type: str
         default: pr
-        allowed: ["huss", "pr",  "rhsmin",  "rhsmax",  "rsds",  "tasmax",  "tasmin",  "uas",  "vas",  "vpd"]
+        allowed:
+          [
+            'huss',
+            'pr',
+            'rhsmin',
+            'rhsmax',
+            'rsds',
+            'tasmax',
+            'tasmin',
+            'uas',
+            'vas',
+            'vpd',
+          ]
       gcm:
         description: climate model
         type: str
@@ -52,7 +82,7 @@ sources:
         description: climate scenario
         type: str
         default: historical_1950_2005
-        allowed: ["historical_1950_2005", "rcp45_2006_2099",  "rcp85_2006_2099"]
+        allowed: ['historical_1950_2005', 'rcp45_2006_2099', 'rcp85_2006_2099']
 
   raw_terraclimate:
     description: TerraClimate is a dataset of monthly climate and climatic water balance for global terrestrial surfaces from 1958-2019.
@@ -61,7 +91,7 @@ sources:
       tags: [climate, zarr]
     driver: zarr
     args:
-      urlpath: "gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr"
+      urlpath: 'gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr'
       storage_options:
         token: 'anon'
 
@@ -79,10 +109,10 @@ sources:
       resolution:
         description: Pixel resolution in meters
         type: str
-        default: "4000m"
-        allowed: ["4000m"]
+        default: '4000m'
+        allowed: ['4000m']
     driver: zarr
     args:
-      urlpath: "gs://carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr"
+      urlpath: 'gs://carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
       storage_options:
         token: 'anon'

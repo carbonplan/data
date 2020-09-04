@@ -28,7 +28,7 @@ cat = intake.open_catalog('https://raw.githubusercontent.com/carbonplan/data/mas
 cat.fire.mtbs_raster.to_dask()
 ```
 
------
+---
 
 ## developer documentation
 
@@ -38,13 +38,13 @@ To run the unit and integration tests for this API, run:
 $ py.test -v
 ```
 
-Catalog entries scan be marked as either *skip* or *xfail* by setting the `ci` key in the metadata dictionary:
+Catalog entries scan be marked as either _skip_ or _xfail_ by setting the `ci` key in the metadata dictionary:
 
 ```yaml
-  foo:
-    description: "skip this entry in the CI tests"
-    metadata:
-      ci: skip
+foo:
+  description: 'skip this entry in the CI tests'
+  metadata:
+    ci: skip
 ```
 
 ## license

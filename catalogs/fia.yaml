@@ -3,7 +3,6 @@ plugins:
     - module: intake_parquet
 
 sources:
-
   raw_table:
     description: Forest Inventory and Analysis Database (FIADB) in Parquet for CSV format - FIADB version 1.8.0.02.
     metadata:
@@ -17,11 +16,73 @@ sources:
         description: FIA data product name
         type: str
         default: plot
-        allowed: [boundary, cond, cond_dwm_calc, county, dwm_coarse_woody_debris, dwm_duff_litter_fuel, dwm_fine_woody_debris, dwm_microplot_fuel, dwm_residual_pile, dwm_transect_segment, dwm_visit, grnd_cvr, invasive_subplot_spp, lichen_lab, lichen_plot_summary, lichen_visit, ozone_biosite_summary, ozone_plot, ozone_plot_summary, ozone_species_summary, ozone_validation, ozone_visit, p2veg_subplot_spp, p2veg_subp_structure, plot, plotgeom, plotsnap, plot_regen, pop_estn_unit, pop_eval, pop_eval_attribute, pop_eval_grp, pop_eval_typ, pop_plot_stratum_assgn, pop_stratum, seedling, seedling_regen, sitetree, soils_erosion, soils_lab, soils_sample_loc, soils_visit, subplot, subplot_regen, subp_cond, subp_cond_chng_mtrx, survey, tree, tree_grm_begin, tree_grm_component, tree_grm_estn, tree_grm_midpt, tree_grm_threshold, tree_regional_biomass, tree_woodland_stems, veg_plot_species, veg_quadrat, veg_subplot, veg_subplot_spp, veg_visit]
+        allowed:
+          [
+            boundary,
+            cond,
+            cond_dwm_calc,
+            county,
+            dwm_coarse_woody_debris,
+            dwm_duff_litter_fuel,
+            dwm_fine_woody_debris,
+            dwm_microplot_fuel,
+            dwm_residual_pile,
+            dwm_transect_segment,
+            dwm_visit,
+            grnd_cvr,
+            invasive_subplot_spp,
+            lichen_lab,
+            lichen_plot_summary,
+            lichen_visit,
+            ozone_biosite_summary,
+            ozone_plot,
+            ozone_plot_summary,
+            ozone_species_summary,
+            ozone_validation,
+            ozone_visit,
+            p2veg_subplot_spp,
+            p2veg_subp_structure,
+            plot,
+            plotgeom,
+            plotsnap,
+            plot_regen,
+            pop_estn_unit,
+            pop_eval,
+            pop_eval_attribute,
+            pop_eval_grp,
+            pop_eval_typ,
+            pop_plot_stratum_assgn,
+            pop_stratum,
+            seedling,
+            seedling_regen,
+            sitetree,
+            soils_erosion,
+            soils_lab,
+            soils_sample_loc,
+            soils_visit,
+            subplot,
+            subplot_regen,
+            subp_cond,
+            subp_cond_chng_mtrx,
+            survey,
+            tree,
+            tree_grm_begin,
+            tree_grm_component,
+            tree_grm_estn,
+            tree_grm_midpt,
+            tree_grm_threshold,
+            tree_regional_biomass,
+            tree_woodland_stems,
+            veg_plot_species,
+            veg_quadrat,
+            veg_subplot,
+            veg_subplot_spp,
+            veg_visit,
+          ]
       format:
         description: Pixel resolution in meters
         type: str
-        default: "parquet"
+        default: 'parquet'
         allowed: [parquet]
     args:
-      urlpath: "gs://carbonplan-data/raw/fia/{{ name }}.{{ format }}"
+      urlpath: 'gs://carbonplan-data/raw/fia/{{ name }}.{{ format }}'

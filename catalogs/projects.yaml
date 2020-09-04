@@ -1,5 +1,4 @@
 sources:
-
   reports:
     description: CarbonPlan Reports Data
     driver: csv

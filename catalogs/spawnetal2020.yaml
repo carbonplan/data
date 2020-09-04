@@ -3,7 +3,6 @@ plugins:
     - module: intake_xarray
 
 sources:
-
   raw_raster:
     description: Global Aboveground and Belowground Biomass Carbon Density Maps for the Year 2010
     metadata:
@@ -14,8 +13,14 @@ sources:
         description: aboveground, aboveground_uncertainty, belowground, or belowground_uncertainty
         type: str
         default: aboveground
-        allowed: [aboveground, aboveground_uncertainty, belowground, belowground_uncertainty]
+        allowed:
+          [
+            aboveground,
+            aboveground_uncertainty,
+            belowground,
+            belowground_uncertainty,
+          ]
     driver: rasterio
     args:
-      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif"
-      chunks: {'y': 5120, 'x': 5120}
+      urlpath: 'https://storage.googleapis.com/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif'
+      chunks: { 'y': 5120, 'x': 5120 }
