@@ -1,0 +1,21 @@
+name: carbonplan-data
+channels:
+  - conda-forge
+dependencies:
+  - dask
+  - gcsfs
+  - fastparquet
+  - gdal=2.4.2
+  - google-cloud-storage
+  - intake
+  - intake-geopandas
+  - intake-parquet
+  - intake-xarray
+  - libgdal=2.4.2
+  - netcdf4
+  - pandas
+  - pydap
+  - pytest
+  - rasterio=1.0.25
+  - xarray
+  - zarr

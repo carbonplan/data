@@ -24,7 +24,7 @@ jobs:
       - run: npm run build --if-present
 
   test:
-    name: ${{ matrix.CONDA_ENV }}-build
+    name: py${{ matrix.CONDA_ENV }}-test
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,11 +38,11 @@ jobs:
           CACHE_NUMBER: 0
         with:
           path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('ci/environment-${{ matrix.python-version }}.yaml') }}
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('ci/environment.yaml') }}
       - uses: goanpeca/setup-miniconda@v1
         with:
           activate-environment: carbonplan-data
-          environment-file: ci/environment-${{ matrix.python-version }}.yaml
+          environment-file: ci/environment.yaml
           python-version: ${{ matrix.python-version }}
           auto-activate-base: false
       - shell: bash -l {0}
