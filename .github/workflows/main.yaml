@@ -9,8 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./web
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x]
@@ -22,7 +20,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
+        working-directory: ./web
       - run: npm run build --if-present
+        working-directory: ./web
 
   test:
     name: py${{ matrix.CONDA_ENV }}-test
