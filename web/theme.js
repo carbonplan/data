@@ -1,5 +1,6 @@
 import base from '@carbonplan/theme'
 import { alpha } from '@theme-ui/color'
+import prism from '@theme-ui/prism/presets/prism-dark.json'
 
 export default {
   ...base,
@@ -34,9 +35,11 @@ export default {
   styles: {
     ...base.styles,
     code: {
+      ...prism,
       px: [3],
       py: [3],
       fontFamily: 'monospace',
+      color: 'primary',
       fontSize: [2],
       backgroundColor: alpha('muted', 0.2),
       borderRadius: '2px',

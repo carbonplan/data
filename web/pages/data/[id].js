@@ -4,7 +4,6 @@ import Source from '../../components/source'
 import { default as NextLink } from 'next/link'
 
 import Layout from '../../components/layout'
-import Filter from '../../components/filter'
 
 import data from '../../data'
 
@@ -15,7 +14,6 @@ const Catalog = ({ catalog }) => {
   const description =
     catalog.description || 'No description provided for ' + id + '.'
   const sources = Object.keys(catalog.sources)
-
   return (
     <Layout hideFooter={true}>
       <Container sx={{ px: [4] }}>
@@ -57,11 +55,15 @@ const Catalog = ({ catalog }) => {
 
           <Text sx={{ paddingBottom: '20px' }}>{description}</Text>
         </Box>
-        <Filter />
         {sources.length > 0 && (
           <Box>
             {sources.map((c) => (
-              <Source name={c} obj={catalog.sources[c]} key={c}></Source>
+              <Source
+                name={c}
+                catId={id}
+                obj={catalog.sources[c]}
+                key={c}
+              ></Source>
             ))}
           </Box>
         )}

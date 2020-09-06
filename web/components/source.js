@@ -1,7 +1,17 @@
-import { Box, Grid, Heading, Text } from 'theme-ui'
+import { Badge, Box, Grid, Heading, Text } from 'theme-ui'
 import Expander from './expander'
+import CodeBlock from './code-block'
 
-const Source = ({ name, obj }) => {
+import theme from '../theme'
+
+const Source = ({ name, obj, catId }) => {
+  const expanded = true
+  const code = `from intake import open_catalog
+# test comment
+cat = open_catalog("https://raw.githubusercontent.com/carbonplan/data/master/catalogs/${catId}.yaml")
+cat['${name}'].read()
+`
+
   return (
     <Box
       sx={{
@@ -20,10 +30,31 @@ const Source = ({ name, obj }) => {
     >
       <Grid gap={['8px', '8px', '16px']} columns={[1, null, '1fr 300px']}>
         <Heading>{name}</Heading>
-        <Text>[Tags go here.]</Text>
+        <Box>
+          {obj.metadata.tags.map((tag) => (
+            <Badge
+              variant='primary'
+              key={tag}
+              sx={{
+                borderColor: theme.tags[tag],
+                color: theme.tags[tag],
+                mr: [2],
+                ml: [0, 0, 2],
+              }}
+            >
+              {tag}
+            </Badge>
+          ))}
+        </Box>
+
         <Text sx={{ color: 'secondary' }}>{obj.description}</Text>
-        <Expander />
+        <Expander sx={{ align: 'right' }} />
       </Grid>
+      {expanded && (
+        <Box>
+          <CodeBlock code={code} language='python' />
+        </Box>
+      )}
     </Box>
   )
 }

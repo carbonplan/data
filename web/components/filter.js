@@ -1,4 +1,4 @@
-import { Badge, Box, Grid, IconButton } from 'theme-ui'
+import { Badge, Box, Grid, IconButton, Input } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
 import theme from '.././theme'
 
@@ -52,7 +52,7 @@ const Filter = () => {
         display: ['none', 'none', 'inherit'],
       }}
     >
-      <Grid columns={[1, null, '1fr 30px']}>
+      <Grid columns={[2, null, '1fr 30px']} sx={{ width: '60%' }}>
         <Box>
           {allTags.map((tag) => (
             <Badge
@@ -72,11 +72,19 @@ const Filter = () => {
             all
           </Badge>
         </Box>
-        <Box sx={{ display: ['none', 'none', 'inherit'], cursor: 'pointer' }}>
+        <Grid columns={[2, null, '1fr 12px']} sx={{ width: '40%' }}>
+          <Input
+            type='text'
+            autoFocus={true}
+            placeholder='search data'
+            sx={{ pt: [2], width: '120px', border: 'none' }}
+            // onChange={handleInputChange}
+            // value={input}
+          />
           <IconButton
             aria-label='Toggle Search'
             sx={{
-              stroke: 'text',
+              stroke: 'secondary',
               fill: 'background',
               cursor: 'pointer',
               transition: 'stroke 0.25s',
@@ -90,7 +98,7 @@ const Filter = () => {
               <line x1='2.4' y1='21.7' x2='10.2' y2='13.9' />
             </svg>
           </IconButton>
-        </Box>
+        </Grid>
       </Grid>
     </Box>
   )

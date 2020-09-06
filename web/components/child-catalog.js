@@ -1,4 +1,4 @@
-import { Badge, Box, Grid, Heading, Text } from 'theme-ui'
+import { Badge, Box, Grid, Heading, Link, Text } from 'theme-ui'
 import { default as NextLink } from 'next/link'
 import theme from '../theme'
 import CodeBlock from './code-block'
@@ -7,10 +7,9 @@ const ChildCatalog = ({ name, obj }) => {
   const as = '/data/' + name
 
   const code = `
-   from intake import open_catalog
-
-   cat = open_catalog("https://raw.githubusercontent.com/carbonplan/data/master/catalogs/
-  ${name}.yaml")`
+from intake import open_catalog
+cat = open_catalog("https://raw.githubusercontent.com/carbonplan/data/master/catalogs/${name}.yaml")
+`
 
   return (
     <Box
@@ -72,12 +71,12 @@ const ChildCatalog = ({ name, obj }) => {
       </Grid>
       <Box>
         <Text sx={{ my: [2, 2, 3] }}>
-          To load this catalog in Python using Intake use:
+          To load this catalog in Python using{' '}
+          <Link href='https://intake.readthedocs.io/en/latest/'>Intake</Link>{' '}
+          use:
         </Text>
 
         <CodeBlock code={code} language='python' />
-
-        <Text sx={{ fontFamily: 'monospace' }}></Text>
       </Box>
     </Box>
   )

@@ -5,8 +5,6 @@ import Prism from '@theme-ui/prism'
 
 import theme from '../theme'
 
-console.log(theme)
-
 const components = {
   pre: ({ children }) => <>{children}</>,
   code: Prism,
