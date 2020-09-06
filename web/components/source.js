@@ -6,6 +6,7 @@ import theme from '../theme'
 
 const Source = ({ name, obj, catId }) => {
   const expanded = true
+  const tags = obj.metadata.tags || []
   const code = `from intake import open_catalog
 # test comment
 cat = open_catalog("https://raw.githubusercontent.com/carbonplan/data/master/catalogs/${catId}.yaml")
@@ -31,7 +32,7 @@ cat['${name}'].read()
       <Grid gap={['8px', '8px', '16px']} columns={[1, null, '1fr 300px']}>
         <Heading>{name}</Heading>
         <Box>
-          {obj.metadata.tags.map((tag) => (
+          {tags.map((tag) => (
             <Badge
               variant='primary'
               key={tag}
