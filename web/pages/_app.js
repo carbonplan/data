@@ -5,14 +5,9 @@ import Prism from '@theme-ui/prism'
 
 import theme from '../theme'
 
-const components = {
-  pre: ({ children }) => <>{children}</>,
-  code: Prism,
-}
-
 export default ({ Component, pageProps }) => {
   return (
-    <ThemeProvider theme={theme} components={components}>
+    <ThemeProvider theme={theme}>
       <Component {...pageProps} />
       <Style />
     </ThemeProvider>

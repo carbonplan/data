@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, Box, IconButton, Styled } from 'theme-ui'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import Highlight, { defaultProps } from 'prism-react-renderer'
 
 const CodeBlock = ({ code, language }) => {
   return (
@@ -33,22 +34,23 @@ const CodeBlock = ({ code, language }) => {
           </svg>
         </IconButton>
       </CopyToClipboard>
-      {/* This 'works' but doesn't pick up our theme*/}
-      {/* <Highlight {...defaultProps} code={code} language={language}>
+      { <Highlight {...defaultProps} code={code} language={language}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={style}>
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
-                ))}
+          <Styled.pre className={className}>
+            {tokens.map((line, i) => {
+              const { className, key } = getLineProps({ line, key: i })
+              return <div className={className} key={key}>
+                {line.map((token, key) => {
+                  const { className, children } = getTokenProps({ token, key })
+                  return <span className={className} key={key} sx={{display: 'inline-block'}}>
+                  {children}
+                  </span>
+                })}
               </div>
-            ))}
-          </pre>
+            })}
+          </Styled.pre>
         )}
-      </Highlight> */}
-      {/* This picks up our theme but doesn't seem to use Prism */}
-      <Styled.code className='python'>{code}</Styled.code>
+      </Highlight> }
     </Box>
   )
 }
