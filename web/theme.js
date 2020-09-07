@@ -38,24 +38,48 @@ export default {
       py: [3],
       fontFamily: 'monospace',
       color: 'primary',
-      fontSize: [2],
+      fontSize: [1],
       backgroundColor: alpha('muted', 0.2),
       borderRadius: '2px',
-      '.comment,.prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url': {
-        color: 'grey',
-      },
-      '.comment': {
-        fontStyle: 'italic',
-      },
-      '.property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .regex, .important, .variable': {
-        color: 'blue',
-      },
-      '.atrule, .attr-value, .keyword': {
-        color: 'primary',
-      },
-      '.selector, .attr-name, .string, .char, .builtin, .inserted': {
+      '.comment,.prolog,.doctype,.cdata': {
         color: 'secondary',
       },
+      '.punctuation': {
+        opacity: '.7',
+      },
+      '.namespace': {
+        opacity: '.7',
+      },
+      '.property,.tag,.boolean,.number,.constant,.symbol': {
+        color: 'blue',
+      },
+      '.selector,.attr-name,.string,.char,.builtin,.inserted': {
+        color: 'secondary',
+      },
+      '.operator,.entity,.url,.language-css .string,.style .string,.variable': {
+        color: 'primary',
+      },
+      '.atrule,.attr-value,.keyword': {
+        color: 'red',
+      },
+      // '.regex,.important': {
+      //   color: '#e90',
+      // },
+      '.important,.bold': {
+        fontWeight: 'bold',
+      },
+      '.italic': {
+        fontStyle: 'italic',
+      },
+      '.entity': {
+        cursor: 'help',
+      },
+      '.deleted': {
+        color: 'red',
+      },
+      // '.highlight': {
+      //   background: 'grey',
+      // },
     },
     inlineCode: {
       px: [1],

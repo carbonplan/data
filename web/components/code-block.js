@@ -1,9 +1,12 @@
 /** @jsx jsx */
-import { jsx, Box, IconButton, Styled } from 'theme-ui'
+import { jsx, useThemeUI, Box, IconButton } from 'theme-ui'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Prism from '@theme-ui/prism'
 
 const CodeBlock = ({ code, language }) => {
+  const context = useThemeUI()
+  const { theme } = context
+
   return (
     <Box sx={{ position: 'relative' }}>
       <CopyToClipboard text={code}>
@@ -17,8 +20,11 @@ const CodeBlock = ({ code, language }) => {
             fill: 'secondary',
             cursor: 'pointer',
             transition: '0.25s all',
+            '&:active': {
+              background: theme.colors.secondary,
+            },
             '&:hover': {
-              fill: 'text',
+              fill: theme.colors.text,
             },
           }}
         >
@@ -34,7 +40,9 @@ const CodeBlock = ({ code, language }) => {
           </svg>
         </IconButton>
       </CopyToClipboard>
-      <Prism language={language} className={'language-' + language}>{code}</Prism>
+      <Prism language={language} className={'language-' + language}>
+        {code}
+      </Prism>
     </Box>
   )
 }
