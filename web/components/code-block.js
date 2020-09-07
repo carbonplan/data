@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Box, IconButton, Styled } from 'theme-ui'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import Highlight, { defaultProps } from 'prism-react-renderer'
+import Prism from '@theme-ui/prism'
 
 const CodeBlock = ({ code, language }) => {
   return (
@@ -34,23 +34,7 @@ const CodeBlock = ({ code, language }) => {
           </svg>
         </IconButton>
       </CopyToClipboard>
-      { <Highlight {...defaultProps} code={code} language={language}>
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <Styled.pre className={className}>
-            {tokens.map((line, i) => {
-              const { className, key } = getLineProps({ line, key: i })
-              return <div className={className} key={key}>
-                {line.map((token, key) => {
-                  const { className, children } = getTokenProps({ token, key })
-                  return <span className={className} key={key} sx={{display: 'inline-block'}}>
-                  {children}
-                  </span>
-                })}
-              </div>
-            })}
-          </Styled.pre>
-        )}
-      </Highlight> }
+      <Prism language={language} className={'language-' + language}>{code}</Prism>
     </Box>
   )
 }
