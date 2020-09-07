@@ -10,7 +10,7 @@ const Source = ({ name, obj, catId }) => {
   const code = `
 from intake import open_catalog
 cat = open_catalog("https://raw.githubusercontent.com/carbonplan/data/master/catalogs/${catId}.yaml")
-cat['${name}'].read()
+cat["${name}"].read()
 `
 
   return (
