@@ -16,27 +16,47 @@ cat = open_catalog("https://raw.githubusercontent.com/carbonplan/data/master/cat
       sx={{
         py: [3],
         pr: [4],
-        top: '56px',
         bg: 'background',
         borderStyle: 'solid',
         borderColor: 'muted',
         borderWidth: '0px',
-        borderBottomWidth: '1px',
+        borderBottomWidth: '0px',
         borderTopWidth: '1px',
         zIndex: 500,
-        display: ['none', 'none', 'inherit'],
         paddingTop: '30px',
         paddingBottom: '30px',
       }}
     >
-      <Grid gap={['8px', '8px', '16px']} columns={[1, null, '1fr 300px']}>
-        <Heading sx={{ fontSize: [4, 4, 5] }}>{obj.name}</Heading>
+      <Grid gap={['8px', '8px', '16px']} columns={[1, null, '1fr 200px']}>
         <Box>
+        <Heading sx={{ fontSize: [4, 4, 5] }}>
+          {obj.name}
+          <NextLink href='/data/[id]' as={as}>
+            <a>
+              <Text
+                sx={{
+                  display: 'inline-block',
+                  color: 'text',
+                  '&:hover': {
+                    color: 'secondary',
+                  },
+                }}
+              >
+                <Text sx={{ ml: [3] }}>
+                  →
+                </Text>
+              </Text>
+            </a>
+          </NextLink>
+        </Heading>
+        </Box>
+        <Box sx={{ textAlign: ['left', null, 'right'] }}>
           {obj.metadata.tags.map((tag) => (
             <Badge
               variant='primary'
               key={tag}
               sx={{
+                cursor: 'default',
                 borderColor: theme.tags[tag],
                 color: theme.tags[tag],
                 mr: [2],
@@ -47,27 +67,7 @@ cat = open_catalog("https://raw.githubusercontent.com/carbonplan/data/master/cat
             </Badge>
           ))}
         </Box>
-
         <Text sx={{ color: 'primary' }}>{obj.description}</Text>
-        <NextLink href='/data/[id]' as={as}>
-          <a>
-            <Text
-              sx={{
-                color: 'text',
-                '&:hover > #arrow': {
-                  color: 'secondary',
-                },
-                '&:hover': {
-                  color: 'secondary',
-                },
-              }}
-            >
-              <Text id='arrow' variant='arrow' sx={{ fontSize: '24px' }}>
-                More →
-              </Text>
-            </Text>
-          </a>
-        </NextLink>
       </Grid>
       <Box>
         <Text sx={{ my: [2, 2, 3] }}>
@@ -75,7 +75,6 @@ cat = open_catalog("https://raw.githubusercontent.com/carbonplan/data/master/cat
           <Link href='https://intake.readthedocs.io/en/latest/'>Intake</Link>{' '}
           use:
         </Text>
-
         <CodeBlock code={code} language='python' />
       </Box>
     </Box>

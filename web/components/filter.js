@@ -1,4 +1,4 @@
-import { Badge, Box, Grid, IconButton, Input } from 'theme-ui'
+import { Badge, Box, Grid, Text, Divider, IconButton, Input } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
 import theme from '.././theme'
 
@@ -39,9 +39,8 @@ const Filter = () => {
     <Box
       sx={{
         py: [3],
-        pr: [4],
         position: 'sticky',
-        top: '56px',
+        top: '55px',
         bg: 'background',
         borderStyle: 'solid',
         borderColor: 'muted',
@@ -49,57 +48,66 @@ const Filter = () => {
         borderBottomWidth: '1px',
         borderTopWidth: '1px',
         zIndex: 500,
-        display: ['none', 'none', 'inherit'],
+        display: ['none', 'none', 'block'],
       }}
     >
-      <Grid columns={[2, null, '1fr 30px']} sx={{ width: '60%' }}>
-        <Box>
-          {allTags.map((tag) => (
-            <Badge
-              key={tag}
-              variant='primary'
-              sx={getStyle(tag)}
-              onClick={() => addOrRemove(tag)}
+      <Box>
+        <Box sx={{ mb: [3] }}>
+          <Grid columns={[2, null, '12px 1fr']}>
+            <IconButton
+              aria-label='Toggle Search'
+              sx={{
+                stroke: 'secondary',
+                fill: 'background',
+                cursor: 'pointer',
+                transition: 'stroke 0.25s',
+                '&:hover': {
+                  stroke: 'text',
+                },
+                mt: [1]
+              }}
             >
-              {tag}
-            </Badge>
-          ))}
-          <Badge
-            variant='primary'
-            sx={getStyle('all')}
-            onClick={() => toggleAll()}
-          >
-            all
-          </Badge>
-        </Box>
-        <Grid columns={[2, null, '1fr 12px']} sx={{ width: '40%' }}>
-          <Input
-            type='text'
-            autoFocus={true}
-            placeholder='search data'
-            sx={{ pt: [2], width: '120px', border: 'none' }}
-            // onChange={handleInputChange}
-            // value={input}
-          />
-          <IconButton
-            aria-label='Toggle Search'
-            sx={{
-              stroke: 'secondary',
-              fill: 'background',
-              cursor: 'pointer',
-              transition: 'stroke 0.25s',
-              '&:hover': {
-                stroke: 'text',
-              },
-            }}
-          >
-            <svg height='24px' width='24px' strokeWidth='2'>
-              <circle cx='15' cy='9.1' r='6.8' />
-              <line x1='2.4' y1='21.7' x2='10.2' y2='13.9' />
-            </svg>
-          </IconButton>
+              <svg height='24px' width='24px' strokeWidth='2'>
+                <circle cx='15' cy='9.1' r='6.8' />
+                <line x1='2.4' y1='21.7' x2='10.2' y2='13.9' />
+              </svg>
+            </IconButton>
+            <Input
+              type='text'
+              placeholder='search data'
+              sx={{ pt: [1], pl: [3], border: 'none', fontSize: [3] }}
+              // onChange={handleInputChange}
+              // value={input}
+            />
         </Grid>
-      </Grid>
+      </Box>
+      <Divider />
+      <Box sx={{ mt: [4], mb: [3] }}>
+        <Text sx={{
+          textTransform: 'uppercase',
+          fontFamily: 'heading',
+          letterSpacing: 'wide',
+          mb: [3] 
+        }}>Filter by tag</Text>
+        {allTags.map((tag) => (
+          <Badge
+            key={tag}
+            variant='primary'
+            sx={getStyle(tag)}
+            onClick={() => addOrRemove(tag)}
+          >
+            {tag}
+          </Badge>
+        ))}
+        <Badge
+          variant='primary'
+          sx={getStyle('all')}
+          onClick={() => toggleAll()}
+        >
+          all
+        </Badge>
+      </Box>
+      </Box>
     </Box>
   )
 }

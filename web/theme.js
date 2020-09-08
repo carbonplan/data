@@ -24,6 +24,21 @@ export default {
       fontFamily: 'monospace',
     },
   },
+  forms: {
+    input: {
+      fontSize: [2],
+      pt: ['4px'],
+      pb: ['6px'],
+      pl: [0],
+      pr: [0],
+      fontFamily: 'monospace',
+      borderRadius: '0px',
+      borderStyle: 'solid',
+      borderColor: 'muted',
+      borderWidth: '0px',
+      borderBottomWidth: '0px',
+    },
+  },
   tags: {
     ...base.tags,
     climate: 'blue',
@@ -41,6 +56,8 @@ export default {
       fontSize: [1],
       backgroundColor: alpha('muted', 0.2),
       borderRadius: '2px',
+      whiteSpace: 'pre-wrap',
+      wordBreak: 'break-all',
       '.comment,.prolog,.doctype,.cdata': {
         color: 'secondary',
       },

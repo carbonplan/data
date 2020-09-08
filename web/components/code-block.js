@@ -40,9 +40,13 @@ const CodeBlock = ({ code, language }) => {
           </svg>
         </IconButton>
       </CopyToClipboard>
-      <Prism language={language} className={'language-' + language}>
-        {code}
-      </Prism>
+      <Box sx={{ 
+        maxWidth: '100%',
+      }}>
+        <Prism language={language} className={'language-' + language}>
+          {code}
+        </Prism>
+      </Box>
     </Box>
   )
 }
