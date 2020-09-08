@@ -86,9 +86,13 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const names = Object.keys(data)
 
-  const paths = names.map((c) => ({
-    params: { id: c },
-  }))
+  const paths = []
+  var i
+  for (i = 0; i < names.length; i++) {
+    if (names[i] != 'master') {
+      paths.push({ params: { id: names[i] } })
+    }
+  }
 
   return { paths, fallback: false }
 }

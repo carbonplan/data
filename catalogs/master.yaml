@@ -1,5 +1,14 @@
 description: 'CarbonPlan Master Data Catalog'
 sources:
+  climate:
+    name: 'Climate datasets'
+    description: 'Climate datasets'
+    metadata:
+      tags: [climate]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/climate.yaml'
+
   fia:
     name: 'Forest Inventory Analysis (FIA)'
     description: 'Catalog for data from Forest Inventory Analysis (FIA) database'
