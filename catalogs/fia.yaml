@@ -2,14 +2,27 @@ plugins:
   source:
     - module: intake_parquet
 
+# TODOs:
+#  - remove csvs in gcp.
+#  - add aux data source(s)
+
 sources:
   raw_table:
-    description: Forest Inventory and Analysis Database (FIADB) in Parquet for CSV format - FIADB version 1.8.0.02.
     metadata:
-      url: https://apps.fs.usda.gov/fia/datamart/datamart.html
-      tags: [forest, fia]
-      todos:
-        - rename csv data to use lower case naming convention, add csv back to format
+      title: Forest Inventory Analysis (raw)
+      summary: Data on status and trends in forest location, health, growth, mortality, and production.
+      description: |
+        The Forest Inventory and Analysis dataset is a nationwide survey of the forest assets of
+        the United States. The Forest Inventory and Analysis (FIA) research program has been in
+        existence since mandated by Congress in 1928. FIA's primary objective is to determine
+        the extent, condition, volume, growth, and use of trees on the Nation's forest land.
+      tags: [forests]
+      type: application/parquet
+      license: Public domain
+      providers:
+        - name: USDA Forest Service
+          description: Data provided by the United States Department of Agriculture Forest Service.
+          url: https://www.fia.fs.fed.us/
     driver: parquet
     parameters:
       name:

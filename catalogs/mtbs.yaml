@@ -4,7 +4,27 @@ plugins:
 
 sources:
   raw_raster:
-    description: The burn severity mosaics consist of thematic raster images of MTBS burn severity classes for all currently completed MTBS fires for the continental United States. Mosaicked burn severity images are compiled annually for the continental United States. Data in this catalog have been converted to cloud optimized geotiff.
+    metadata:
+      title: MTBS (raw)
+      summary: Annual burn severity mosaics for the continental United States and Alaska.
+      description: |
+        Monitoring Trends in Burn Severity (MTBS) is an interagency program whose goal is to
+        consistently map the burn severity and extent of large fires across all lands of the
+        United States from 1984 to present. This includes all fires 1000 acres or greater in
+        the western United States and 500 acres or greater in the eastern Unites States. The
+        extent of coverage includes the continental U.S., Alaska, Hawaii and Puerto Rico.
+
+        The burn severity mosaics consist of thematic raster images of MTBS burn severity
+        classes for all currently completed MTBS fires for the continental United States,
+        Alaska, Hawaii and Puerto Rico. Mosaicked burn severity images are compiled annually
+        for each year by US State and the continental United States.
+      tags: [fire, forests]
+      type: image/tiff; application=geotiff; profile=cloud-optimized
+      license: Public Domain
+      providers:
+        - name: Monitoring Trends in Burn Severity
+          description: Monitoring Trends in Burn Severity (MTBS) is an interagency program that includes the USGS, NASA, USFS, USDI, and USDA.
+          url: https://www.mtbs.gov/
     parameters:
       year:
         description: year
@@ -15,16 +35,34 @@ sources:
         type: str
         default: conus
         allowed: [conus, ak]
-    metadata:
-      url: https://www.mtbs.gov/
-      tags: [fire, cog]
     driver: rasterio
     args:
       urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
       chunks: { 'y': 5120, 'x': 5120 }
 
   raster:
-    description: The burn severity mosaics consist of thematic raster images of MTBS burn severity classes for all currently completed MTBS fires for the continental United States. Mosaicked burn severity images are compiled annually for the continental United States. Data in this catalog have been converted upscaled and converted to Zarr.
+    metadata:
+      title: MTBS (processed)
+      summary: Annual burn severity mosaics for the continental United States and Alaska.
+      description: |
+        Monitoring Trends in Burn Severity (MTBS) is an interagency program whose goal is to
+        consistently map the burn severity and extent of large fires across all lands of the
+        United States from 1984 to present. This includes all fires 1000 acres or greater in
+        the western United States and 500 acres or greater in the eastern Unites States.
+
+        The burn severity mosaics consist of thematic raster images of MTBS burn severity
+        classes for all currently completed MTBS fires for the continental United States,
+        Alaska, Hawaii and Puerto Rico. Mosaicked burn severity images are compiled annually
+        for each year by US State and the continental United States.
+
+        These data have been processed to CarbonPlan's CONUS and Alaska study domains.
+      tags: [fire, forests]
+      type: image/tiff; application=geotiff; profile=cloud-optimized
+      license: Public Domain
+      providers:
+        - name: Monitoring Trends in Burn Severity
+          description: Monitoring Trends in Burn Severity (MTBS) is an interagency program that includes the USGS, NASA, USFS, USDI, and USDA.
+          url: https://www.mtbs.gov/
     parameters:
       region:
         description: conus or ak
@@ -36,9 +74,6 @@ sources:
         type: str
         default: '4000'
         allowed: ['4000']
-    metadata:
-      url: https://www.mtbs.gov/
-      tags: [fire, cog]
     driver: zarr
     args:
       urlpath: 'gs://carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
@@ -46,21 +81,39 @@ sources:
         token: 'anon'
 
   fod_shp:
-    description: MTBS National - Fire Occurrence Dataset. The fire occurrence location dataset is a vector point ESRI shapefile of the centroids of all currently completed MTBS fires occurring in the continental United States, Alaska, Hawaii and Puerto Rico.
     metadata:
-      url: https://www.mtbs.gov/
-      tags: [fire, shapefile]
-      ci: skip # reason: fiona is flaky
+      title: MTBS Occurance (vector data)
+      summary: Fire occurance location dataset in vector/point format.
+      description: |
+        The fire occurrence location dataset is a vector point ESRI shapefile of the centroids of
+        all currently completed MTBS fires occurring in the continental United States, Alaska,
+        Hawaii and Puerto Rico.
+      tags: [fire, forests]
+      type: application/octet-stream
+      license: Public Domain
+      providers:
+        - name: Monitoring Trends in Burn Severity
+          description: Monitoring Trends in Burn Severity (MTBS) is an interagency program that includes the USGS, NASA, USFS, USDI, and USDA.
+          url: https://www.mtbs.gov/
     driver: shapefile
     args:
       urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp'
 
   perims_shp:
-    description: MTBS National - Burned Area Boundaries Dataset. The burned area boundaries dataset is a vector polygon ESRI shapefile of the extent of the burned areas of all currently completed MTBS fires for the continental United States, Alaska, Hawaii and Puerto Rico.
     metadata:
-      url: https://www.mtbs.gov/
-      tags: [fire, shapefile]
-      ci: skip # reason: fiona is flaky
+      title: MTBS Boundaries (vector data)
+      summary: Burned area boundaries data in vector/polygon format.
+      description: |
+        The burned area boundaries dataset is a vector polygon ESRI shapefile of the extent of the
+        burned areas of all currently completed MTBS fires for the continental United States,
+        Alaska, Hawaii and Puerto Rico.
+      tags: [fire, forests]
+      type: application/octet-stream
+      license: Public Domain
+      providers:
+        - name: Monitoring Trends in Burn Severity
+          description: Monitoring Trends in Burn Severity (MTBS) is an interagency program that includes the USGS, NASA, USFS, USDI, and USDA.
+          url: https://www.mtbs.gov/
     driver: shapefile
     args:
       urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_perimeter_data/mtbs_perims_DD.shp'

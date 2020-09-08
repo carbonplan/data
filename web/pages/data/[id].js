@@ -12,7 +12,8 @@ const Catalog = ({ catalog }) => {
   const { id } = router.query
 
   const description =
-    catalog.description || 'No description provided for ' + id + '.'
+    data['master'].sources[id].description ||
+    `No description provided for ${id}.`
   const sources = Object.keys(catalog.sources)
   return (
     <Layout hideFooter={true}>

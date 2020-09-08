@@ -1,8 +1,20 @@
 sources:
   reports:
-    description: CarbonPlan Reports Data
+    metadata:
+      title: CarbonPlan Project's Database
+      summary: Public database of carbon removal project proposals evaluated by CarbonPlan.
+      description: |
+        This is a public database of reports on carbon removal project proposals. These reports
+        reflect our independent analysis of public information.
+      tags: [carbon removal]
+      type: text/csv
+      license: Creative Commons Attribution 4.0 International
+      providers:
+        - name: CarbonPlan
+          description: |
+            CarbonPlan is a registered non-profit public benefit corporation working on
+            the science and data of carbon removal.
+          url: https://carbonplan.org
     driver: csv
     args:
       urlpath: 'https://api.carbonplan.org/projects.csv'
-    metadata:
-      origin_url: 'https://api.carbonplan.org/docs'

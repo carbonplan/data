@@ -4,10 +4,26 @@ plugins:
 
 sources:
   raw_raster:
-    description: Extent, distribution, and forest type composition of the nation’s forests.
     metadata:
-      url: https://data.fs.usda.gov/geodata/rastergateway/forest_type/
-      tags: [land cover, cog]
+      title: National Forest Type Dataset (raw)
+      summary: Extent, distribution, and forest type composition of the nation’s forests.
+      description: |
+        This geospatial dataset was created by the USFS Forest Inventory and Analysis (FIA) program
+        and the Geospatial Technology and Applications Center (GTAC) to show the extent,
+        distribution, and forest type composition of the nation’s forests.
+
+        The dataset was created by modeling forest type from FIA plot data as a function of more
+        than one hundred geospatially continuous predictor layers.
+
+        This process results in a view of forest type distribution in greater detail than is
+        possible with the FIA plot data alone.
+      tags: [forest]
+      type: image/tiff; application=geotiff; profile=cloud-optimized
+      license: Public Domain
+      providers:
+        - name: USDA Forest Service
+          description: Data provided by the United States Department of Agriculture Forest Service.
+          url: https://www.fia.fs.fed.us/
     parameters:
       option:
         description: error or raster
@@ -30,10 +46,28 @@ sources:
       chunks: { 'y': 5120, 'x': 5120 }
 
   raster:
-    description: Extent, distribution, and forest type composition of the nation’s forests.
     metadata:
-      url: https://data.fs.usda.gov/geodata/rastergateway/forest_type/
-      tags: [land cover, cog]
+      title: National Forest Type Dataset (processed)
+      summary: Extent, distribution, and forest type composition of the nation’s forests.
+      description: |
+        This geospatial dataset was created by the USFS Forest Inventory and Analysis (FIA) program
+        and the Geospatial Technology and Applications Center (GTAC) to show the extent,
+        distribution, and forest type composition of the nation’s forests.
+
+        The dataset was created by modeling forest type from FIA plot data as a function of more
+        than one hundred geospatially continuous predictor layers.
+
+        This process results in a view of forest type distribution in greater detail than is
+        possible with the FIA plot data alone.
+
+        These data have been processed to CarbonPlan's CONUS and Alaska study domains.
+      tags: [forest]
+      type: image/tiff; application=geotiff; profile=cloud-optimized
+      license: Public Domain
+      providers:
+        - name: USDA Forest Service
+          description: Data provided by the United States Department of Agriculture Forest Service.
+          url: https://www.fia.fs.fed.us/
     parameters:
       region:
         description: conus or ak

@@ -30,7 +30,7 @@ cat["${name}"].read()
       }}
     >
       <Grid gap={['8px', '8px', '16px']} columns={[1, null, '1fr 300px']}>
-        <Heading>{name}</Heading>
+        <Heading>{obj.metadata.title}</Heading>
         <Box>
           {tags.map((tag) => (
             <Badge
@@ -47,8 +47,14 @@ cat["${name}"].read()
             </Badge>
           ))}
         </Box>
-
-        <Text sx={{ color: 'secondary' }}>{obj.description}</Text>
+        <Box>
+          <Text sx={{ color: 'text', fontSize: [3] }}>
+            {obj.metadata.summary}
+          </Text>
+          <Text sx={{ color: 'secondary', fontSize: [1] }}>
+            {obj.metadata.description}
+          </Text>
+        </Box>
         <Expander sx={{ align: 'right' }} />
       </Grid>
       {expanded && (
@@ -61,6 +67,18 @@ cat["${name}"].read()
           <CodeBlock code={code} language='python' />
         </Box>
       )}
+      <Box>
+        <Text sx={{ color: 'secondary', fontSize: [1] }}>
+          License: {obj.metadata.license}
+        </Text>
+        <Text sx={{ color: 'secondary', fontSize: [1] }}>
+          Providers: ...
+          {/* {obj.metadata.providers} */}
+        </Text>
+        <Text sx={{ color: 'secondary', fontSize: [1] }}>
+          Type: {obj.metadata.license}
+        </Text>
+      </Box>
     </Box>
   )
 }

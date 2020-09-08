@@ -32,6 +32,15 @@ def get_item_params(item):
     return params
 
 
+def entries_without_params(catalog):
+    out = []
+    for entry in catalog.walk(depth=10):
+        if catalog[entry].container == "catalog":
+            continue
+        out.append(entry)
+    return out
+
+
 def entries_with_params(catalog):
     out = []
     for entry in catalog.walk(depth=10):
@@ -42,6 +51,7 @@ def entries_with_params(catalog):
 
 
 MASTER_CATALOG = get_master_catalog()
+ALL_ENTRIES = entries_without_params(MASTER_CATALOG)
 ALL_PARAMETERS = entries_with_params(MASTER_CATALOG)
 
 
@@ -70,3 +80,11 @@ def test_get_intake_source(catalog, name_and_params):
             _ = item.to_dask()
         except NotImplementedError:
             _ = item.read()
+
+
+@pytest.mark.parametrize("name", ALL_ENTRIES)
+def test_entry_metadata(catalog, name):
+    expected_keys = ["title", "summary", "description", "tags", "license", "providers"]
+    item = catalog[name]
+    for key in expected_keys:
+        assert key in item.metadata

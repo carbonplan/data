@@ -1,9 +1,24 @@
 sources:
   raw_table:
-    description: Global Carbon Budget 2019 raw data in parquet format
     metadata:
-      url: https://www.globalcarbonproject.org/carbonbudget/19/data.htm
+      title: Global Carbon Project
+      summary: Timeseries of the global carbon budget and carbon emissions.
+      description: |
+        The annually updated Global Carbon Budget produced by the Global Carbon Project.
+        All datasets and modeling output to complete the Global Carbon Budget 2019 are
+        described in detail in Friedlingstein et al. (2019)
+        https://doi.org/10.5194/essd-11-1783-2019.
       tags: [carbon cycle]
+      type: application/parquet
+      license: The use of data is conditional on citing the original data sources.
+      providers:
+        - name: Integrated Carbon Observation System
+          description: |
+            The Integrated Carbon Observation System, ICOS, is a European-wide greenhouse gas
+            research infrastructure. ICOS produces standardised data on greenhouse gas
+            concentrations in the atmosphere, as well as on carbon fluxes between the
+            atmosphere, the earth and oceans.
+          url: https://www.icos-cp.eu/global-carbon-budget-2019
     parameters:
       name:
         description: name of GCB dataset

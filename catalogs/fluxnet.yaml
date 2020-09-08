@@ -4,10 +4,25 @@ plugins:
 
 sources:
   raw_aux:
-    description: Raw Aux FLUXNET data
     metadata:
-      url: https://fluxnet.org/
-      tags: [fluxnet, parquet]
+      title: FLUXNET Auxiliary Data (raw)
+      summary: Supporting metadata for the FLUXNET dataset.
+      description: |
+        The preparation of this FLUXNET Dataset has been possible thanks only to the efforts of
+        many scientists and technicians around the world and the coordination among teams from
+        regional networks. The previous versions of FLUXNET Dataset releases are the FLUXNET
+        Marconi Dataset (2000) and the FLUXNET LaThuile Dataset (2007). The FLUXNET2015 Dataset
+        includes several improvements to the data quality control protocols and the data
+        processing pipeline. Examples include close interaction with tower teams to improve data
+        quality, new methods for uncertainty quantification, use of reanalysis data to fill long
+        gaps of micrometeorological variable records, among others (see the data processing
+        pipeline page for details).
+      tags: [carbon cycle]
+      license: Creative Commons Attribution 4.0 International
+      providers:
+        - name: FLUXNET
+          description: FLUXNET is organized through the Regional Networks that contribute data to FLUXNET datasets available at the FLUXNET webiste (https://fluxnet.org/), hosted at the Lawrence Berkeley National Laboratory (USA).
+          url: https://fluxnet.org/
     parameters:
       station:
         description: fluxnet station code
@@ -28,10 +43,28 @@ sources:
       urlpath: 'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet'
 
   raw_fullset:
-    description: Raw Fullset FLUXNET data
     metadata:
-      url: https://fluxnet.org/
-      tags: [fluxnet, parquet]
+      title: FLUXNET FULLSET Data (raw)
+      summary: Global network of micrometeorological flux measurement measuring carbon, energy and water cycles.
+      description: |
+        The preparation of this FLUXNET Dataset has been possible thanks only to the efforts of
+        many scientists and technicians around the world and the coordination among teams from
+        regional networks. The previous versions of FLUXNET Dataset releases are the FLUXNET
+        Marconi Dataset (2000) and the FLUXNET LaThuile Dataset (2007). The FLUXNET2015 Dataset
+        includes several improvements to the data quality control protocols and the data
+        processing pipeline. Examples include close interaction with tower teams to improve data
+        quality, new methods for uncertainty quantification, use of reanalysis data to fill long
+        gaps of micrometeorological variable records, among others (see the data processing
+        pipeline page for details).
+      tags: [carbon cycle]
+      license: Creative Commons Attribution 4.0 International
+      providers:
+        - name: FLUXNET
+          description: |
+            FLUXNET is organized through the Regional Networks that contribute data to FLUXNET
+            datasets available at the FLUXNET webiste (https://fluxnet.org/), hosted at the
+            Lawrence Berkeley National Laboratory (USA).
+          url: https://fluxnet.org/
     parameters:
       station:
         description: fluxnet station code

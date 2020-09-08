@@ -3,10 +3,24 @@ plugins:
     - module: intake_xarray
 
 sources:
-  raw_gridmet_opendap:
-    description: 'GRIDMET data from OpeNDAP'
+  raw_gridmet:
     metadata:
-      url: http://www.climatologylab.org/gridmet.html
+      title: gridMET (raw)
+      summary: High-resolution surface meteorologicaldata covering the conus US from 1979-yesterday.
+      description: |
+        gridMET is a dataset of daily high-spatial resolution (~4-km, 1/24th degree) surface
+        meteorological data covering the contiguous US from 1979-yesterday. We have also
+        extended these data to cover southern British Columbia in our real time products.
+        These data can provide important inputs for ecological, agricultural, and
+        hydrological models. These data are updated daily.  gridMET is the preferred naming
+        convention for these data; however, the data are also known as cited as METDATA.
+      tags: [climate]
+      type: application/netcdf
+      license: Public Domain Mark 1.0
+      providers:
+        - name: Climatology Lab, University of California, Merced
+          description: Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.
+          url: http://www.climatologylab.org
     args:
       urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc
       auth: null
@@ -44,10 +58,22 @@ sources:
         type: int
         default: 2000
 
-  raw_maca_opendap:
-    description: 'MACA data from OpeNDAP'
+  raw_maca:
     metadata:
-      url: http://www.climatologylab.org/maca.html
+      title: MACA (raw)
+      summary: Historical and future climate projections derived from CMIP5 using the MACA statistical downscaling technique.
+      description: |
+        Multivariate Adaptive Constructed Analogs (MACA) is a statistical method for downscaling
+        Global Climate Models (GCMs) from their native coarse resolution to a higher spatial
+        resolution that captures reflects observed patterns of daily near-surface meteorology and
+        simulated changes in GCMs experiments.
+      tags: [climate]
+      type: application/netcdf
+      license: Creative Commons CC0 1.0 Universal
+      providers:
+        - name: Climatology Lab, University of California, Merced
+          description: Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.
+          url: http://www.climatologylab.org
     args:
       urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc
       auth: null
@@ -85,10 +111,22 @@ sources:
         allowed: ['historical_1950_2005', 'rcp45_2006_2099', 'rcp85_2006_2099']
 
   raw_terraclimate:
-    description: TerraClimate is a dataset of monthly climate and climatic water balance for global terrestrial surfaces from 1958-2019.
     metadata:
-      url: http://www.climatologylab.org/terraclimate.html
-      tags: [climate, zarr]
+      title: TerraClimate (raw)
+      summary: Global climate and climaticwater balance data from 1958-2019.
+      description: |
+        TerraClimate is a dataset of monthly climate and climatic water balance for global
+        terrestrial surfaces from 1958-2019. These data provide important inputs for ecological
+        and hydrological studies at global scales that require high spatial resolution and
+        time-varying data. All data have monthly temporal resolution and a ~4-km (1/24th degree)
+        spatial resolution. The data cover the period from 1958-2019.
+      tags: [climate]
+      type: application/zarr
+      license: Creative Commons Public Domain (CC0)
+      providers:
+        - name: Climatology Lab, University of California, Merced
+          description: Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.
+          url: http://www.climatologylab.org
     driver: zarr
     args:
       urlpath: 'gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr'
@@ -96,10 +134,22 @@ sources:
         token: 'anon'
 
   terraclimate:
-    description: TerraClimate is a dataset of monthly climate and climatic water balance for global terrestrial surfaces from 1958-2019.
     metadata:
-      url: http://www.climatologylab.org/terraclimate.html
-      tags: [climate, zarr]
+      title: TerraClimate (processed)
+      summary: Global climate and climaticwater balance data from 1958-2019.
+      description: |
+        TerraClimate is a dataset of monthly climate and climatic water balance for global
+        terrestrial surfaces from 1958-2019. All data have monthly temporal resolution and a
+        ~4-km (1/24th degree) spatial resolution. The data cover the period from 1958-2019.
+
+        These data have been processed to CarbonPlan's CONUS and Alaska study domains.
+      tags: [climate]
+      type: application/netcdf
+      license: Creative Commons Public Domain (CC0)
+      providers:
+        - name: Climatology Lab, University of California, Merced
+          description: Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.
+          url: http://www.climatologylab.org
     parameters:
       region:
         description: conus or ak
