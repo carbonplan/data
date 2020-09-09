@@ -1,45 +1,67 @@
 import { Badge, Box, Grid, Heading, Text, Link } from 'theme-ui'
+import { useState } from 'react'
 import Expander from './expander'
 import CodeBlock from './code-block'
 
 import theme from '../theme'
 
-const Source = ({ name, obj, catId }) => {
-  const expanded = true
+const Source = ({ name, obj, catId, index }) => {
+  const [expanded, setExpanded] = useState(false)
+
   const tags = obj.metadata.tags || []
   const code = `
 from intake import open_catalog
 cat = open_catalog("https://raw.githubusercontent.com/carbonplan/data/master/catalogs/${catId}.yaml")
 cat["${name}"].read()
 `
-
+  const toggle = () => {
+    setExpanded(!expanded)
+  }
   return (
     <Box
       sx={{
-        py: [3],
-        pr: [4],
-        top: '56px',
-        bg: 'background',
         borderStyle: 'solid',
         borderColor: 'muted',
         borderWidth: '0px',
-        borderBottomWidth: '1px',
-        borderTopWidth: '1px',
+        borderBottomWidth: '0px',
+        borderTopWidth: index == 0 ? '0px' : '1px',
         zIndex: 500,
       }}
     >
-      <Grid gap={['8px', '8px', '16px']} columns={[1, null, '1fr 300px']}>
-        <Heading>{obj.metadata.title}</Heading>
+      <Grid 
+        onClick={toggle} 
+        gap={['8px', '8px', '16px']} 
+        columns={['1fr 20px']}
+        sx={{
+          py: [3],
+          pr: [4],
+          cursor: 'pointer',
+          '&:hover > #expander' : {
+            fill: 'primary',
+            stroke: 'primary'
+          }
+        }}
+      >
+        <Box>
+          <Text sx={{ fontSize: [3, 3, 4] }}>{obj.metadata.title}</Text>
+        </Box>
+        <Expander sx={{ align: 'right' }}
+          toggle={toggle}
+          expanded={expanded}
+          id='expander'
+        />
+      </Grid>
+      {expanded && (
+        <Box sx={{ mb: [3], mt: ['-8px'] }}>
         <Box>
           {tags.map((tag) => (
             <Badge
               variant='primary'
               key={tag}
               sx={{
+                mr: ['12px'],
                 borderColor: theme.tags[tag],
                 color: theme.tags[tag],
-                mr: [2],
-                ml: [0, 0, 2],
               }}
             >
               {tag}
@@ -47,37 +69,54 @@ cat["${name}"].read()
           ))}
         </Box>
         <Box>
-          <Text sx={{ color: 'text', fontSize: [3] }}>
+          <Text sx={{ color: 'text', maxWidth: 'calc(100% - 50px)', fontSize: [3], my: [2] }}>
             {obj.metadata.summary}
           </Text>
-          <Text sx={{ color: 'secondary', fontSize: [1] }}>
+          <Text sx={{ color: 'secondary', maxWidth: 'calc(100% - 50px)', fontSize: [1], my: [3] }}>
             {obj.metadata.description}
           </Text>
         </Box>
-        <Expander sx={{ align: 'right' }} />
-      </Grid>
-      {expanded && (
         <Box>
-          <Text sx={{ my: [2, 2, 3] }}>
+          <Text sx={{ my: [3] }}>
             To load this catalog in Python using{' '}
             <Link href='https://intake.readthedocs.io/en/latest/'>Intake</Link>{' '}
             use:
           </Text>
           <CodeBlock code={code} language='python' />
         </Box>
+        <Box sx={{ py: [2] }}>
+        <Text sx={{ 
+          color: 'text', 
+          fontSize: [1], 
+          fontFamily: 'faux', 
+          letterSpacing: 'faux',
+          textTransform: 'uppercase' 
+        }}>
+          <Text sx={{ color: 'secondary', display: 'inline-block', mr: [2] }}>License</Text> 
+          {obj.metadata.license}
+        </Text>
+        <Text sx={{ 
+          color: 'text', 
+          fontSize: [1], 
+          fontFamily: 'faux', 
+          letterSpacing: 'faux',
+          textTransform: 'uppercase' 
+        }}>
+          <Text sx={{ color: 'secondary', display: 'inline-block', mr: [2] }}>Providers</Text> 
+        </Text>
+        <Text sx={{ 
+          color: 'text', 
+          fontSize: [1], 
+          fontFamily: 'faux', 
+          letterSpacing: 'faux',
+          textTransform: 'uppercase' 
+        }}>
+          <Text sx={{ color: 'secondary', display: 'inline-block', mr: [2] }}>Type</Text> 
+          {obj.metadata.license}
+        </Text>
+        </Box>
+        </Box>
       )}
-      <Box>
-        <Text sx={{ color: 'secondary', fontSize: [1] }}>
-          License: {obj.metadata.license}
-        </Text>
-        <Text sx={{ color: 'secondary', fontSize: [1] }}>
-          Providers: ...
-          {/* {obj.metadata.providers} */}
-        </Text>
-        <Text sx={{ color: 'secondary', fontSize: [1] }}>
-          Type: {obj.metadata.license}
-        </Text>
-      </Box>
     </Box>
   )
 }

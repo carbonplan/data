@@ -54,36 +54,12 @@ const Layout = ({
         >
           {children}
         </Box>
-        {!hideFooter && (
-          <Box
-            sx={{
-              width: '100%',
-              borderStyle: 'solid',
-              borderColor: 'muted',
-              borderWidth: '0px',
-              borderTopWidth: '1px',
-            }}
-          >
-            <Container
-              sx={{
-                px: [4],
-              }}
-            >
-              <Footer />
-            </Container>
-          </Box>
-        )}
         <Box
           sx={{
-            width: '100%',
-            position: 'sticky',
-            bottom: '0px',
             display: ['none', 'none', 'inherit'],
           }}
         >
-          <Box sx={{ px: [4], width: '100%' }}>
-            <Switch />
-          </Box>
+          <Switch />
         </Box>
       </Flex>
     </>

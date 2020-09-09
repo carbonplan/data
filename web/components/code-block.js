@@ -8,7 +8,10 @@ const CodeBlock = ({ code, language }) => {
   const { theme } = context
 
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Box sx={{ 
+      position: 'relative',
+      maxWidth: 'calc(100% - 50px)', 
+    }}>
       <CopyToClipboard text={code}>
         <IconButton
           aria-label='Copy code blck'
@@ -40,9 +43,7 @@ const CodeBlock = ({ code, language }) => {
           </svg>
         </IconButton>
       </CopyToClipboard>
-      <Box sx={{ 
-        maxWidth: '100%',
-      }}>
+      <Box>
         <Prism language={language} className={'language-' + language}>
           {code}
         </Prism>

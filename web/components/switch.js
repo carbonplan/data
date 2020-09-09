@@ -28,10 +28,12 @@ const Footer = (props) => {
   return (
     <Box
       sx={{
-        float: 'right',
+        position: 'absolute',
+        right: '32px',
+        bottom: '0px',
         transformOrigin: 'right',
         transform: 'rotate(90deg)',
-        paddingBottom: '10px',
+        paddingBottom: '9px',
         backgroundColor: 'background',
       }}
     >

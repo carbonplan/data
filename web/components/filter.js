@@ -38,21 +38,27 @@ const Filter = () => {
   return (
     <Box
       sx={{
-        py: [3],
-        position: 'sticky',
-        top: '55px',
-        bg: 'background',
         borderStyle: 'solid',
         borderColor: 'muted',
         borderWidth: '0px',
         borderBottomWidth: '1px',
         borderTopWidth: '1px',
-        zIndex: 500,
         display: ['none', 'none', 'block'],
       }}
     >
       <Box>
-        <Box sx={{ mb: [3] }}>
+        <Text sx={{ 
+          color: 'secondary', 
+          fontSize: [2],
+          py: [4],
+        }}>
+            This is a public catalog of datasets related to the study of carbon
+            removal opporunities and climate solutions. At CarbonPlan, we
+            maintain this data catalog for our own use and as a resource to the
+            rest of the research community.
+        </Text>
+        <Divider sx={{ my: [0] }}/>
+        <Box sx={{ my: [3] }}>
           <Grid columns={[2, null, '12px 1fr']}>
             <IconButton
               aria-label='Toggle Search'
@@ -82,7 +88,7 @@ const Filter = () => {
         </Grid>
       </Box>
       <Divider />
-      <Box sx={{ mt: [4], mb: [3] }}>
+      <Box sx={{ mt: [4], mb: [4] }}>
         <Text sx={{
           textTransform: 'uppercase',
           fontFamily: 'heading',
