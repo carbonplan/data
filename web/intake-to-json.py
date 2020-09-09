@@ -8,7 +8,7 @@ import yaml
 cwd = Path(__file__).parents[0]
 catalog_dir = cwd / "../catalogs"
 
-out_file = "data.json"
+out_file = "data.js"
 
 
 def main():
@@ -18,14 +18,12 @@ def main():
     data = {}
     for file in files:
         key = file.stem
-        print(key)
         with open(file, "r") as f:
             data[key] = yaml.safe_load(f.read())
 
     with open(out_file, "w") as f:
+        f.write("module.exports =")
         json.dump(data, f, indent=2)
-
-    print(data)
 
 
 if __name__ == "__main__":

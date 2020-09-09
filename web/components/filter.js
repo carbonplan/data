@@ -47,17 +47,19 @@ const Filter = () => {
       }}
     >
       <Box>
-        <Text sx={{ 
-          color: 'secondary', 
-          fontSize: [2],
-          py: [4],
-        }}>
-            This is a public catalog of datasets related to the study of carbon
-            removal opporunities and climate solutions. At CarbonPlan, we
-            maintain this data catalog for our own use and as a resource to the
-            rest of the research community.
+        <Text
+          sx={{
+            color: 'secondary',
+            fontSize: [2],
+            py: [4],
+          }}
+        >
+          This is a public catalog of datasets related to the study of carbon
+          removal opporunities and climate solutions. At CarbonPlan, we maintain
+          this data catalog for our own use and as a resource to the rest of the
+          research community.
         </Text>
-        <Divider sx={{ my: [0] }}/>
+        <Divider sx={{ my: [0] }} />
         <Box sx={{ my: [3] }}>
           <Grid columns={[2, null, '12px 1fr']}>
             <IconButton
@@ -70,7 +72,7 @@ const Filter = () => {
                 '&:hover': {
                   stroke: 'text',
                 },
-                mt: [1]
+                mt: [1],
               }}
             >
               <svg height='24px' width='24px' strokeWidth='2'>
@@ -85,34 +87,38 @@ const Filter = () => {
               // onChange={handleInputChange}
               // value={input}
             />
-        </Grid>
-      </Box>
-      <Divider />
-      <Box sx={{ mt: [4], mb: [4] }}>
-        <Text sx={{
-          textTransform: 'uppercase',
-          fontFamily: 'heading',
-          letterSpacing: 'wide',
-          mb: [3] 
-        }}>Filter by tag</Text>
-        {allTags.map((tag) => (
-          <Badge
-            key={tag}
-            variant='primary'
-            sx={getStyle(tag)}
-            onClick={() => addOrRemove(tag)}
+          </Grid>
+        </Box>
+        <Divider />
+        <Box sx={{ mt: [4], mb: [4] }}>
+          <Text
+            sx={{
+              textTransform: 'uppercase',
+              fontFamily: 'heading',
+              letterSpacing: 'wide',
+              mb: [3],
+            }}
           >
-            {tag}
+            Filter by tag
+          </Text>
+          {allTags.map((tag) => (
+            <Badge
+              key={tag}
+              variant='primary'
+              sx={getStyle(tag)}
+              onClick={() => addOrRemove(tag)}
+            >
+              {tag}
+            </Badge>
+          ))}
+          <Badge
+            variant='primary'
+            sx={getStyle('all')}
+            onClick={() => toggleAll()}
+          >
+            all
           </Badge>
-        ))}
-        <Badge
-          variant='primary'
-          sx={getStyle('all')}
-          onClick={() => toggleAll()}
-        >
-          all
-        </Badge>
-      </Box>
+        </Box>
       </Box>
     </Box>
   )

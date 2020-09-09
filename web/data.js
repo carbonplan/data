@@ -98,6 +98,153 @@ module.exports = {
       },
     },
   },
+  gridmet: {
+    plugins: {
+      source: [
+        {
+          module: 'intake_xarray',
+        },
+      ],
+    },
+    sources: {
+      raw_gridmet: {
+        metadata: {
+          title: 'gridMET (raw)',
+          summary:
+            'High-resolution surface meteorologicaldata covering the conus US from 1979-yesterday.',
+          description:
+            'gridMET is a dataset of daily high-spatial resolution (~4-km, 1/24th degree) surface\nmeteorological data covering the contiguous US from 1979-yesterday.\nThese data can provide important inputs for ecological, agricultural, and\nhydrological models. These data are updated daily.  gridMET is the preferred naming\nconvention for these data; however, the data are also known as cited as METDATA.\n\n# this is a markdown heading\n- and a list\n- goes here\n\nand a [link to carbonplan.org](https://carbonplan.org)\n',
+          tags: ['climate'],
+          type: 'application/netcdf',
+          license: 'Public Domain Mark 1.0',
+          providers: [
+            {
+              name: 'Climatology Lab, University of California, Merced',
+              description:
+                "Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.",
+              url: 'http://www.climatologylab.org',
+            },
+          ],
+        },
+        args: {
+          urlpath:
+            "http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc",
+          auth: null,
+          chunks: {
+            lat: 585,
+            lon: 1386,
+          },
+        },
+        driver: 'opendap',
+        parameters: {
+          variable: {
+            description: 'climate variable',
+            type: 'str',
+            default: 'pr',
+            allowed: [
+              'pr',
+              'tmmn',
+              'tmmx',
+              'rmax',
+              'rmin',
+              'sph',
+              'srad',
+              'th',
+              'vs',
+              'bi',
+              'fm100',
+              'fm1000',
+              'erc',
+              'pdsi',
+              'etr',
+              'pet',
+              'vpd',
+            ],
+          },
+          year: {
+            description: 'year',
+            type: 'int',
+            default: 2000,
+          },
+        },
+      },
+    },
+  },
+  maca: {
+    plugins: {
+      source: [
+        {
+          module: 'intake_xarray',
+        },
+      ],
+    },
+    sources: {
+      raw_maca: {
+        metadata: {
+          title: 'MACA (raw)',
+          summary:
+            'Historical and future climate projections derived from CMIP5 using the MACA statistical downscaling technique.',
+          description:
+            'Multivariate Adaptive Constructed Analogs (MACA) is a statistical method for downscaling\nGlobal Climate Models (GCMs) from their native coarse resolution to a higher spatial\nresolution that captures reflects observed patterns of daily near-surface meteorology and\nsimulated changes in GCMs experiments.\n',
+          tags: ['climate'],
+          type: 'application/netcdf',
+          license: 'Creative Commons CC0 1.0 Universal',
+          providers: [
+            {
+              name: 'Climatology Lab, University of California, Merced',
+              description:
+                "Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.",
+              url: 'http://www.climatologylab.org',
+            },
+          ],
+        },
+        args: {
+          urlpath:
+            'http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc',
+          auth: null,
+          chunks: {
+            lat: 585,
+            lon: 1386,
+          },
+        },
+        driver: 'opendap',
+        parameters: {
+          variable: {
+            description: 'climate variable',
+            type: 'str',
+            default: 'pr',
+            allowed: [
+              'huss',
+              'pr',
+              'rhsmin',
+              'rhsmax',
+              'rsds',
+              'tasmax',
+              'tasmin',
+              'uas',
+              'vas',
+              'vpd',
+            ],
+          },
+          gcm: {
+            description: 'climate model',
+            type: 'str',
+            default: 'IPSL-CM5A-LR',
+          },
+          scenario: {
+            description: 'climate scenario',
+            type: 'str',
+            default: 'historical_1950_2005',
+            allowed: [
+              'historical_1950_2005',
+              'rcp45_2006_2099',
+              'rcp85_2006_2099',
+            ],
+          },
+        },
+      },
+    },
+  },
   spawnetal2020: {
     plugins: {
       source: [
@@ -514,35 +661,7 @@ module.exports = {
       },
     },
   },
-  projects: {
-    sources: {
-      reports: {
-        metadata: {
-          title: "CarbonPlan Project's Database",
-          summary:
-            'Public database of carbon removal project proposals evaluated by CarbonPlan.',
-          description:
-            'This is a public database of reports on carbon removal project proposals. These reports\nreflect our independent analysis of public information.\n',
-          tags: ['carbon removal'],
-          type: 'text/csv',
-          license: 'Creative Commons Attribution 4.0 International',
-          providers: [
-            {
-              name: 'CarbonPlan',
-              description:
-                'CarbonPlan is a registered non-profit public benefit corporation working on\nthe science and data of carbon removal.\n',
-              url: 'https://carbonplan.org',
-            },
-          ],
-        },
-        driver: 'csv',
-        args: {
-          urlpath: 'https://api.carbonplan.org/projects.csv',
-        },
-      },
-    },
-  },
-  climate: {
+  terraclimate: {
     plugins: {
       source: [
         {
@@ -551,131 +670,6 @@ module.exports = {
       ],
     },
     sources: {
-      raw_gridmet: {
-        metadata: {
-          title: 'gridMET (raw)',
-          summary:
-            'High-resolution surface meteorologicaldata covering the conus US from 1979-yesterday.',
-          description:
-            'gridMET is a dataset of daily high-spatial resolution (~4-km, 1/24th degree) surface\nmeteorological data covering the contiguous US from 1979-yesterday. We have also\nextended these data to cover southern British Columbia in our real time products.\nThese data can provide important inputs for ecological, agricultural, and\nhydrological models. These data are updated daily.  gridMET is the preferred naming\nconvention for these data; however, the data are also known as cited as METDATA.\n',
-          tags: ['climate'],
-          type: 'application/netcdf',
-          license: 'Public Domain Mark 1.0',
-          providers: [
-            {
-              name: 'Climatology Lab, University of California, Merced',
-              description:
-                "Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.",
-              url: 'http://www.climatologylab.org',
-            },
-          ],
-        },
-        args: {
-          urlpath:
-            "http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc",
-          auth: null,
-          chunks: {
-            lat: 585,
-            lon: 1386,
-          },
-        },
-        driver: 'opendap',
-        parameters: {
-          variable: {
-            description: 'climate variable',
-            type: 'str',
-            default: 'pr',
-            allowed: [
-              'pr',
-              'tmmn',
-              'tmmx',
-              'rmax',
-              'rmin',
-              'sph',
-              'srad',
-              'th',
-              'vs',
-              'bi',
-              'fm100',
-              'fm1000',
-              'erc',
-              'pdsi',
-              'etr',
-              'pet',
-              'vpd',
-            ],
-          },
-          year: {
-            description: 'year',
-            type: 'int',
-            default: 2000,
-          },
-        },
-      },
-      raw_maca: {
-        metadata: {
-          title: 'MACA (raw)',
-          summary:
-            'Historical and future climate projections derived from CMIP5 using the MACA statistical downscaling technique.',
-          description:
-            'Multivariate Adaptive Constructed Analogs (MACA) is a statistical method for downscaling\nGlobal Climate Models (GCMs) from their native coarse resolution to a higher spatial\nresolution that captures reflects observed patterns of daily near-surface meteorology and\nsimulated changes in GCMs experiments.\n',
-          tags: ['climate'],
-          type: 'application/netcdf',
-          license: 'Creative Commons CC0 1.0 Universal',
-          providers: [
-            {
-              name: 'Climatology Lab, University of California, Merced',
-              description:
-                "Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.",
-              url: 'http://www.climatologylab.org',
-            },
-          ],
-        },
-        args: {
-          urlpath:
-            'http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc',
-          auth: null,
-          chunks: {
-            lat: 585,
-            lon: 1386,
-          },
-        },
-        driver: 'opendap',
-        parameters: {
-          variable: {
-            description: 'climate variable',
-            type: 'str',
-            default: 'pr',
-            allowed: [
-              'huss',
-              'pr',
-              'rhsmin',
-              'rhsmax',
-              'rsds',
-              'tasmax',
-              'tasmin',
-              'uas',
-              'vas',
-              'vpd',
-            ],
-          },
-          gcm: {
-            description: 'climate model',
-            type: 'str',
-            default: 'IPSL-CM5A-LR',
-          },
-          scenario: {
-            description: 'climate scenario',
-            type: 'str',
-            default: 'historical_1950_2005',
-            allowed: [
-              'historical_1950_2005',
-              'rcp45_2006_2099',
-              'rcp85_2006_2099',
-            ],
-          },
-        },
-      },
       raw_terraclimate: {
         metadata: {
           title: 'TerraClimate (raw)',
@@ -743,6 +737,34 @@ module.exports = {
           storage_options: {
             token: 'anon',
           },
+        },
+      },
+    },
+  },
+  projects: {
+    sources: {
+      reports: {
+        metadata: {
+          title: "CarbonPlan Project's Database",
+          summary:
+            'Public database of carbon removal project proposals evaluated by CarbonPlan.',
+          description:
+            'This is a public database of reports on carbon removal project proposals. These reports\nreflect our independent analysis of public information.\n',
+          tags: ['carbon removal'],
+          type: 'text/csv',
+          license: 'Creative Commons Attribution 4.0 International',
+          providers: [
+            {
+              name: 'CarbonPlan',
+              description:
+                'CarbonPlan is a registered non-profit public benefit corporation working on\nthe science and data of carbon removal.\n',
+              url: 'https://carbonplan.org',
+            },
+          ],
+        },
+        driver: 'csv',
+        args: {
+          urlpath: 'https://api.carbonplan.org/projects.csv',
         },
       },
     },
@@ -893,15 +915,40 @@ module.exports = {
   master: {
     description: 'CarbonPlan Master Data Catalog',
     sources: {
-      climate: {
-        name: 'Climate datasets',
-        description: 'Climate datasets',
+      gridmet: {
+        name: 'gridMET',
+        description:
+          'Gridded daily surface meteorological data covering the continental US',
         metadata: {
           tags: ['climate'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
-          path: '{{CATALOG_DIR}}/climate.yaml',
+          path: '{{CATALOG_DIR}}/gridmet.yaml',
+        },
+      },
+      terraclimate: {
+        name: 'TerraClimate',
+        description:
+          'Global gridded monthly climate and hydroclimate data from 1958-present.',
+        metadata: {
+          tags: ['climate'],
+        },
+        driver: 'intake.catalog.local.YAMLFileCatalog',
+        args: {
+          path: '{{CATALOG_DIR}}/terraclimate.yaml',
+        },
+      },
+      maca: {
+        name: 'MACA',
+        description:
+          'Statistically downscaled climate data using the MACA method.',
+        metadata: {
+          tags: ['climate'],
+        },
+        driver: 'intake.catalog.local.YAMLFileCatalog',
+        args: {
+          path: '{{CATALOG_DIR}}/maca.yaml',
         },
       },
       fia: {

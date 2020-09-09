@@ -1,6 +1,5 @@
 import Seo from './seo'
 import Header from './header'
-import Footer from './footer'
 import Switch from './switch'
 import { Container, Flex, Box } from 'theme-ui'
 

@@ -1,0 +1,65 @@
+plugins:
+  source:
+    - module: intake_xarray
+
+sources:
+  raw_gridmet:
+    metadata:
+      title: gridMET (raw)
+      summary: High-resolution surface meteorologicaldata covering the conus US from 1979-yesterday.
+      description: |
+        gridMET is a dataset of daily high-spatial resolution (~4-km, 1/24th degree) surface
+        meteorological data covering the contiguous US from 1979-yesterday.
+        These data can provide important inputs for ecological, agricultural, and
+        hydrological models. These data are updated daily.  gridMET is the preferred naming
+        convention for these data; however, the data are also known as cited as METDATA.
+
+        # this is a markdown heading
+        - and a list
+        - goes here
+
+        and a [link to carbonplan.org](https://carbonplan.org)
+
+      tags: [climate]
+      type: application/netcdf
+      license: Public Domain Mark 1.0
+      providers:
+        - name: Climatology Lab, University of California, Merced
+          description: Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.
+          url: http://www.climatologylab.org
+    args:
+      urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc
+      auth: null
+      chunks:
+        lat: 585
+        lon: 1386
+    driver: opendap
+    parameters:
+      variable:
+        description: climate variable
+        type: str
+        default: pr
+        allowed:
+          [
+            'pr',
+            'tmmn',
+            'tmmx',
+            'rmax',
+            'rmin',
+            'sph',
+            'srad',
+            'th',
+            'vs',
+            'bi',
+            'fm100',
+            'fm1000',
+            'erc',
+            'pdsi',
+            'etr',
+            'pet',
+            'vpd',
+          ]
+      year:
+        description: year
+        type: int
+        default: 2000

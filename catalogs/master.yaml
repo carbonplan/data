@@ -1,13 +1,31 @@
 description: 'CarbonPlan Master Data Catalog'
 sources:
-  climate:
-    name: 'Climate datasets'
-    description: 'Climate datasets'
+  gridmet:
+    name: 'gridMET'
+    description: 'Gridded daily surface meteorological data covering the continental US'
     metadata:
       tags: [climate]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: '{{CATALOG_DIR}}/climate.yaml'
+      path: '{{CATALOG_DIR}}/gridmet.yaml'
+
+  terraclimate:
+    name: 'TerraClimate'
+    description: 'Global gridded monthly climate and hydroclimate data from 1958-present.'
+    metadata:
+      tags: [climate]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/terraclimate.yaml'
+
+  maca:
+    name: 'MACA'
+    description: 'Statistically downscaled climate data using the MACA method.'
+    metadata:
+      tags: [climate]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/maca.yaml'
 
   fia:
     name: 'Forest Inventory Analysis (FIA)'

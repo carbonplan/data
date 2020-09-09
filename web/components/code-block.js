@@ -8,10 +8,12 @@ const CodeBlock = ({ code, language }) => {
   const { theme } = context
 
   return (
-    <Box sx={{ 
-      position: 'relative',
-      maxWidth: 'calc(100% - 50px)', 
-    }}>
+    <Box
+      sx={{
+        position: 'relative',
+        maxWidth: 'calc(100% - 50px)',
+      }}
+    >
       <CopyToClipboard text={code}>
         <IconButton
           aria-label='Copy code blck'

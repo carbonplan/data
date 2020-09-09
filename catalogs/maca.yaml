@@ -1,0 +1,56 @@
+plugins:
+  source:
+    - module: intake_xarray
+
+sources:
+  raw_maca:
+    metadata:
+      title: MACA (raw)
+      summary: Historical and future climate projections derived from CMIP5 using the MACA statistical downscaling technique.
+      description: |
+        Multivariate Adaptive Constructed Analogs (MACA) is a statistical method for downscaling
+        Global Climate Models (GCMs) from their native coarse resolution to a higher spatial
+        resolution that captures reflects observed patterns of daily near-surface meteorology and
+        simulated changes in GCMs experiments.
+      tags: [climate]
+      type: application/netcdf
+      license: Creative Commons CC0 1.0 Universal
+      providers:
+        - name: Climatology Lab, University of California, Merced
+          description: Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.
+          url: http://www.climatologylab.org
+    args:
+      urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc
+      auth: null
+      chunks:
+        lat: 585
+        lon: 1386
+    driver: opendap
+    parameters:
+      variable:
+        description: climate variable
+        type: str
+        default: pr
+        allowed:
+          [
+            'huss',
+            'pr',
+            'rhsmin',
+            'rhsmax',
+            'rsds',
+            'tasmax',
+            'tasmin',
+            'uas',
+            'vas',
+            'vpd',
+          ]
+      gcm:
+        description: climate model
+        type: str
+        default: IPSL-CM5A-LR
+        # allowed: TODO: add list of defaults
+      scenario:
+        description: climate scenario
+        type: str
+        default: historical_1950_2005
+        allowed: ['historical_1950_2005', 'rcp45_2006_2099', 'rcp85_2006_2099']
