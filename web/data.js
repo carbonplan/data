@@ -849,8 +849,8 @@ module.exports = {
           resolution: {
             description: 'Pixel resolution in meters',
             type: 'str',
-            default: '4000',
-            allowed: ['4000'],
+            default: '4000m',
+            allowed: ['4000m'],
           },
         },
         driver: 'zarr',
