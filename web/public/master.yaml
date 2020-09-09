@@ -1,0 +1,100 @@
+description: 'CarbonPlan Master Data Catalog'
+sources:
+  gridmet:
+    name: 'gridMET'
+    description: 'Gridded daily surface meteorological data covering the continental US'
+    metadata:
+      tags: [climate]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/gridmet.yaml'
+
+  terraclimate:
+    name: 'TerraClimate'
+    description: 'Global gridded monthly climate and hydroclimate data from 1958-present.'
+    metadata:
+      tags: [climate]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/terraclimate.yaml'
+
+  maca:
+    name: 'MACA'
+    description: 'Statistically downscaled climate data using the MACA method.'
+    metadata:
+      tags: [climate]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/maca.yaml'
+
+  fia:
+    name: 'Forest Inventory Analysis (FIA)'
+    description: 'Catalog for data from Forest Inventory Analysis (FIA) database'
+    metadata:
+      tags: [forests, carbon]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/fia.yaml'
+
+  fluxnet:
+    name: 'FLUXNET'
+    description: 'Catalog for data from the FLUXNET dataset'
+    metadata:
+      tags: [climate, carbon]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/fluxnet.yaml'
+
+  gcp:
+    name: 'Global Carbon Project (GCP)'
+    description: 'Catalog for data from the Global Carbon Project'
+    metadata:
+      tags: [carbon, emissions]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/gcp.yaml'
+
+  mtbs:
+    name: 'Monitoring Trends in Burn Severity (MTBS)'
+    description: 'Catalog for data from the Monitoring Trends in Burn Severity (MTBS) dataset'
+    metadata:
+      tags: [fire, forests]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/mtbs.yaml'
+
+  nftd:
+    name: 'National Forest Type Database (NFTD)'
+    description: 'Catalog for data from the National Forest Type Database (NFTD)'
+    metadata:
+      tags: [forests, carbon]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/nftd.yaml'
+
+  nlcd:
+    name: 'National Land Cover Database (NLCD)'
+    description: 'Catalog for data from the National Land Cover Database (NLCD)'
+    metadata:
+      tags: [forests, carbon]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/nlcd.yaml'
+
+  projects:
+    name: 'CarbonPlan Project Reports'
+    description: 'CarbonPlan Projects Dataset Catalog'
+    metadata:
+      tags: [projects, carbon]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/projects.yaml'
+
+  spawnetal2020:
+    name: 'Global Above- and Belowground Biomass'
+    description: 'Catalog for data from Global Aboveground and Belowground Biomass Carbon Density Maps for the Year 2010 from Spawn et al (2020)'
+    metadata:
+      tags: [forests, biomass]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/nlcd.yaml'
