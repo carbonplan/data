@@ -18,7 +18,7 @@ cat["${name}"].read()
 
   const mdLink = ({ href, children }) => {
     return (
-      <Link sx={{ color: 'secondary' }} href={href}>
+      <Link sx={{ color: 'secondary' }} href={href} target='_blank'>
         {children}
       </Link>
     )
@@ -96,10 +96,12 @@ cat["${name}"].read()
               {description}
             </Text>
           </Box>
-          <Box sx={{
-            position: 'relative',
-            maxWidth: 'calc(100% - 50px)',
-          }}>
+          <Box
+            sx={{
+              position: 'relative',
+              maxWidth: 'calc(100% - 50px)',
+            }}
+          >
             <CodeBlock code={code} language='python' />
           </Box>
           <Box sx={{ py: [2] }}>
