@@ -6,7 +6,7 @@ import unified from 'unified'
 import parse from 'remark-parse'
 import remarkReact from 'remark-react'
 
-const toDaskDrivers = ['xarray', 'zarr', 'rasterio', 'parquet']
+const toDaskDrivers = ['xarray', 'zarr', 'rasterio', 'parquet', 'opendap']
 const readDrivers = ['shapefile']
 
 const formatArg = (obj) => {
