@@ -18,6 +18,7 @@ sources:
         gaps of micrometeorological variable records, among others (see the data processing
         pipeline page for details).
       tags: [carbon cycle]
+      type: application/parquet
       license: Creative Commons Attribution 4.0 International
       providers:
         - name: FLUXNET
@@ -57,6 +58,7 @@ sources:
         gaps of micrometeorological variable records, among others (see the data processing
         pipeline page for details).
       tags: [carbon cycle]
+      type: application/parquet
       license: Creative Commons Attribution 4.0 International
       providers:
         - name: FLUXNET

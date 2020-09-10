@@ -417,7 +417,7 @@ module.exports = {
           summary:
             'Timeseries of the global carbon budget and carbon emissions.',
           description:
-            'The annually updated Global Carbon Budget produced by the Global Carbon Project.\nAll datasets and modeling output to complete the Global Carbon Budget 2019 are\ndescribed in detail in Friedlingstein et al. (2019)\nhttps://doi.org/10.5194/essd-11-1783-2019.\n',
+            'The annually updated Global Carbon Budget produced by the Global Carbon Project.\nAll datasets and modeling output to complete the Global Carbon Budget 2019 are\ndescribed in detail in\n[Friedlingstein et al. (2019)](https://doi.org/10.5194/essd-11-1783-2019).\n',
           tags: ['carbon cycle'],
           type: 'application/parquet',
           license:
@@ -581,6 +581,7 @@ module.exports = {
           description:
             'The preparation of this FLUXNET Dataset has been possible thanks only to the efforts of\nmany scientists and technicians around the world and the coordination among teams from\nregional networks. The previous versions of FLUXNET Dataset releases are the FLUXNET\nMarconi Dataset (2000) and the FLUXNET LaThuile Dataset (2007). The FLUXNET2015 Dataset\nincludes several improvements to the data quality control protocols and the data\nprocessing pipeline. Examples include close interaction with tower teams to improve data\nquality, new methods for uncertainty quantification, use of reanalysis data to fill long\ngaps of micrometeorological variable records, among others (see the data processing\npipeline page for details).\n',
           tags: ['carbon cycle'],
+          type: 'application/parquet',
           license: 'Creative Commons Attribution 4.0 International',
           providers: [
             {
@@ -624,6 +625,7 @@ module.exports = {
           description:
             'The preparation of this FLUXNET Dataset has been possible thanks only to the efforts of\nmany scientists and technicians around the world and the coordination among teams from\nregional networks. The previous versions of FLUXNET Dataset releases are the FLUXNET\nMarconi Dataset (2000) and the FLUXNET LaThuile Dataset (2007). The FLUXNET2015 Dataset\nincludes several improvements to the data quality control protocols and the data\nprocessing pipeline. Examples include close interaction with tower teams to improve data\nquality, new methods for uncertainty quantification, use of reanalysis data to fill long\ngaps of micrometeorological variable records, among others (see the data processing\npipeline page for details).\n',
           tags: ['carbon cycle'],
+          type: 'application/parquet',
           license: 'Creative Commons Attribution 4.0 International',
           providers: [
             {
