@@ -40,7 +40,7 @@ function Index() {
           </Heading>
         </Box>
         <Grid
-          columns={[1, null, '200px 300px 1fr']}
+          columns={[1, null, '200px 270px 1fr']}
           gap={[0, null, 5]}
           sx={{
             height: 'calc(100vh - 200px)',

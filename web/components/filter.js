@@ -69,7 +69,7 @@ const Filter = ({ state }) => {
           sx={{
             color: 'secondary',
             fontSize: [2],
-            py: [4],
+            py: [3],
           }}
         >
           This is a public catalog of datasets related to the study of carbon
@@ -78,7 +78,7 @@ const Filter = ({ state }) => {
           research community.
         </Text>
         <Divider sx={{ my: [0] }} />
-        <Box sx={{ my: [3] }}>
+        <Box sx={{ my: [2] }}>
           <Grid columns={[2, null, '12px 1fr']}>
             <IconButton
               aria-label='Toggle Search'
@@ -108,7 +108,7 @@ const Filter = ({ state }) => {
           </Grid>
         </Box>
         <Divider />
-        <Box sx={{ mt: [4], mb: [4] }}>
+        <Box sx={{ mt: [3], mb: [3] }}>
           <Text
             sx={{
               textTransform: 'uppercase',

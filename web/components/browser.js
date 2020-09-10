@@ -22,7 +22,7 @@ const Browser = ({ visibility, catalog, setCatalog }) => {
           height: 'fit-content',
         }}
       >
-        <br />
+        No results found
       </Box>
     )
   }
@@ -34,7 +34,7 @@ const Browser = ({ visibility, catalog, setCatalog }) => {
         borderStyle: 'solid',
         borderColor: 'muted',
         borderWidth: '0px',
-        borderBottomWidth: '1px',
+        borderBottomWidth: '0px',
         borderTopWidth: '1px',
       }}
     >
@@ -46,6 +46,7 @@ const Browser = ({ visibility, catalog, setCatalog }) => {
             borderColor: 'muted',
             borderWidth: '0px',
             borderTopWidth: i == 0 ? '0px' : '1px',
+            borderBottomWidth: i == n - 1 ? '1px' : '0px',
             cursor: 'pointer',
             '&:hover > #grid > #container1 > #name': {
               color: 'text',

@@ -50,7 +50,7 @@ const Catalog = ({ visibility, id }) => {
           height: 'fit-content',
         }}
       >
-        Update your search to browse the data catalog
+        Select a source to the left to browse a catalog
       </Box>
     )
   }

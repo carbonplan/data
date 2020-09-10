@@ -68,7 +68,7 @@ export default {
         opacity: '.7',
       },
       '.property,.tag,.boolean,.number,.constant,.symbol': {
-        color: 'blue',
+        color: 'grey',
       },
       '.selector,.attr-name,.string,.char,.builtin,.inserted': {
         color: 'secondary',

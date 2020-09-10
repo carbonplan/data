@@ -146,7 +146,6 @@ ${openLine}
           <Box
             sx={{
               position: 'relative',
-              maxWidth: 'calc(100% - 50px)',
             }}
           >
             <CodeBlock code={code} language='python' />
