@@ -1,4 +1,5 @@
-import { Flex, Box, Grid, Text, Heading } from 'theme-ui'
+import { Flex, Box, Grid, Badge, Text, Heading } from 'theme-ui'
+import theme from '../theme'
 import data from '../data'
 
 const Browser = ({ catalog, setCatalog }) => {
@@ -25,7 +26,6 @@ const Browser = ({ catalog, setCatalog }) => {
             borderColor: 'muted',
             borderWidth: '0px',
             borderTopWidth: i == 0 ? '0px' : '1px',
-            zIndex: 500,
             cursor: 'pointer',
             '&:hover > #grid > #container1 > #name': {
               color: 'text',
@@ -54,6 +54,21 @@ const Browser = ({ catalog, setCatalog }) => {
                 }}
               >
                 {sources[c].name}
+                <Box>
+                  {sources[c].metadata.tags.map((tag) => (
+                    <Badge
+                      variant='primary'
+                      key={tag}
+                      sx={{
+                        borderColor: theme.tags[tag],
+                        color: theme.tags[tag],
+                        mr: [2],
+                      }}
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
+                </Box>
               </Text>
             </Flex>
             <Flex

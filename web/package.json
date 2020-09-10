@@ -8,9 +8,7 @@
     "dev": "NODE_ENV=development next -p 5000",
     "build": "next build",
     "start": "next start -p 5000",
-    "format": "npm run format-js && npm run format-md",
-    "format-js": "prettier --write '{components,lib,pages}/**/*.js'",
-    "format-md": "prettier --write README.md 'methods/**/*.md' --parser mdx"
+    "format": "prettier --write '{components,lib,pages}/**/*.js'"
   },
   "repository": {
     "type": "git",

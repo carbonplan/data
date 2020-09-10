@@ -20,9 +20,11 @@ cat["${name}"].read()
 
   const description = unified()
     .use(parse)
-    .use(remarkReact, {remarkReactComponents: {
-      a: Link,
-    }})
+    .use(remarkReact, {
+      remarkReactComponents: {
+        a: Link,
+      },
+    })
     .processSync(obj.metadata.description).result
 
   const toggle = () => {
@@ -66,21 +68,6 @@ cat["${name}"].read()
       {expanded && (
         <Box sx={{ mb: [3], mt: ['-8px'] }}>
           <Box>
-            {tags.map((tag) => (
-              <Badge
-                variant='primary'
-                key={tag}
-                sx={{
-                  mr: ['12px'],
-                  borderColor: theme.tags[tag],
-                  color: theme.tags[tag],
-                }}
-              >
-                {tag}
-              </Badge>
-            ))}
-          </Box>
-          <Box>
             <Text
               sx={{
                 color: 'text',
@@ -103,13 +90,6 @@ cat["${name}"].read()
             </Text>
           </Box>
           <Box>
-            <Text sx={{ my: [3] }}>
-              To load this catalog in Python using{' '}
-              <Link href='https://intake.readthedocs.io/en/latest/'>
-                Intake
-              </Link>{' '}
-              use:
-            </Text>
             <CodeBlock code={code} language='python' />
           </Box>
           <Box sx={{ py: [2] }}>
@@ -117,47 +97,56 @@ cat["${name}"].read()
               sx={{
                 color: 'text',
                 fontSize: [1],
-                fontFamily: 'faux',
-                letterSpacing: 'faux',
-                textTransform: 'uppercase',
+                mb: [2],
               }}
             >
-              <Text
-                sx={{ color: 'secondary', display: 'inline-block', mr: [2] }}
-              >
-                License
-              </Text>
+              <Text sx={{ color: 'secondary' }}>License</Text>
               {obj.metadata.license}
             </Text>
+            <Box
+              sx={{
+                color: 'text',
+                fontSize: [1],
+                mb: [2],
+              }}
+            >
+              <Text sx={{ color: 'secondary' }}>Provider</Text>
+              <Text>
+                <Link
+                  sx={{
+                    lineHeight: [0],
+                    textDecoration: 'none',
+                    '&:hover': {
+                      color: 'secondary',
+                    },
+                    '&:hover > #arrow': {
+                      color: 'secondary',
+                    },
+                  }}
+                  href={obj.metadata.providers[0].url}
+                >
+                  {obj.metadata.providers[0].name}
+                  <Text
+                    sx={{
+                      display: 'inline-block',
+                      fontSize: [4],
+                      position: 'relative',
+                      top: '4px',
+                      ml: [2],
+                    }}
+                  >
+                    ↗
+                  </Text>
+                </Link>
+              </Text>
+            </Box>
             <Text
               sx={{
                 color: 'text',
                 fontSize: [1],
-                fontFamily: 'faux',
-                letterSpacing: 'faux',
-                textTransform: 'uppercase',
               }}
             >
-              <Text
-                sx={{ color: 'secondary', display: 'inline-block', mr: [2] }}
-              >
-                Providers
-              </Text>
-            </Text>
-            <Text
-              sx={{
-                color: 'text',
-                fontSize: [1],
-                fontFamily: 'faux',
-                letterSpacing: 'faux',
-                textTransform: 'uppercase',
-              }}
-            >
-              <Text
-                sx={{ color: 'secondary', display: 'inline-block', mr: [2] }}
-              >
-                Type
-              </Text>
+              <Text sx={{ color: 'secondary' }}>Type</Text>
               {obj.metadata.type}
             </Text>
           </Box>

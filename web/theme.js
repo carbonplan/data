@@ -77,7 +77,7 @@ export default {
         color: 'primary',
       },
       '.atrule,.attr-value,.keyword': {
-        color: 'red',
+        color: 'grey',
       },
       // '.regex,.important': {
       //   color: '#e90',
@@ -92,7 +92,7 @@ export default {
         cursor: 'help',
       },
       '.deleted': {
-        color: 'red',
+        color: 'grey',
       },
       // '.highlight': {
       //   background: 'grey',
