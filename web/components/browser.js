@@ -20,6 +20,7 @@ const Browser = ({ visibility, catalog, setCatalog }) => {
           borderTopWidth: '1px',
           zIndex: 500,
           height: 'fit-content',
+          fontSize: [3, 3, 4],
         }}
       >
         No results found

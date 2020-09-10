@@ -1,7 +1,7 @@
-/** @jsx jsx */
 import { jsx, useThemeUI, Box, IconButton } from 'theme-ui'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Prism from '@theme-ui/prism'
+import { alpha } from '@theme-ui/color'
 
 const CodeBlock = ({ code, language }) => {
   const context = useThemeUI()
@@ -40,10 +40,20 @@ const CodeBlock = ({ code, language }) => {
           </svg>
         </IconButton>
       </CopyToClipboard>
-      <Box>
+      <Box sx={{
+        backgroundColor: alpha('muted', 0.2),
+        px: [3],
+        py: [3],
+        pr: [5],
+        my: [2],
+      }}>
+        <Box sx={{
+          overflowX: 'scroll',
+        }}>
         <Prism language={language} className={'language-' + language}>
           {code}
         </Prism>
+        </Box>
       </Box>
     </>
   )

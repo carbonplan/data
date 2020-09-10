@@ -49,15 +49,11 @@ export default {
   styles: {
     ...base.styles,
     pre: {
-      px: [3],
-      py: [3],
+      margin: [0],
       fontFamily: 'monospace',
       color: 'primary',
       fontSize: [1],
-      backgroundColor: alpha('muted', 0.2),
       borderRadius: '2px',
-      whiteSpace: 'pre-wrap',
-      wordBreak: 'break-all',
       '.comment,.prolog,.doctype,.cdata': {
         color: 'secondary',
       },

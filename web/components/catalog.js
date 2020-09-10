@@ -21,9 +21,10 @@ const Catalog = ({ visibility, id }) => {
           borderTopWidth: '1px',
           zIndex: 500,
           height: 'fit-content',
+          fontSize: [3, 3, 4],
         }}
       >
-        Select a source to the left to browse a catalog
+        Select a source to the left to browse
       </Box>
     )
   }
@@ -48,9 +49,10 @@ const Catalog = ({ visibility, id }) => {
           borderTopWidth: '1px',
           zIndex: 500,
           height: 'fit-content',
+          fontSize: [3, 3, 4],
         }}
       >
-        Select a source to the left to browse a catalog
+        Select a source to the left to browse
       </Box>
     )
   }
