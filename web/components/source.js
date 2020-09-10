@@ -6,8 +6,6 @@ import unified from 'unified'
 import parse from 'remark-parse'
 import remarkReact from 'remark-react'
 
-import theme from '../theme'
-
 const Source = ({ name, obj, catId, index }) => {
   const [expanded, setExpanded] = useState(false)
 
@@ -18,11 +16,19 @@ cat = open_catalog("https://data.carbonplan.org/api/intake/${catId}.yaml")
 cat["${name}"].read()
 `
 
+  const mdLink = ({ href, children }) => {
+    return (
+      <Link sx={{ color: 'secondary' }} href={href}>
+        {children}
+      </Link>
+    )
+  }
+
   const description = unified()
     .use(parse)
     .use(remarkReact, {
       remarkReactComponents: {
-        a: Link,
+        a: mdLink,
       },
     })
     .processSync(obj.metadata.description).result
