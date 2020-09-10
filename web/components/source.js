@@ -4,7 +4,7 @@ import Expander from './expander'
 import CodeBlock from './code-block'
 import unified from 'unified'
 import parse from 'remark-parse'
-import remark2react from 'remark-react'
+import remarkReact from 'remark-react'
 
 import theme from '../theme'
 
@@ -20,7 +20,9 @@ cat["${name}"].read()
 
   const description = unified()
     .use(parse)
-    .use(remark2react)
+    .use(remarkReact, {remarkReactComponents: {
+      a: Link,
+    }})
     .processSync(obj.metadata.description).result
 
   const toggle = () => {
