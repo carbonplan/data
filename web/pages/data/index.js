@@ -1,12 +1,29 @@
-import { Box, Grid, Text, Heading, Container } from 'theme-ui'
+import { Box, Grid, Heading, Container } from 'theme-ui'
 import { useState } from 'react'
 import Layout from '../../components/layout'
 import Browser from '../../components/browser'
 import Catalog from '../../components/catalog'
 import Filter from '../../components/filter'
+import searchWithTags from '../../utils/search'
 
 function Index() {
   const [catalog, setCatalog] = useState(null)
+
+  const state = {
+    search: useState(''),
+    tags: {
+      climate: useState(true),
+      'carbon cycle': useState(true),
+      forests: useState(true),
+      fire: useState(true),
+      projects: useState(true),
+      biomass: useState(true),
+    },
+  }
+
+  const activeTags = Object.keys(state.tags).filter((tag) => state.tags[tag][0])
+
+  const visibility = searchWithTags(state.search[0], activeTags)
 
   return (
     <Layout hideFooter={true}>
@@ -24,10 +41,14 @@ function Index() {
           }}
         >
           <Box>
-            <Filter />
+            <Filter state={state} />
           </Box>
-          <Browser catalog={catalog} setCatalog={setCatalog} />
-          <Catalog id={catalog} />
+          <Browser
+            visibility={visibility}
+            catalog={catalog}
+            setCatalog={setCatalog}
+          />
+          <Catalog visibility={visibility} id={catalog} />
         </Grid>
       </Container>
     </Layout>

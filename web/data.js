@@ -113,7 +113,7 @@ module.exports = {
           summary:
             'High-resolution surface meteorologicaldata covering the conus US from 1979-yesterday.',
           description:
-            'gridMET is a dataset of daily high-spatial resolution (~4-km, 1/24th degree) surface\nmeteorological data covering the contiguous US from 1979-yesterday.\nThese data can provide important inputs for ecological, agricultural, and\nhydrological models. These data are updated daily.  gridMET is the preferred naming\nconvention for these data; however, the data are also known as cited as METDATA.\n\n# this is a markdown heading\n- and a list\n- goes here\n\nand a [link to carbonplan.org](https://carbonplan.org)\n',
+            'gridMET is a dataset of daily high-spatial resolution (~4-km, 1/24th degree) surface\nmeteorological data covering the contiguous US from 1979-yesterday.\nThese data can provide important inputs for ecological, agricultural, and\nhydrological models. These data are updated daily.  gridMET is the preferred naming\nconvention for these data; however, the data are also known as cited as METDATA.\n',
           tags: ['climate'],
           type: 'application/netcdf',
           license: 'Public Domain Mark 1.0',
@@ -678,7 +678,7 @@ module.exports = {
           description:
             'TerraClimate is a dataset of monthly climate and climatic water balance for global\nterrestrial surfaces from 1958-2019. These data provide important inputs for ecological\nand hydrological studies at global scales that require high spatial resolution and\ntime-varying data. All data have monthly temporal resolution and a ~4-km (1/24th degree)\nspatial resolution. The data cover the period from 1958-2019.\n',
           tags: ['climate'],
-          type: 'application/zarr',
+          type: 'application/netcdf',
           license: 'Creative Commons Public Domain (CC0)',
           providers: [
             {
@@ -705,7 +705,7 @@ module.exports = {
           description:
             "TerraClimate is a dataset of monthly climate and climatic water balance for global\nterrestrial surfaces from 1958-2019. All data have monthly temporal resolution and a\n~4-km (1/24th degree) spatial resolution. The data cover the period from 1958-2019.\n\nThese data have been processed to CarbonPlan's CONUS and Alaska study domains.\n",
           tags: ['climate'],
-          type: 'application/netcdf',
+          type: 'application/zarr',
           license: 'Creative Commons Public Domain (CC0)',
           providers: [
             {
@@ -956,7 +956,7 @@ module.exports = {
         description:
           'Catalog for data from Forest Inventory Analysis (FIA) database',
         metadata: {
-          tags: ['forests', 'carbon'],
+          tags: ['forests', 'carbon cycle'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -967,7 +967,7 @@ module.exports = {
         name: 'FLUXNET',
         description: 'Catalog for data from the FLUXNET dataset',
         metadata: {
-          tags: ['climate', 'carbon'],
+          tags: ['climate', 'carbon cycle'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -978,7 +978,7 @@ module.exports = {
         name: 'Global Carbon Project (GCP)',
         description: 'Catalog for data from the Global Carbon Project',
         metadata: {
-          tags: ['carbon', 'emissions'],
+          tags: ['carbon cycle', 'emissions'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -1002,7 +1002,7 @@ module.exports = {
         description:
           'Catalog for data from the National Forest Type Database (NFTD)',
         metadata: {
-          tags: ['forests', 'carbon'],
+          tags: ['forests', 'carbon cycle'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -1014,7 +1014,7 @@ module.exports = {
         description:
           'Catalog for data from the National Land Cover Database (NLCD)',
         metadata: {
-          tags: ['forests', 'carbon'],
+          tags: ['forests', 'carbon cycle'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -1025,7 +1025,7 @@ module.exports = {
         name: 'CarbonPlan Project Reports',
         description: 'CarbonPlan Projects Dataset Catalog',
         metadata: {
-          tags: ['projects', 'carbon'],
+          tags: ['projects', 'carbon cycle'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
