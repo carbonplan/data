@@ -4,7 +4,11 @@ import Source from './source'
 import data from '../data'
 
 const Catalog = ({ visibility, id }) => {
-  if (!id) {
+  const anyCatalogs = Object.keys(visibility).some(
+    (key) => visibility[key].show
+  )
+
+  if (anyCatalogs && !id) {
     return (
       <Box
         sx={{
@@ -24,9 +28,32 @@ const Catalog = ({ visibility, id }) => {
     )
   }
 
-  const sources = Object.keys(data[id].sources).filter(
-    (e) => visibility[id].sources[e].show
-  )
+  var sources = []
+  if (anyCatalogs) {
+    sources = Object.keys(data[id].sources).filter(
+      (e) => visibility[id].sources[e].show
+    )
+  }
+
+  if (sources.length == 0) {
+    return (
+      <Box
+        sx={{
+          py: [3],
+          bg: 'background',
+          borderStyle: 'solid',
+          borderColor: 'muted',
+          borderWidth: '0px',
+          borderBottomWidth: '1px',
+          borderTopWidth: '1px',
+          zIndex: 500,
+          height: 'fit-content',
+        }}
+      >
+        Update your search to browse the data catalog
+      </Box>
+    )
+  }
 
   return (
     <Box

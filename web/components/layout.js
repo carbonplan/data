@@ -3,13 +3,7 @@ import Header from './header'
 import Switch from './switch'
 import { Container, Flex, Box } from 'theme-ui'
 
-const Layout = ({
-  hideFooter,
-  shareCard,
-  shareDescription,
-  shareTitle,
-  children,
-}) => {
+const Layout = ({ shareCard, shareDescription, shareTitle, children }) => {
   return (
     <>
       <Seo

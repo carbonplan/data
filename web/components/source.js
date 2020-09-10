@@ -1,4 +1,4 @@
-import { Badge, Box, Grid, Heading, Text, Link } from 'theme-ui'
+import { Box, Grid, Text, Link } from 'theme-ui'
 import { useState } from 'react'
 import Expander from './expander'
 import CodeBlock from './code-block'
@@ -6,26 +6,66 @@ import unified from 'unified'
 import parse from 'remark-parse'
 import remarkReact from 'remark-react'
 
+const toDaskDrivers = ['xarray', 'zarr', 'rasterio', 'parquet']
+const readDrivers = ['shapefile']
+
+const formatArg = (obj) => {
+  var arg
+  if (obj.type.includes('str')) {
+    arg = `"${obj.default}"`
+  } else {
+    arg = `${obj.default}`
+  }
+  return arg
+}
+
 const Source = ({ name, obj, catId, index }) => {
   const [expanded, setExpanded] = useState(false)
 
-  const tags = obj.metadata.tags || []
+  var arg
+  var args = ''
+  if (obj.parameters) {
+    args += '('
+    var argNum = 0
+    for (const [key, val] of Object.entries(obj.parameters)) {
+      arg = formatArg(val)
+      if (argNum > 0) {
+        args += ', '
+      }
+      args += `${key}=${arg}`
+      argNum += 1
+    }
+    args += ')'
+  }
+
+  var openLine
+  if (toDaskDrivers.includes(obj.driver)) {
+    openLine = `cat["${name}"]${args}.to_dask()`
+  } else if (readDrivers.includes(obj.driver)) {
+    openLine = `cat["${name}"]${args}.read()`
+  } else {
+    openLine = `cat["${name}"]${args}.describe()`
+  }
   const code = `
 from intake import open_catalog
 cat = open_catalog("https://data.carbonplan.org/api/intake/${catId}.yaml")
-cat["${name}"].read()
+${openLine}
 `
   const mdLink = ({ href, children }) => {
     return (
-      <Link sx={{ 
-        color: 'secondary', 
-          '&:active': {
+      <Link
+        sx={{
           color: 'secondary',
-        },
-        '&:hover': {
-          color: 'text',
-        },
-      }} href={href} target='_blank'>
+          '&:active': {
+            color: 'secondary',
+          },
+          '&:hover': {
+            color: 'text',
+          },
+        }}
+        href={href}
+        target='_blank'
+      >
         {children}
       </Link>
     )

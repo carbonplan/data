@@ -7,6 +7,26 @@ const Browser = ({ visibility, catalog, setCatalog }) => {
   const entries = Object.keys(sources).filter((e) => visibility[e].show)
   const n = entries.length
 
+  if (n == 0) {
+    return (
+      <Box
+        sx={{
+          py: [3],
+          bg: 'background',
+          borderStyle: 'solid',
+          borderColor: 'muted',
+          borderWidth: '0px',
+          borderBottomWidth: '1px',
+          borderTopWidth: '1px',
+          zIndex: 500,
+          height: 'fit-content',
+        }}
+      >
+        <br />
+      </Box>
+    )
+  }
+
   return (
     <Box
       sx={{

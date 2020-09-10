@@ -57,7 +57,7 @@ sources:
 
         These data have been processed to CarbonPlan's CONUS and Alaska study domains.
       tags: [fire, forests]
-      type: image/tiff; application=geotiff; profile=cloud-optimized
+      type: application/zarr
       license: Public Domain
       providers:
         - name: Monitoring Trends in Burn Severity

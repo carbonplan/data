@@ -22,7 +22,10 @@ sources:
       license: Creative Commons Attribution 4.0 International
       providers:
         - name: FLUXNET
-          description: FLUXNET is organized through the Regional Networks that contribute data to FLUXNET datasets available at the FLUXNET webiste (https://fluxnet.org/), hosted at the Lawrence Berkeley National Laboratory (USA).
+          description: |
+            FLUXNET is organized through the Regional Networks that contribute data to FLUXNET
+            datasets available at the FLUXNET webiste (https://fluxnet.org/), hosted at the
+            Lawrence Berkeley National Laboratory (USA).
           url: https://fluxnet.org/
     parameters:
       station:
@@ -34,11 +37,6 @@ sources:
         type: str
         default: auxmeteo
         allowed: [auxmeteo, auxnee]
-      freq:
-        description: temporal frequency
-        type: str
-        default: dd
-        allowed: [dd, hh, mm, ww, yy]
     driver: parquet
     args:
       urlpath: 'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet'

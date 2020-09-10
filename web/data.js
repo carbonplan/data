@@ -587,7 +587,7 @@ module.exports = {
             {
               name: 'FLUXNET',
               description:
-                'FLUXNET is organized through the Regional Networks that contribute data to FLUXNET datasets available at the FLUXNET webiste (https://fluxnet.org/), hosted at the Lawrence Berkeley National Laboratory (USA).',
+                'FLUXNET is organized through the Regional Networks that contribute data to FLUXNET\ndatasets available at the FLUXNET webiste (https://fluxnet.org/), hosted at the\nLawrence Berkeley National Laboratory (USA).\n',
               url: 'https://fluxnet.org/',
             },
           ],
@@ -603,12 +603,6 @@ module.exports = {
             type: 'str',
             default: 'auxmeteo',
             allowed: ['auxmeteo', 'auxnee'],
-          },
-          freq: {
-            description: 'temporal frequency',
-            type: 'str',
-            default: 'dd',
-            allowed: ['dd', 'hh', 'mm', 'ww', 'yy'],
           },
         },
         driver: 'parquet',
@@ -830,7 +824,7 @@ module.exports = {
           description:
             "Monitoring Trends in Burn Severity (MTBS) is an interagency program whose goal is to\nconsistently map the burn severity and extent of large fires across all lands of the\nUnited States from 1984 to present. This includes all fires 1000 acres or greater in\nthe western United States and 500 acres or greater in the eastern Unites States.\n\nThe burn severity mosaics consist of thematic raster images of MTBS burn severity\nclasses for all currently completed MTBS fires for the continental United States,\nAlaska, Hawaii and Puerto Rico. Mosaicked burn severity images are compiled annually\nfor each year by US State and the continental United States.\n\nThese data have been processed to CarbonPlan's CONUS and Alaska study domains.\n",
           tags: ['fire', 'forests'],
-          type: 'image/tiff; application=geotiff; profile=cloud-optimized',
+          type: 'application/zarr',
           license: 'Public Domain',
           providers: [
             {

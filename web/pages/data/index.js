@@ -24,6 +24,12 @@ function Index() {
   const activeTags = Object.keys(state.tags).filter((tag) => state.tags[tag][0])
 
   const visibility = searchWithTags(state.search[0], activeTags)
+  const anyCatalogs = Object.keys(visibility).some(
+    (key) => visibility[key].show
+  )
+  if (catalog && !anyCatalogs) {
+    setCatalog(null)
+  }
 
   return (
     <Layout hideFooter={true}>
