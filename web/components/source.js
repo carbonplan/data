@@ -19,6 +19,16 @@ const formatArg = (obj) => {
   return arg
 }
 
+const formatOpen = (catId) => {
+  var line
+  line = `cat = open_catalog("https://data.carbonplan.org/api/intake/${catId}.yaml")`
+  if (line.length > 63) {
+    line = `cat = open_catalog(
+    "https://data.carbonplan.org/api/intake/${catId}.yaml"
+)`
+  }
+  return line
+}
 const Source = ({ name, obj, catId, index }) => {
   const [expanded, setExpanded] = useState(false)
 
@@ -37,7 +47,7 @@ const Source = ({ name, obj, catId, index }) => {
     }
     args += ')'
   }
-
+  const catLine = formatOpen(catId)
   var openLine
   if (toDaskDrivers.includes(obj.driver)) {
     openLine = `cat["${name}"]${args}.to_dask()`
@@ -48,7 +58,8 @@ const Source = ({ name, obj, catId, index }) => {
   }
   const code = `
 from intake import open_catalog
-cat = open_catalog("https://data.carbonplan.org/api/intake/${catId}.yaml")
+
+${catLine}
 ${openLine}
 `
   const mdLink = ({ href, children }) => {
