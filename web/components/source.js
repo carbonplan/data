@@ -96,7 +96,10 @@ cat["${name}"].read()
               {description}
             </Text>
           </Box>
-          <Box>
+          <Box sx={{
+            position: 'relative',
+            maxWidth: 'calc(100% - 50px)',
+          }}>
             <CodeBlock code={code} language='python' />
           </Box>
           <Box sx={{ py: [2] }}>
