@@ -15,10 +15,17 @@ from intake import open_catalog
 cat = open_catalog("https://data.carbonplan.org/api/intake/${catId}.yaml")
 cat["${name}"].read()
 `
-
   const mdLink = ({ href, children }) => {
     return (
-      <Link sx={{ color: 'secondary' }} href={href} target='_blank'>
+      <Link sx={{ 
+        color: 'secondary', 
+          '&:active': {
+          color: 'secondary',
+        },
+        '&:hover': {
+          color: 'text',
+        },
+      }} href={href} target='_blank'>
         {children}
       </Link>
     )
