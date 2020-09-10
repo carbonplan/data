@@ -74,7 +74,7 @@ cat["${name}"].read()
                 maxWidth: 'calc(100% - 50px)',
                 fontSize: [3],
                 my: [2],
-                lineHeight: [1.25]
+                lineHeight: [1.25],
               }}
             >
               {obj.metadata.summary}

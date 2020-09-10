@@ -14,7 +14,7 @@ sources:
         time-varying data. All data have monthly temporal resolution and a ~4-km (1/24th degree)
         spatial resolution. The data cover the period from 1958-2019.
       tags: [climate]
-      type: application/zarr
+      type: application/netcdf
       license: Creative Commons Public Domain (CC0)
       providers:
         - name: Climatology Lab, University of California, Merced
@@ -37,7 +37,7 @@ sources:
 
         These data have been processed to CarbonPlan's CONUS and Alaska study domains.
       tags: [climate]
-      type: application/netcdf
+      type: application/zarr
       license: Creative Commons Public Domain (CC0)
       providers:
         - name: Climatology Lab, University of California, Merced

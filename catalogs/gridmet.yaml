@@ -13,13 +13,6 @@ sources:
         These data can provide important inputs for ecological, agricultural, and
         hydrological models. These data are updated daily.  gridMET is the preferred naming
         convention for these data; however, the data are also known as cited as METDATA.
-
-        # this is a markdown heading
-        - and a list
-        - goes here
-
-        and a [link to carbonplan.org](https://carbonplan.org)
-
       tags: [climate]
       type: application/netcdf
       license: Public Domain Mark 1.0

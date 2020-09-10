@@ -2,9 +2,9 @@ import { Flex, Box, Grid, Badge, Text, Heading } from 'theme-ui'
 import theme from '../theme'
 import data from '../data'
 
-const Browser = ({ catalog, setCatalog }) => {
+const Browser = ({ visibility, catalog, setCatalog }) => {
   const sources = data['master'].sources
-  const entries = Object.keys(sources)
+  const entries = Object.keys(sources).filter((e) => visibility[e].show)
   const n = entries.length
 
   return (

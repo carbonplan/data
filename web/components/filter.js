@@ -2,18 +2,36 @@ import { Badge, Box, Grid, Text, Divider, IconButton, Input } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
 import theme from '.././theme'
 
-const Filter = () => {
-  const allTags = ['climate', 'carbon', 'forests', 'fire', 'projects']
+const Filter = ({ state }) => {
+  const allTags = Object.keys(state.tags)
+  const tags = allTags.filter((tag) => state.tags[tag][0])
+
+  const toggleTag = (tag) => {
+    state.tags[tag][1](!state.tags[tag][0])
+  }
+
+  const toggleAll = () => {
+    if (tags.length === allTags.length) {
+      allTags.forEach((tag) => state.tags[tag][1](false))
+    } else {
+      allTags.forEach((tag) => state.tags[tag][1](true))
+    }
+  }
+
+  const handleInputChange = (e) => {
+    const searchTerm = e.currentTarget.value
+    state.search[1](searchTerm)
+  }
 
   const getStyle = (tag) => {
-    if (allTags.includes(tag)) {
+    if (tags.includes(tag)) {
       return {
         borderColor: theme.tags[tag],
         color: theme.tags[tag],
         mr: [3],
       }
     } else if (tag === 'all') {
-      if (allTags.length == 6) {
+      if (tags.length == 6) {
         return {
           borderColor: 'primary',
           color: 'primary',
@@ -84,8 +102,8 @@ const Filter = () => {
               type='text'
               placeholder='search data'
               sx={{ pt: [1], pl: [3], border: 'none', fontSize: [3] }}
-              // onChange={handleInputChange}
-              // value={input}
+              onChange={handleInputChange}
+              value={state.search[0]}
             />
           </Grid>
         </Box>
@@ -106,7 +124,7 @@ const Filter = () => {
               key={tag}
               variant='primary'
               sx={getStyle(tag)}
-              onClick={() => addOrRemove(tag)}
+              onClick={() => toggleTag(tag)}
             >
               {tag}
             </Badge>

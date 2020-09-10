@@ -3,7 +3,7 @@ import { default as NextLink } from 'next/link'
 import Source from './source'
 import data from '../data'
 
-const Catalog = ({ id }) => {
+const Catalog = ({ visibility, id }) => {
   if (!id) {
     return (
       <Box
@@ -24,7 +24,9 @@ const Catalog = ({ id }) => {
     )
   }
 
-  const sources = Object.keys(data[id].sources)
+  const sources = Object.keys(data[id].sources).filter(
+    (e) => visibility[id].sources[e].show
+  )
 
   return (
     <Box
