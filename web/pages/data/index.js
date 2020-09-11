@@ -13,6 +13,7 @@ function Index() {
     search: useState(''),
     tags: {
       climate: useState(true),
+      carbon: useState(true),
       forests: useState(true),
     },
   }

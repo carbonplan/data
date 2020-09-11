@@ -418,7 +418,7 @@ module.exports = {
             'Timeseries of the global carbon budget and carbon emissions.',
           description:
             'The annually updated Global Carbon Budget produced by the Global Carbon Project.\nAll datasets and modeling output to complete the Global Carbon Budget 2019 are\ndescribed in detail in\n[Friedlingstein et al. (2019)](https://doi.org/10.5194/essd-11-1783-2019).\n',
-          tags: ['climate'],
+          tags: ['carbon'],
           type: 'application/parquet',
           license:
             'The use of data is conditional on citing the original data sources.',
@@ -580,7 +580,7 @@ module.exports = {
           summary: 'Supporting metadata for the FLUXNET dataset.',
           description:
             'The preparation of this FLUXNET Dataset has been possible thanks only to the efforts of\nmany scientists and technicians around the world and the coordination among teams from\nregional networks. The previous versions of FLUXNET Dataset releases are the FLUXNET\nMarconi Dataset (2000) and the FLUXNET LaThuile Dataset (2007). The FLUXNET2015 Dataset\nincludes several improvements to the data quality control protocols and the data\nprocessing pipeline. Examples include close interaction with tower teams to improve data\nquality, new methods for uncertainty quantification, use of reanalysis data to fill long\ngaps of micrometeorological variable records, among others (see the data processing\npipeline page for details).\n',
-          tags: ['climate'],
+          tags: ['climate', 'carbon'],
           type: 'application/parquet',
           license: 'Creative Commons Attribution 4.0 International',
           providers: [
@@ -618,7 +618,7 @@ module.exports = {
             'Global network of micrometeorological flux measurement measuring carbon, energy and water cycles.',
           description:
             'The preparation of this FLUXNET Dataset has been possible thanks only to the efforts of\nmany scientists and technicians around the world and the coordination among teams from\nregional networks. The previous versions of FLUXNET Dataset releases are the FLUXNET\nMarconi Dataset (2000) and the FLUXNET LaThuile Dataset (2007). The FLUXNET2015 Dataset\nincludes several improvements to the data quality control protocols and the data\nprocessing pipeline. Examples include close interaction with tower teams to improve data\nquality, new methods for uncertainty quantification, use of reanalysis data to fill long\ngaps of micrometeorological variable records, among others (see the data processing\npipeline page for details).\n',
-          tags: ['climate'],
+          tags: ['climate', 'carbon'],
           type: 'application/parquet',
           license: 'Creative Commons Attribution 4.0 International',
           providers: [
@@ -746,7 +746,7 @@ module.exports = {
             'Public database of carbon removal project proposals evaluated by CarbonPlan.',
           description:
             'This is a public database of reports on carbon removal project proposals. These reports\nreflect our independent analysis of public information.\n',
-          tags: ['climate'],
+          tags: ['carbon'],
           type: 'text/csv',
           license: 'Creative Commons Attribution 4.0 International',
           providers: [
@@ -963,7 +963,7 @@ module.exports = {
         name: 'FLUXNET',
         description: 'Catalog for data from the FLUXNET dataset',
         metadata: {
-          tags: ['climate'],
+          tags: ['climate', 'carbon'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -974,7 +974,7 @@ module.exports = {
         name: 'Global Carbon Project (GCP)',
         description: 'Catalog for data from the Global Carbon Project',
         metadata: {
-          tags: ['climate'],
+          tags: ['climate', 'carbon'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -1021,7 +1021,7 @@ module.exports = {
         name: 'CarbonPlan Project Reports',
         description: 'CarbonPlan Projects Dataset Catalog',
         metadata: {
-          tags: ['climate'],
+          tags: ['carbon'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {

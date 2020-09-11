@@ -42,9 +42,8 @@ export default {
   tags: {
     ...base.tags,
     climate: 'blue',
-    'carbon cycle': 'grey',
-    fire: 'red',
-    projects: 'pink',
+    carbon: 'blue',
+    forests: 'green',
   },
   styles: {
     ...base.styles,
