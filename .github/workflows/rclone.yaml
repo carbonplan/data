@@ -1,0 +1,29 @@
+name: rclone daily sync
+# on:
+#   schedule:
+#     - cron: "0 0 * * *"
+on: push
+
+jobs:
+  rclone:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: rclone - lsd azure
+        uses: wei/rclone@v1
+        env:
+          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+        with:
+          args: 'tree -C -d --level 3 azure:'
+      - name: rclone - lsd google
+        uses: wei/rclone@v1
+        env:
+          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+        with:
+          args: 'tree -C -d --level 3 google:'
+    #   - name: rclone - google to azure
+    #     uses: wei/rclone@v1
+    #     env:
+    #         RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+    #     with:
+    #         args: 'copy gcs:carbonplan-data azure:carbonplan-data'
