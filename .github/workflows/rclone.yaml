@@ -20,10 +20,10 @@ jobs:
         env:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
         with:
-          args: 'tree -C -d --level 3 gcs:'
+          args: 'tree -C -d --level 3 google:'
     #   - name: rclone - google to azure
     #     uses: wei/rclone@v1
     #     env:
     #         RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
     #     with:
-    #         args: 'copy gcs:carbonplan-data azure:carbonplan-data'
+    #         args: 'copy google:carbonplan-data azure:carbonplan-data'
