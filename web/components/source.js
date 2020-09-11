@@ -24,7 +24,7 @@ const formatOpen = (catId) => {
   line = `cat = open_catalog("https://data.carbonplan.org/api/intake/${catId}.yaml")`
   if (line.length > 63) {
     line = `cat = open_catalog(
-    "https://data.carbonplan.org/api/intake/${catId}.yaml"
+    "https://carbonplan.org/data/api/intake/${catId}.yaml"
 )`
   }
   return line
