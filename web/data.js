@@ -14,7 +14,7 @@ module.exports = {
           summary: 'The National Land Cover Database - 2001 to 2016.',
           description:
             'The U.S. Geological Survey (USGS), in partnership with several federal agencies, has\ndeveloped and released four National Land Cover Database (NLCD) products over the past\ntwo decades: NLCD 1992, 2001, 2006, and 2011. These products provide spatially explicit\nand reliable information on the Nation\u2019s land cover and land cover change. To continue\nthe legacy of NLCD and further establish a long-term monitoring capability for the\nNation\u2019s land resources, the USGS has designed a new generation of NLCD products named\nNLCD 2016. The NLCD 2016 design aims to provide innovative, consistent, and robust\nmethodologies for production of a multi-temporal land cover and land cover change\ndatabase from 2001 to 2016 at 2\u20133-year intervals. Comprehensive research was conducted\nand resulted in developed strategies for NLCD 2016: a streamlined process for assembling\nand preprocessing Landsat imagery and geospatial ancillary datasets; a multi-source\nintegrated training data development and decision-tree based land cover classifications;\na temporally, spectrally, and spatially integrated land cover change analysis strategy;\na hierarchical theme-based post-classification and integration protocol for generating\nland cover and change products; a continuous fields biophysical parameters modeling\nmethod; and an automated scripted operational system for the NLCD 2016 production. The\nperformance of the developed strategies and methods were tested in twenty World Reference\nSystem-2 path/row throughout the conterminous U.S. An overall agreement ranging from\n71% to 97% between land cover classification and reference data was achieved for all\ntested area and all years. Results from this study confirm the robustness of this\ncomprehensive and highly automated procedure for NLCD 2016 operational mapping.\n',
-          tags: ['forest'],
+          tags: ['forests'],
           type: 'image/tiff; application=geotiff; profile=cloud-optimized',
           license: 'Public Domain',
           providers: [
@@ -55,7 +55,7 @@ module.exports = {
           summary: 'The National Land Cover Database - 2001 to 2016.',
           description:
             "The U.S. Geological Survey (USGS), in partnership with several federal agencies, has\ndeveloped and released four National Land Cover Database (NLCD) products over the past\ntwo decades: NLCD 1992, 2001, 2006, and 2011. These products provide spatially explicit\nand reliable information on the Nation\u2019s land cover and land cover change. To continue\nthe legacy of NLCD and further establish a long-term monitoring capability for the\nNation\u2019s land resources, the USGS has designed a new generation of NLCD products named\nNLCD 2016. The NLCD 2016 design aims to provide innovative, consistent, and robust\nmethodologies for production of a multi-temporal land cover and land cover change\ndatabase from 2001 to 2016 at 2\u20133-year intervals. Comprehensive research was conducted\nand resulted in developed strategies for NLCD 2016: a streamlined process for assembling\nand preprocessing Landsat imagery and geospatial ancillary datasets; a multi-source\nintegrated training data development and decision-tree based land cover classifications;\na temporally, spectrally, and spatially integrated land cover change analysis strategy;\na hierarchical theme-based post-classification and integration protocol for generating\nland cover and change products; a continuous fields biophysical parameters modeling\nmethod; and an automated scripted operational system for the NLCD 2016 production. The\nperformance of the developed strategies and methods were tested in twenty World Reference\nSystem-2 path/row throughout the conterminous U.S. An overall agreement ranging from\n71% to 97% between land cover classification and reference data was achieved for all\ntested area and all years. Results from this study confirm the robustness of this\ncomprehensive and highly automated procedure for NLCD 2016 operational mapping.\n\nThese data have been processed to CarbonPlan's CONUS and Alaska study domains.\n",
-          tags: ['forest'],
+          tags: ['forests'],
           type: 'image/tiff; application=geotiff; profile=cloud-optimized',
           license: 'Public Domain',
           providers: [
@@ -418,7 +418,7 @@ module.exports = {
             'Timeseries of the global carbon budget and carbon emissions.',
           description:
             'The annually updated Global Carbon Budget produced by the Global Carbon Project.\nAll datasets and modeling output to complete the Global Carbon Budget 2019 are\ndescribed in detail in\n[Friedlingstein et al. (2019)](https://doi.org/10.5194/essd-11-1783-2019).\n',
-          tags: ['carbon cycle'],
+          tags: ['climate'],
           type: 'application/parquet',
           license:
             'The use of data is conditional on citing the original data sources.',
@@ -472,7 +472,7 @@ module.exports = {
             'Extent, distribution, and forest type composition of the nation\u2019s forests.',
           description:
             'This geospatial dataset was created by the USFS Forest Inventory and Analysis (FIA) program\nand the Geospatial Technology and Applications Center (GTAC) to show the extent,\ndistribution, and forest type composition of the nation\u2019s forests.\n\nThe dataset was created by modeling forest type from FIA plot data as a function of more\nthan one hundred geospatially continuous predictor layers.\n\nThis process results in a view of forest type distribution in greater detail than is\npossible with the FIA plot data alone.\n',
-          tags: ['forest'],
+          tags: ['forests'],
           type: 'image/tiff; application=geotiff; profile=cloud-optimized',
           license: 'Public Domain',
           providers: [
@@ -521,7 +521,7 @@ module.exports = {
             'Extent, distribution, and forest type composition of the nation\u2019s forests.',
           description:
             "This geospatial dataset was created by the USFS Forest Inventory and Analysis (FIA) program\nand the Geospatial Technology and Applications Center (GTAC) to show the extent,\ndistribution, and forest type composition of the nation\u2019s forests.\n\nThe dataset was created by modeling forest type from FIA plot data as a function of more\nthan one hundred geospatially continuous predictor layers.\n\nThis process results in a view of forest type distribution in greater detail than is\npossible with the FIA plot data alone.\n\nThese data have been processed to CarbonPlan's CONUS and Alaska study domains.\n",
-          tags: ['forest'],
+          tags: ['forests'],
           type: 'image/tiff; application=geotiff; profile=cloud-optimized',
           license: 'Public Domain',
           providers: [
@@ -580,7 +580,7 @@ module.exports = {
           summary: 'Supporting metadata for the FLUXNET dataset.',
           description:
             'The preparation of this FLUXNET Dataset has been possible thanks only to the efforts of\nmany scientists and technicians around the world and the coordination among teams from\nregional networks. The previous versions of FLUXNET Dataset releases are the FLUXNET\nMarconi Dataset (2000) and the FLUXNET LaThuile Dataset (2007). The FLUXNET2015 Dataset\nincludes several improvements to the data quality control protocols and the data\nprocessing pipeline. Examples include close interaction with tower teams to improve data\nquality, new methods for uncertainty quantification, use of reanalysis data to fill long\ngaps of micrometeorological variable records, among others (see the data processing\npipeline page for details).\n',
-          tags: ['carbon cycle'],
+          tags: ['climate'],
           type: 'application/parquet',
           license: 'Creative Commons Attribution 4.0 International',
           providers: [
@@ -618,7 +618,7 @@ module.exports = {
             'Global network of micrometeorological flux measurement measuring carbon, energy and water cycles.',
           description:
             'The preparation of this FLUXNET Dataset has been possible thanks only to the efforts of\nmany scientists and technicians around the world and the coordination among teams from\nregional networks. The previous versions of FLUXNET Dataset releases are the FLUXNET\nMarconi Dataset (2000) and the FLUXNET LaThuile Dataset (2007). The FLUXNET2015 Dataset\nincludes several improvements to the data quality control protocols and the data\nprocessing pipeline. Examples include close interaction with tower teams to improve data\nquality, new methods for uncertainty quantification, use of reanalysis data to fill long\ngaps of micrometeorological variable records, among others (see the data processing\npipeline page for details).\n',
-          tags: ['carbon cycle'],
+          tags: ['climate'],
           type: 'application/parquet',
           license: 'Creative Commons Attribution 4.0 International',
           providers: [
@@ -746,7 +746,7 @@ module.exports = {
             'Public database of carbon removal project proposals evaluated by CarbonPlan.',
           description:
             'This is a public database of reports on carbon removal project proposals. These reports\nreflect our independent analysis of public information.\n',
-          tags: ['carbon removal'],
+          tags: ['climate'],
           type: 'text/csv',
           license: 'Creative Commons Attribution 4.0 International',
           providers: [
@@ -781,7 +781,7 @@ module.exports = {
             'Annual burn severity mosaics for the continental United States and Alaska.',
           description:
             'Monitoring Trends in Burn Severity (MTBS) is an interagency program whose goal is to\nconsistently map the burn severity and extent of large fires across all lands of the\nUnited States from 1984 to present. This includes all fires 1000 acres or greater in\nthe western United States and 500 acres or greater in the eastern Unites States. The\nextent of coverage includes the continental U.S., Alaska, Hawaii and Puerto Rico.\n\nThe burn severity mosaics consist of thematic raster images of MTBS burn severity\nclasses for all currently completed MTBS fires for the continental United States,\nAlaska, Hawaii and Puerto Rico. Mosaicked burn severity images are compiled annually\nfor each year by US State and the continental United States.\n',
-          tags: ['fire', 'forests'],
+          tags: ['forests'],
           type: 'image/tiff; application=geotiff; profile=cloud-optimized',
           license: 'Public Domain',
           providers: [
@@ -823,7 +823,7 @@ module.exports = {
             'Annual burn severity mosaics for the continental United States and Alaska.',
           description:
             "Monitoring Trends in Burn Severity (MTBS) is an interagency program whose goal is to\nconsistently map the burn severity and extent of large fires across all lands of the\nUnited States from 1984 to present. This includes all fires 1000 acres or greater in\nthe western United States and 500 acres or greater in the eastern Unites States.\n\nThe burn severity mosaics consist of thematic raster images of MTBS burn severity\nclasses for all currently completed MTBS fires for the continental United States,\nAlaska, Hawaii and Puerto Rico. Mosaicked burn severity images are compiled annually\nfor each year by US State and the continental United States.\n\nThese data have been processed to CarbonPlan's CONUS and Alaska study domains.\n",
-          tags: ['fire', 'forests'],
+          tags: ['forests'],
           type: 'application/zarr',
           license: 'Public Domain',
           providers: [
@@ -888,7 +888,7 @@ module.exports = {
           summary: 'Burned area boundaries data in vector/polygon format.',
           description:
             'The burned area boundaries dataset is a vector polygon ESRI shapefile of the extent of the\nburned areas of all currently completed MTBS fires for the continental United States,\nAlaska, Hawaii and Puerto Rico.\n',
-          tags: ['fire', 'forests'],
+          tags: ['forests'],
           type: 'application/octet-stream',
           license: 'Public Domain',
           providers: [
@@ -952,7 +952,7 @@ module.exports = {
         description:
           'Catalog for data from Forest Inventory Analysis (FIA) database',
         metadata: {
-          tags: ['forests', 'carbon cycle'],
+          tags: ['forests'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -963,7 +963,7 @@ module.exports = {
         name: 'FLUXNET',
         description: 'Catalog for data from the FLUXNET dataset',
         metadata: {
-          tags: ['climate', 'carbon cycle'],
+          tags: ['climate'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -974,7 +974,7 @@ module.exports = {
         name: 'Global Carbon Project (GCP)',
         description: 'Catalog for data from the Global Carbon Project',
         metadata: {
-          tags: ['carbon cycle', 'emissions'],
+          tags: ['climate'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -986,7 +986,7 @@ module.exports = {
         description:
           'Catalog for data from the Monitoring Trends in Burn Severity (MTBS) dataset',
         metadata: {
-          tags: ['fire', 'forests'],
+          tags: ['forests'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -998,7 +998,7 @@ module.exports = {
         description:
           'Catalog for data from the National Forest Type Database (NFTD)',
         metadata: {
-          tags: ['forests', 'carbon cycle'],
+          tags: ['forests'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -1010,7 +1010,7 @@ module.exports = {
         description:
           'Catalog for data from the National Land Cover Database (NLCD)',
         metadata: {
-          tags: ['forests', 'carbon cycle'],
+          tags: ['forests'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -1021,7 +1021,7 @@ module.exports = {
         name: 'CarbonPlan Project Reports',
         description: 'CarbonPlan Projects Dataset Catalog',
         metadata: {
-          tags: ['projects', 'carbon cycle'],
+          tags: ['climate'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
@@ -1033,7 +1033,7 @@ module.exports = {
         description:
           'Catalog for data from Global Aboveground and Belowground Biomass Carbon Density Maps for the Year 2010 from Spawn et al (2020)',
         metadata: {
-          tags: ['forests', 'biomass'],
+          tags: ['forests'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {

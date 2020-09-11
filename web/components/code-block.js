@@ -40,19 +40,23 @@ const CodeBlock = ({ code, language }) => {
           </svg>
         </IconButton>
       </CopyToClipboard>
-      <Box sx={{
-        backgroundColor: alpha('muted', 0.2),
-        px: [3],
-        py: [3],
-        pr: [5],
-        my: [2],
-      }}>
-        <Box sx={{
-          overflowX: 'scroll',
-        }}>
-        <Prism language={language} className={'language-' + language}>
-          {code}
-        </Prism>
+      <Box
+        sx={{
+          backgroundColor: alpha('muted', 0.2),
+          px: [3],
+          py: [3],
+          pr: [5],
+          my: [2],
+        }}
+      >
+        <Box
+          sx={{
+            overflowX: 'scroll',
+          }}
+        >
+          <Prism language={language} className={'language-' + language}>
+            {code}
+          </Prism>
         </Box>
       </Box>
     </>

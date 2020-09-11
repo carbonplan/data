@@ -13,11 +13,7 @@ function Index() {
     search: useState(''),
     tags: {
       climate: useState(true),
-      'carbon cycle': useState(true),
       forests: useState(true),
-      fire: useState(true),
-      projects: useState(true),
-      biomass: useState(true),
     },
   }
 

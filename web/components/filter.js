@@ -31,7 +31,7 @@ const Filter = ({ state }) => {
         mr: [3],
       }
     } else if (tag === 'all') {
-      if (tags.length == 6) {
+      if (tags.length == allTags.length) {
         return {
           borderColor: 'primary',
           color: 'primary',
@@ -72,10 +72,9 @@ const Filter = ({ state }) => {
             py: [3],
           }}
         >
-          This is a public catalog of datasets related to the study of carbon
-          removal opporunities and climate solutions. At CarbonPlan, we maintain
-          this data catalog for our own use and as a resource to the rest of the
-          research community.
+          This is a public catalog of datasets related to carbon removal and
+          climate solutions. At CarbonPlan, we maintain this data catalog for
+          our own use and as a resource to the rest of the research community.
         </Text>
         <Divider sx={{ my: [0] }} />
         <Box sx={{ my: [2] }}>
