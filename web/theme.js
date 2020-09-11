@@ -42,7 +42,7 @@ export default {
   tags: {
     ...base.tags,
     climate: 'blue',
-    carbon: 'blue',
+    carbon: 'pink',
     forests: 'green',
   },
   styles: {
