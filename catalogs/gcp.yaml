@@ -8,7 +8,7 @@ sources:
         All datasets and modeling output to complete the Global Carbon Budget 2019 are
         described in detail in
         [Friedlingstein et al. (2019)](https://doi.org/10.5194/essd-11-1783-2019).
-      tags: [carbon cycle]
+      tags: [carbon]
       type: application/parquet
       license: The use of data is conditional on citing the original data sources.
       providers:

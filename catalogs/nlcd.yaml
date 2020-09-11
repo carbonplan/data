@@ -29,7 +29,7 @@ sources:
         71% to 97% between land cover classification and reference data was achieved for all
         tested area and all years. Results from this study confirm the robustness of this
         comprehensive and highly automated procedure for NLCD 2016 operational mapping.
-      tags: [forest]
+      tags: [forests]
       type: image/tiff; application=geotiff; profile=cloud-optimized
       license: Public Domain
       providers:
@@ -79,7 +79,7 @@ sources:
         comprehensive and highly automated procedure for NLCD 2016 operational mapping.
 
         These data have been processed to CarbonPlan's CONUS and Alaska study domains.
-      tags: [forest]
+      tags: [forests]
       type: image/tiff; application=geotiff; profile=cloud-optimized
       license: Public Domain
       providers:

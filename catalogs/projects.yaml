@@ -6,7 +6,7 @@ sources:
       description: |
         This is a public database of reports on carbon removal project proposals. These reports
         reflect our independent analysis of public information.
-      tags: [carbon removal]
+      tags: [carbon]
       type: text/csv
       license: Creative Commons Attribution 4.0 International
       providers:

@@ -18,7 +18,7 @@ sources:
         classes for all currently completed MTBS fires for the continental United States,
         Alaska, Hawaii and Puerto Rico. Mosaicked burn severity images are compiled annually
         for each year by US State and the continental United States.
-      tags: [fire, forests]
+      tags: [forests]
       type: image/tiff; application=geotiff; profile=cloud-optimized
       license: Public Domain
       providers:
@@ -56,7 +56,7 @@ sources:
         for each year by US State and the continental United States.
 
         These data have been processed to CarbonPlan's CONUS and Alaska study domains.
-      tags: [fire, forests]
+      tags: [forests]
       type: application/zarr
       license: Public Domain
       providers:
@@ -107,7 +107,7 @@ sources:
         The burned area boundaries dataset is a vector polygon ESRI shapefile of the extent of the
         burned areas of all currently completed MTBS fires for the continental United States,
         Alaska, Hawaii and Puerto Rico.
-      tags: [fire, forests]
+      tags: [forests]
       type: application/octet-stream
       license: Public Domain
       providers:

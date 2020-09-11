@@ -17,7 +17,7 @@ sources:
 
         This process results in a view of forest type distribution in greater detail than is
         possible with the FIA plot data alone.
-      tags: [forest]
+      tags: [forests]
       type: image/tiff; application=geotiff; profile=cloud-optimized
       license: Public Domain
       providers:
@@ -61,7 +61,7 @@ sources:
         possible with the FIA plot data alone.
 
         These data have been processed to CarbonPlan's CONUS and Alaska study domains.
-      tags: [forest]
+      tags: [forests]
       type: image/tiff; application=geotiff; profile=cloud-optimized
       license: Public Domain
       providers:

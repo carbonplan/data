@@ -17,7 +17,7 @@ sources:
         quality, new methods for uncertainty quantification, use of reanalysis data to fill long
         gaps of micrometeorological variable records, among others (see the data processing
         pipeline page for details).
-      tags: [carbon cycle]
+      tags: [climate, carbon]
       type: application/parquet
       license: Creative Commons Attribution 4.0 International
       providers:
@@ -55,7 +55,7 @@ sources:
         quality, new methods for uncertainty quantification, use of reanalysis data to fill long
         gaps of micrometeorological variable records, among others (see the data processing
         pipeline page for details).
-      tags: [carbon cycle]
+      tags: [climate, carbon]
       type: application/parquet
       license: Creative Commons Attribution 4.0 International
       providers:

@@ -31,7 +31,7 @@ sources:
     name: 'Forest Inventory Analysis (FIA)'
     description: 'Catalog for data from Forest Inventory Analysis (FIA) database'
     metadata:
-      tags: [forests, carbon cycle]
+      tags: [forests]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: '{{CATALOG_DIR}}/fia.yaml'
@@ -40,7 +40,7 @@ sources:
     name: 'FLUXNET'
     description: 'Catalog for data from the FLUXNET dataset'
     metadata:
-      tags: [climate, carbon cycle]
+      tags: [climate, carbon]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: '{{CATALOG_DIR}}/fluxnet.yaml'
@@ -49,7 +49,7 @@ sources:
     name: 'Global Carbon Project (GCP)'
     description: 'Catalog for data from the Global Carbon Project'
     metadata:
-      tags: [carbon cycle, emissions]
+      tags: [climate, carbon]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: '{{CATALOG_DIR}}/gcp.yaml'
@@ -58,7 +58,7 @@ sources:
     name: 'Monitoring Trends in Burn Severity (MTBS)'
     description: 'Catalog for data from the Monitoring Trends in Burn Severity (MTBS) dataset'
     metadata:
-      tags: [fire, forests]
+      tags: [forests]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: '{{CATALOG_DIR}}/mtbs.yaml'
@@ -67,7 +67,7 @@ sources:
     name: 'National Forest Type Database (NFTD)'
     description: 'Catalog for data from the National Forest Type Database (NFTD)'
     metadata:
-      tags: [forests, carbon cycle]
+      tags: [forests]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: '{{CATALOG_DIR}}/nftd.yaml'
@@ -76,7 +76,7 @@ sources:
     name: 'National Land Cover Database (NLCD)'
     description: 'Catalog for data from the National Land Cover Database (NLCD)'
     metadata:
-      tags: [forests, carbon cycle]
+      tags: [forests]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: '{{CATALOG_DIR}}/nlcd.yaml'
@@ -85,7 +85,7 @@ sources:
     name: 'CarbonPlan Project Reports'
     description: 'CarbonPlan Projects Dataset Catalog'
     metadata:
-      tags: [projects, carbon cycle]
+      tags: [carbon]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: '{{CATALOG_DIR}}/projects.yaml'
@@ -94,7 +94,7 @@ sources:
     name: 'Global Above- and Belowground Biomass'
     description: 'Catalog for data from Global Aboveground and Belowground Biomass Carbon Density Maps for the Year 2010 from Spawn et al (2020)'
     metadata:
-      tags: [forests, biomass]
+      tags: [forests]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: '{{CATALOG_DIR}}/nlcd.yaml'
