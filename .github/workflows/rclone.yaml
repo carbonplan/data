@@ -20,7 +20,7 @@ jobs:
         env:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
         with:
-          args: 'tree -C -d --level 3 google:'
+          args: 'tree -C -d --level 3 gcs:'
     #   - name: rclone - google to azure
     #     uses: wei/rclone@v1
     #     env:
