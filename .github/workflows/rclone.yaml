@@ -14,7 +14,7 @@ jobs:
         with:
           version: '290.0.1'
           service_account_key: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
-          project_id: carbonplan
+          project_id: ${{ secrets.GCE_PROJECT }}
       - name: rclone - lsd azure
         uses: wei/rclone@v1
         env:
