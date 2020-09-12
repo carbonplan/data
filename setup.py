@@ -27,16 +27,14 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name="carbonplan_data",
+    name="carbonplan-data",
     description=description,
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     maintainer="Joe Hamman",
     maintainer_email="joe@carbonplan.org",
     url="https://github.com/carbonplan/data",
-    py_modules=["carbonplan_data"],
-    packages=find_packages(exclude=["*tests"]),
-    package_dir={"carbonplan_data": "carbonplan_data"},
+    packages=find_packages(),
     include_package_data=True,
     entry_points={
         "carbonplan.modules": [
@@ -48,7 +46,6 @@ setup(
     install_requires=INSTALL_REQUIRES,
     tests_require=["pytest"],
     license="MIT",
-    zip_safe=False,
     keywords="carbon, data, climate",
     use_scm_version={"version_scheme": "post-release", "local_scheme": "dirty-tag"},
     setup_requires=["setuptools_scm", "setuptools>=30.3.0"],
