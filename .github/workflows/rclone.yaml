@@ -1,9 +1,7 @@
 name: rclone daily sync
-# on:
-#   schedule:
-#     - cron: "0 0 * * *"
-on: push
-
+on:
+  schedule:
+    - cron: '0 0 * * *'
 jobs:
   rclone:
     runs-on: ubuntu-latest
