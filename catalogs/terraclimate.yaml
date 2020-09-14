@@ -22,9 +22,10 @@ sources:
           url: http://www.climatologylab.org
     driver: zarr
     args:
-      urlpath: 'gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr'
-      storage_options:
-        token: 'anon'
+      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/terraclimate/4000m/raster.zarr'
+    #   urlpath: 'gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr'
+    #   storage_options:
+    #     token: 'anon'
 
   terraclimate:
     metadata:
@@ -43,6 +44,7 @@ sources:
         - name: Climatology Lab, University of California, Merced
           description: Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.
           url: http://www.climatologylab.org
+      ci: skip
     parameters:
       region:
         description: conus or ak
@@ -56,6 +58,7 @@ sources:
         allowed: ['4000m']
     driver: zarr
     args:
-      urlpath: 'gs://carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
-      storage_options:
-        token: 'anon'
+      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
+    #   urlpath: 'gs://carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
+    #   storage_options:
+    #     token: 'anon'

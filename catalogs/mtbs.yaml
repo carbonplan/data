@@ -37,7 +37,8 @@ sources:
         allowed: [conus, ak]
     driver: rasterio
     args:
-      urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
+      # urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
+      urlpath: "https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
       chunks: { 'y': 5120, 'x': 5120 }
 
   raster:
@@ -76,9 +77,10 @@ sources:
         allowed: ['4000m']
     driver: zarr
     args:
-      urlpath: 'gs://carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
-      storage_options:
-        token: 'anon'
+      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
+    #   urlpath: 'gs://carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
+    #   storage_options:
+    #     token: 'anon'
 
   fod_shp:
     metadata:
@@ -95,9 +97,11 @@ sources:
         - name: Monitoring Trends in Burn Severity
           description: Monitoring Trends in Burn Severity (MTBS) is an interagency program that includes the USGS, NASA, USFS, USDI, and USDA.
           url: https://www.mtbs.gov/
+      ci: skip
     driver: shapefile
     args:
-      urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp'
+      # urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp
+      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp'
 
   perims_shp:
     metadata:
@@ -114,6 +118,8 @@ sources:
         - name: Monitoring Trends in Burn Severity
           description: Monitoring Trends in Burn Severity (MTBS) is an interagency program that includes the USGS, NASA, USFS, USDI, and USDA.
           url: https://www.mtbs.gov/
+      ci: skip
     driver: shapefile
     args:
-      urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_perimeter_data/mtbs_perims_DD.shp'
+      # urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_perimeter_data/mtbs_perims_DD.shp'
+      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_perimeter_data/mtbs_perims_DD.shp'
