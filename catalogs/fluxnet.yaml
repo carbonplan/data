@@ -39,7 +39,8 @@ sources:
         allowed: [auxmeteo, auxnee]
     driver: parquet
     args:
-      urlpath: 'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet'
+      # urlpath: 'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet'
+      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet'
 
   raw_fullset:
     metadata:
@@ -82,4 +83,5 @@ sources:
         allowed: [dd, hh, mm, ww, yy]
     driver: parquet
     args:
-      urlpath: 'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet'
+      # urlpath: 'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet'
+      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet'

@@ -43,5 +43,6 @@ sources:
           ]
     driver: rasterio
     args:
-      urlpath: 'https://storage.googleapis.com/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif'
+      # urlpath: 'https://storage.googleapis.com/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif'
+      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif'
       chunks: { 'y': 5120, 'x': 5120 }

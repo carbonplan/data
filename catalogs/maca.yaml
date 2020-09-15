@@ -19,12 +19,6 @@ sources:
         - name: Climatology Lab, University of California, Merced
           description: Data provided by Dr. John Abatzoglou's Climatology Lab at the University of California, Merced.
           url: http://www.climatologylab.org
-    args:
-      urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc
-      auth: null
-      chunks:
-        lat: 585
-        lon: 1386
     driver: opendap
     parameters:
       variable:
@@ -54,3 +48,9 @@ sources:
         type: str
         default: historical_1950_2005
         allowed: ['historical_1950_2005', 'rcp45_2006_2099', 'rcp85_2006_2099']
+    args:
+      urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc
+      auth: null
+      chunks:
+        lat: 585
+        lon: 1386

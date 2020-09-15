@@ -22,10 +22,10 @@ This repository includes our master data catalog as well as our pre-processing u
 
 ```python
 # open the top level catalog
-cat = intake.open_catalog('https://raw.githubusercontent.com/carbonplan/data/master/intake-catalogs/master.yaml')
+from carbonplan.data import cat
 
 # extract an entry as a Dask-backed Xarray Dataset
-cat.fire.mtbs_raster.to_dask()
+cat.mtbs.["raster"](region="conus", resolution="4000m").to_dask()
 ```
 
 ---
