@@ -98,5 +98,4 @@ sources:
         default: 'parquet'
         allowed: [parquet]
     args:
-      # urlpath: 'gs://carbonplan-data/raw/fia/{{ name }}.{{ format }}'
       urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fia/{{ name }}.{{ format }}'

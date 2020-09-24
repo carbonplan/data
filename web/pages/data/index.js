@@ -15,6 +15,7 @@ function Index() {
       climate: useState(true),
       carbon: useState(true),
       forests: useState(true),
+      meta: useState(true),
     },
   }
 

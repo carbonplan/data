@@ -42,7 +42,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://storage.googleapis.com/carbonplan-data/raw/nlcd/{{ region }}/30m/{{ option }}.tif',
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/nlcd/{{ region }}/30m/{{ option }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
@@ -89,7 +89,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://storage.googleapis.com/carbonplan-data/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif',
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
@@ -126,15 +126,6 @@ module.exports = {
             },
           ],
         },
-        args: {
-          urlpath:
-            "http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc",
-          auth: null,
-          chunks: {
-            lat: 585,
-            lon: 1386,
-          },
-        },
         driver: 'opendap',
         parameters: {
           variable: {
@@ -167,6 +158,15 @@ module.exports = {
             default: 2000,
           },
         },
+        args: {
+          urlpath:
+            "http://thredds.northwestknowledge.net:8080/thredds/dodsC/MET/{{ variable }}/{{ variable }}_{{ '%04d' % year }}.nc",
+          auth: null,
+          chunks: {
+            lat: 585,
+            lon: 1386,
+          },
+        },
       },
     },
   },
@@ -197,15 +197,6 @@ module.exports = {
               url: 'http://www.climatologylab.org',
             },
           ],
-        },
-        args: {
-          urlpath:
-            'http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc',
-          auth: null,
-          chunks: {
-            lat: 585,
-            lon: 1386,
-          },
         },
         driver: 'opendap',
         parameters: {
@@ -240,6 +231,15 @@ module.exports = {
               'rcp45_2006_2099',
               'rcp85_2006_2099',
             ],
+          },
+        },
+        args: {
+          urlpath:
+            'http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc',
+          auth: null,
+          chunks: {
+            lat: 585,
+            lon: 1386,
           },
         },
       },
@@ -290,7 +290,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://storage.googleapis.com/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif',
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
@@ -404,7 +404,8 @@ module.exports = {
           },
         },
         args: {
-          urlpath: 'gs://carbonplan-data/raw/fia/{{ name }}.{{ format }}',
+          urlpath:
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fia/{{ name }}.{{ format }}',
         },
       },
     },
@@ -451,7 +452,8 @@ module.exports = {
         },
         driver: 'parquet',
         args: {
-          urlpath: 'gs://carbonplan-data/raw/gcp/{{ name }}.parquet',
+          urlpath:
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/gcp/{{ name }}.parquet',
         },
       },
     },
@@ -507,7 +509,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://storage.googleapis.com/carbonplan-data/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif',
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
@@ -556,11 +558,48 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://storage.googleapis.com/carbonplan-data/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif',
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
           },
+        },
+      },
+    },
+  },
+  grids: {
+    plugins: {
+      source: [
+        {
+          module: 'intake_xarray',
+        },
+      ],
+    },
+    sources: {
+      conus4k: {
+        metadata: {
+          title: 'CONUS 4km grid',
+          summary:
+            'Grid definition for the CONUS 4km Albers Equal Area study area',
+          description:
+            'This dataset defines the grid used for many of our CONUS 4km data products.\nIt is particularly useful as a target grid when regridding/reprojecting other\ndatasets to this (common) grid.\n',
+          tags: ['misc'],
+          type: 'application/zarr',
+          license: 'Creative Commons Attribution 4.0 International',
+          providers: [
+            {
+              name: 'CarbonPlan',
+              description:
+                'CarbonPlan is a registered non-profit public benefit corporation working on\nthe science and data of carbon removal.\n',
+              url: 'https://carbonplan.org',
+            },
+          ],
+        },
+        driver: 'zarr',
+        args: {
+          urlpath:
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/grids/conus/4000m/domain.zarr/',
+          consolidated: true,
         },
       },
     },
@@ -608,7 +647,7 @@ module.exports = {
         driver: 'parquet',
         args: {
           urlpath:
-            'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet',
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet',
         },
       },
       raw_fullset: {
@@ -652,7 +691,7 @@ module.exports = {
         driver: 'parquet',
         args: {
           urlpath:
-            'gs://carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet',
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet',
         },
       },
     },
@@ -687,10 +726,9 @@ module.exports = {
         },
         driver: 'zarr',
         args: {
-          urlpath: 'gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr',
-          storage_options: {
-            token: 'anon',
-          },
+          urlpath:
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/terraclimate/4000m/raster.zarr',
+          consolidated: true,
         },
       },
       terraclimate: {
@@ -711,6 +749,7 @@ module.exports = {
               url: 'http://www.climatologylab.org',
             },
           ],
+          ci: 'skip',
         },
         parameters: {
           region: {
@@ -729,10 +768,8 @@ module.exports = {
         driver: 'zarr',
         args: {
           urlpath:
-            'gs://carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr',
-          storage_options: {
-            token: 'anon',
-          },
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr',
+          consolidated: true,
         },
       },
     },
@@ -809,7 +846,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            "https://storage.googleapis.com/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif",
+            "https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif",
           chunks: {
             y: 5120,
             x: 5120,
@@ -852,10 +889,8 @@ module.exports = {
         driver: 'zarr',
         args: {
           urlpath:
-            'gs://carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr',
-          storage_options: {
-            token: 'anon',
-          },
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr',
+          consolidated: true,
         },
       },
       fod_shp: {
@@ -875,11 +910,12 @@ module.exports = {
               url: 'https://www.mtbs.gov/',
             },
           ],
+          ci: 'skip',
         },
         driver: 'shapefile',
         args: {
           urlpath:
-            'gs://carbonplan-data/raw/MTBS/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp',
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp',
         },
       },
       perims_shp: {
@@ -899,11 +935,12 @@ module.exports = {
               url: 'https://www.mtbs.gov/',
             },
           ],
+          ci: 'skip',
         },
         driver: 'shapefile',
         args: {
           urlpath:
-            'gs://carbonplan-data/raw/MTBS/mtbs_perimeter_data/mtbs_perims_DD.shp',
+            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_perimeter_data/mtbs_perims_DD.shp',
         },
       },
     },
@@ -1038,6 +1075,17 @@ module.exports = {
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
           path: '{{CATALOG_DIR}}/nlcd.yaml',
+        },
+      },
+      grids: {
+        name: 'Project Grids',
+        description: 'Catalog grid files and domain definitions.',
+        metadata: {
+          tags: ['misc'],
+        },
+        driver: 'intake.catalog.local.YAMLFileCatalog',
+        args: {
+          path: '{{CATALOG_DIR}}/grids.yaml',
         },
       },
     },

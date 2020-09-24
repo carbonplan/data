@@ -1,6 +1,6 @@
 import { Badge, Box, Grid, Text, Divider, IconButton, Input } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
-import theme from '.././theme'
+import theme from '../theme'
 
 const Filter = ({ state }) => {
   const allTags = Object.keys(state.tags)

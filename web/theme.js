@@ -44,6 +44,7 @@ export default {
     climate: 'blue',
     carbon: 'pink',
     forests: 'green',
+    meta: 'red',
   },
   styles: {
     ...base.styles,
