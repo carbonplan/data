@@ -583,7 +583,7 @@ module.exports = {
             'Grid definition for the CONUS 4km Albers Equal Area study area',
           description:
             'This dataset defines the grid used for many of our CONUS 4km data products.\nIt is particularly useful as a target grid when regridding/reprojecting other\ndatasets to this (common) grid.\n',
-          tags: ['misc'],
+          tags: ['meta'],
           type: 'application/zarr',
           license: 'Creative Commons Attribution 4.0 International',
           providers: [
@@ -1081,7 +1081,7 @@ module.exports = {
         name: 'Project Grids',
         description: 'Catalog grid files and domain definitions.',
         metadata: {
-          tags: ['misc'],
+          tags: ['meta'],
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {

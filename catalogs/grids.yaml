@@ -11,7 +11,7 @@ sources:
         This dataset defines the grid used for many of our CONUS 4km data products.
         It is particularly useful as a target grid when regridding/reprojecting other
         datasets to this (common) grid.
-      tags: [misc]
+      tags: [meta]
       type: application/zarr
       license: Creative Commons Attribution 4.0 International
       providers:
