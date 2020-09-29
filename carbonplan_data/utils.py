@@ -49,6 +49,10 @@ def albers_conus_crs():
     )
 
 
+def albers_conus_transform(res=4000):
+    return [res, 0.0, -2493045.0, 0.0, -res, 3310005.0]
+
+
 def albers_ak_extent():
     return "-2232345.0 344805.0 1494735.0 2380125.0"
 
@@ -69,6 +73,10 @@ def albers_ak_crs():
         'PARAMETER["false_northing",0],'
         'UNIT["metre",1,AUTHORITY["EPSG","9001"]]]'
     )
+
+
+def albers_ak_transform(res=4000):
+    return [res, 0.0, -2232345.0, 0.0, -res, 2380125.0]
 
 
 def setup(name):
