@@ -23,9 +23,7 @@ sources:
     driver: zarr
     args:
       urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/terraclimate/4000m/raster.zarr'
-    #   urlpath: 'gs://carbonplan-data/raw/terraclimate/4000m/raster.zarr'
-    #   storage_options:
-    #     token: 'anon'
+      consolidated: True
 
   terraclimate:
     metadata:
@@ -59,6 +57,4 @@ sources:
     driver: zarr
     args:
       urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
-    #   urlpath: 'gs://carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
-    #   storage_options:
-    #     token: 'anon'
+      consolidated: True

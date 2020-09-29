@@ -1,7 +1,6 @@
 import React from 'react'
 import { Style } from '@carbonplan/components'
 import { ThemeProvider } from 'theme-ui'
-import Prism from '@theme-ui/prism'
 
 import theme from '../theme'
 

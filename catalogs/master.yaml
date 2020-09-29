@@ -98,3 +98,12 @@ sources:
     driver: intake.catalog.local.YAMLFileCatalog
     args:
       path: '{{CATALOG_DIR}}/nlcd.yaml'
+
+  grids:
+    name: 'Project Grids'
+    description: 'Catalog grid files and domain definitions.'
+    metadata:
+      tags: [meta]
+    driver: intake.catalog.local.YAMLFileCatalog
+    args:
+      path: '{{CATALOG_DIR}}/grids.yaml'

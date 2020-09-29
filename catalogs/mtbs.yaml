@@ -78,9 +78,7 @@ sources:
     driver: zarr
     args:
       urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
-    #   urlpath: 'gs://carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
-    #   storage_options:
-    #     token: 'anon'
+      consolidated: True
 
   fod_shp:
     metadata:
@@ -100,7 +98,6 @@ sources:
       ci: skip
     driver: shapefile
     args:
-      # urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp
       urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp'
 
   perims_shp:
@@ -121,5 +118,4 @@ sources:
       ci: skip
     driver: shapefile
     args:
-      # urlpath: 'gs://carbonplan-data/raw/MTBS/mtbs_perimeter_data/mtbs_perims_DD.shp'
       urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_perimeter_data/mtbs_perims_DD.shp'
