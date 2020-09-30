@@ -25,7 +25,7 @@ jobs:
         working-directory: ./web
 
   test:
-    name: py${{ matrix.CONDA_ENV }}-test
+    name: test-py${{ matrix.CONDA_ENV }}-${{matrix.CARBONPLAN_DATA}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
