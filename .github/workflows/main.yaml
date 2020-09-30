@@ -30,6 +30,11 @@ jobs:
     strategy:
       matrix:
         CONDA_ENV: [3.7, 3.8]
+        CARBONPLAN_DATA:
+          [
+            'https://carbonplan.blob.core.windows.net/carbonplan-data',
+            'https://storage.googleapis.com/carbonplan-data',
+          ]
     steps:
       - uses: actions/checkout@v2
       - name: Cache conda
@@ -47,6 +52,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
           auto-activate-base: false
       - shell: bash -l {0}
+        env:
+          CARBONPLAN_DATA: ${{ matrix.CARBONPLAN_DATA }}
         run: |
           conda info
           conda list

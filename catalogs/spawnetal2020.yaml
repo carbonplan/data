@@ -43,5 +43,5 @@ sources:
           ]
     driver: rasterio
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif'
       chunks: { 'y': 5120, 'x': 5120 }
