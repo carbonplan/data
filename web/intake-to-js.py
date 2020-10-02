@@ -6,7 +6,7 @@ from pathlib import Path
 import yaml
 
 cwd = Path(__file__).parents[0]
-catalog_dir = cwd / "../catalogs"
+catalog_dir = cwd / "../carbonplan_data/catalogs"
 
 out_file = "data.js"
 

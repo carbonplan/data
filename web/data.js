@@ -42,7 +42,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/nlcd/{{ region }}/30m/{{ option }}.tif',
+            '{{env(CARBONPLAN_DATA)}}/raw/nlcd/{{ region }}/30m/{{ option }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
@@ -89,7 +89,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif',
+            '{{env(CARBONPLAN_DATA)}}/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
@@ -290,7 +290,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif',
+            '{{env(CARBONPLAN_DATA)}}/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
@@ -404,8 +404,7 @@ module.exports = {
           },
         },
         args: {
-          urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fia/{{ name }}.{{ format }}',
+          urlpath: '{{env(CARBONPLAN_DATA)}}/raw/fia/{{ name }}.{{ format }}',
         },
       },
     },
@@ -452,8 +451,7 @@ module.exports = {
         },
         driver: 'parquet',
         args: {
-          urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/gcp/{{ name }}.parquet',
+          urlpath: '{{env(CARBONPLAN_DATA)}}/raw/gcp/{{ name }}.parquet',
         },
       },
     },
@@ -509,7 +507,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif',
+            '{{env(CARBONPLAN_DATA)}}/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
@@ -558,7 +556,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif',
+            '{{env(CARBONPLAN_DATA)}}/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif',
           chunks: {
             y: 5120,
             x: 5120,
@@ -598,7 +596,7 @@ module.exports = {
         driver: 'zarr',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/grids/conus/4000m/domain.zarr/',
+            '{{env(CARBONPLAN_DATA)}}/processed/grids/conus/4000m/domain.zarr/',
           consolidated: true,
         },
       },
@@ -647,7 +645,7 @@ module.exports = {
         driver: 'parquet',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}.parquet',
+            '{{env(CARBONPLAN_DATA)}}/raw/fluxnet/{{ station }}_{{ kind }}.parquet',
         },
       },
       raw_fullset: {
@@ -691,7 +689,7 @@ module.exports = {
         driver: 'parquet',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet',
+            '{{env(CARBONPLAN_DATA)}}/raw/fluxnet/{{ station }}_{{ kind }}_{{ freq }}.parquet',
         },
       },
     },
@@ -727,7 +725,7 @@ module.exports = {
         driver: 'zarr',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/terraclimate/4000m/raster.zarr',
+            '{{env(CARBONPLAN_DATA)}}/raw/terraclimate/4000m/raster.zarr',
           consolidated: true,
         },
       },
@@ -768,7 +766,7 @@ module.exports = {
         driver: 'zarr',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr',
+            '{{env(CARBONPLAN_DATA)}}/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr',
           consolidated: true,
         },
       },
@@ -846,7 +844,7 @@ module.exports = {
         driver: 'rasterio',
         args: {
           urlpath:
-            "https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif",
+            "{{env(CARBONPLAN_DATA)}}/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif",
           chunks: {
             y: 5120,
             x: 5120,
@@ -889,7 +887,7 @@ module.exports = {
         driver: 'zarr',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr',
+            '{{env(CARBONPLAN_DATA)}}/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr',
           consolidated: true,
         },
       },
@@ -915,7 +913,7 @@ module.exports = {
         driver: 'shapefile',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp',
+            '{{env(CARBONPLAN_DATA)}}/raw/mtbs/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp',
         },
       },
       perims_shp: {
@@ -940,7 +938,7 @@ module.exports = {
         driver: 'shapefile',
         args: {
           urlpath:
-            'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_perimeter_data/mtbs_perims_DD.shp',
+            '{{env(CARBONPLAN_DATA)}}/raw/mtbs/mtbs_perimeter_data/mtbs_perims_DD.shp',
         },
       },
     },
