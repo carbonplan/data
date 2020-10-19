@@ -24,6 +24,7 @@ sources:
         - name: USDA Forest Service
           description: Data provided by the United States Department of Agriculture Forest Service.
           url: https://www.fia.fs.fed.us/
+      ci: xfail
     parameters:
       option:
         description: error or raster
@@ -68,6 +69,7 @@ sources:
         - name: USDA Forest Service
           description: Data provided by the United States Department of Agriculture Forest Service.
           url: https://www.fia.fs.fed.us/
+      ci: xfail
     parameters:
       region:
         description: conus or ak
