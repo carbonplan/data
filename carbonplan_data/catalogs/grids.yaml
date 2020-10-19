@@ -22,5 +22,5 @@ sources:
           url: https://carbonplan.org
     driver: zarr
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/grids/conus/4000m/domain.zarr/'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/grids/conus/4000m/domain.zarr/'
       consolidated: True

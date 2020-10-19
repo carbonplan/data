@@ -38,4 +38,4 @@ sources:
           ]
     driver: parquet
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/gcp/{{ name }}.parquet'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/gcp/{{ name }}.parquet'

@@ -22,7 +22,7 @@ sources:
           url: http://www.climatologylab.org
     driver: zarr
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/terraclimate/4000m/raster.zarr'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/terraclimate/4000m/raster.zarr'
       consolidated: True
 
   terraclimate:
@@ -56,5 +56,5 @@ sources:
         allowed: ['4000m']
     driver: zarr
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
       consolidated: True

@@ -38,7 +38,7 @@ sources:
     driver: rasterio
     args:
       # urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
-      urlpath: "https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
+      urlpath: "{{env(CARBONPLAN_DATA)}}/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
       chunks: { 'y': 5120, 'x': 5120 }
 
   raster:
@@ -77,7 +77,7 @@ sources:
         allowed: ['4000m']
     driver: zarr
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
       consolidated: True
 
   fod_shp:
@@ -98,7 +98,7 @@ sources:
       ci: skip
     driver: shapefile
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/mtbs/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp'
 
   perims_shp:
     metadata:
@@ -118,4 +118,4 @@ sources:
       ci: skip
     driver: shapefile
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/mtbs/mtbs_perimeter_data/mtbs_perims_DD.shp'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/mtbs/mtbs_perimeter_data/mtbs_perims_DD.shp'
