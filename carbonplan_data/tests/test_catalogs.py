@@ -1,6 +1,6 @@
 import os
 
-from carbonplan_data import MASTER_CATALOG_PATH, cat
+from carbonplan.data import MASTER_CATALOG_PATH, cat
 
 from . import parametrize_with_checks
 

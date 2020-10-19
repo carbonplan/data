@@ -18,6 +18,12 @@
 
 This repository includes our master data catalog as well as our pre-processing utilities.
 
+## install
+
+```shell
+pip carbonplan[data]
+```
+
 ## usage
 
 The CarbonPlan data archives are currently mirrored on Google Cloud Storage (US-Central) and
