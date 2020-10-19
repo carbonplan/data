@@ -272,6 +272,7 @@ module.exports = {
               url: 'https://doi.org/10.3334/ORNLDAAC/1763',
             },
           ],
+          ci: 'xfail',
         },
         parameters: {
           variable: {
@@ -396,15 +397,10 @@ module.exports = {
               'veg_visit',
             ],
           },
-          format: {
-            description: 'Pixel resolution in meters',
-            type: 'str',
-            default: 'parquet',
-            allowed: ['parquet'],
-          },
         },
         args: {
-          urlpath: '{{env(CARBONPLAN_DATA)}}/raw/fia/{{ name }}.{{ format }}',
+          urlpath: '{{env(CARBONPLAN_DATA)}}/raw/fia/{{ name }}.parquet',
+          engine: 'pyarrow',
         },
       },
     },
@@ -483,6 +479,7 @@ module.exports = {
               url: 'https://www.fia.fs.fed.us/',
             },
           ],
+          ci: 'xfail',
         },
         parameters: {
           option: {
@@ -532,6 +529,7 @@ module.exports = {
               url: 'https://www.fia.fs.fed.us/',
             },
           ],
+          ci: 'xfail',
         },
         parameters: {
           region: {
@@ -1072,7 +1070,7 @@ module.exports = {
         },
         driver: 'intake.catalog.local.YAMLFileCatalog',
         args: {
-          path: '{{CATALOG_DIR}}/nlcd.yaml',
+          path: '{{CATALOG_DIR}}/spawnetal2020.yaml',
         },
       },
       grids: {
