@@ -56,7 +56,7 @@ jobs:
         run: |
           conda info
           conda list
-          # python -m pip install --no-deps -e .
+          python -m pip install --no-deps -e .
           pytest --verbose
 
   lint:
