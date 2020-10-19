@@ -36,12 +36,6 @@ setup(
     url="https://github.com/carbonplan/data",
     packages=find_packages(),
     include_package_data=True,
-    entry_points={
-        "carbonplan.modules": [
-            "data = carbonplan_data",
-            "data.utils = carbonplan_data.utils",
-        ]
-    },
     python_requires=PYTHON_REQUIRES,
     install_requires=INSTALL_REQUIRES,
     tests_require=["pytest"],
