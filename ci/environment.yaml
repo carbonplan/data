@@ -19,3 +19,6 @@ dependencies:
   - rasterio=1.0.25
   - xarray
   - zarr
+  - pip
+  - pip:
+      - carbonplan
