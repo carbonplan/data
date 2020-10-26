@@ -28,7 +28,7 @@ sources:
   raster:
     metadata:
       title: TerraClimate (processed)
-      summary: Global climate and climaticwater balance data from 1958-2019.
+      summary: Climate and climaticwater balance data from 1958-2019.
       description: |
         TerraClimate is a dataset of monthly climate and climatic water balance for global
         terrestrial surfaces from 1958-2019. All data have monthly temporal resolution and a
