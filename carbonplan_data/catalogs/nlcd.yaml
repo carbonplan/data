@@ -48,8 +48,7 @@ sources:
         allowed: [conus, ak]
     driver: rasterio
     args:
-      # urlpath: 'https://storage.googleapis.com/carbonplan-data/raw/nlcd/{{ region }}/30m/{{ option }}.tif'
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/nlcd/{{ region }}/30m/{{ option }}.tif'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/nlcd/{{ region }}/30m/{{ option }}.tif'
       chunks: { 'y': 5120, 'x': 5120 }
 
   raster:
@@ -104,6 +103,5 @@ sources:
         allowed: [conus, ak]
     driver: rasterio
     args:
-      # urlpath: 'https://storage.googleapis.com/carbonplan-data/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif'
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif'
       chunks: { 'y': 5120, 'x': 5120 }

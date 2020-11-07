@@ -29,6 +29,7 @@ sources:
             (EOSDIS) data center managed by the Earth Science Data and Information System (ESDIS)
             Project.
           url: https://doi.org/10.3334/ORNLDAAC/1763
+      ci: xfail
     parameters:
       variable:
         description: aboveground, aboveground_uncertainty, belowground, or belowground_uncertainty
@@ -43,5 +44,5 @@ sources:
           ]
     driver: rasterio
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif'
       chunks: { 'y': 5120, 'x': 5120 }

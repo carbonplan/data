@@ -7,10 +7,10 @@ dependencies:
   - fastparquet
   - gdal=2.4.2
   - google-cloud-storage
-  - intake
+  - intake<=0.6.0
   - intake-geopandas
   - intake-parquet
-  - intake-xarray
+  - intake-xarray<=0.3.1
   - libgdal=2.4.2
   - netcdf4
   - pandas
@@ -19,3 +19,6 @@ dependencies:
   - rasterio=1.0.25
   - xarray
   - zarr
+  - pip
+  - pip:
+      - carbonplan

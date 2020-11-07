@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
@@ -25,15 +25,19 @@ jobs:
         working-directory: ./web
 
   test:
-    name: py${{ matrix.CONDA_ENV }}-test
+    name: test-py${{ matrix.CONDA_ENV }}-${{matrix.CARBONPLAN_DATA}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         CONDA_ENV: [3.7, 3.8]
+        CARBONPLAN_DATA: [
+            # 'https://carbonplan.blob.core.windows.net/carbonplan-data',
+            'gs://carbonplan-data',
+          ]
     steps:
       - uses: actions/checkout@v2
       - name: Cache conda
-        uses: actions/cache@v2.1.1
+        uses: actions/cache@v2.1.2
         env:
           # Increase this value to reset cache if etc/example-environment.yml has not changed
           CACHE_NUMBER: 0
@@ -47,15 +51,17 @@ jobs:
           python-version: ${{ matrix.python-version }}
           auto-activate-base: false
       - shell: bash -l {0}
+        env:
+          CARBONPLAN_DATA: ${{ matrix.CARBONPLAN_DATA }}
         run: |
           conda info
           conda list
-          # python -m pip install --no-deps -e .
+          python -m pip install --no-deps -e .
           pytest --verbose
 
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-python@v2.1.2
+      - uses: actions/setup-python@v2.1.4
       - uses: pre-commit/action@v2.0.0

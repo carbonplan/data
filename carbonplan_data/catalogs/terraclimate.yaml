@@ -3,7 +3,7 @@ plugins:
     - module: intake_xarray
 
 sources:
-  raw_terraclimate:
+  raw_raster:
     metadata:
       title: TerraClimate (raw)
       summary: Global climate and climaticwater balance data from 1958-2019.
@@ -22,13 +22,13 @@ sources:
           url: http://www.climatologylab.org
     driver: zarr
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/terraclimate/4000m/raster.zarr'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/terraclimate/4000m/raster.zarr'
       consolidated: True
 
-  terraclimate:
+  raster:
     metadata:
       title: TerraClimate (processed)
-      summary: Global climate and climaticwater balance data from 1958-2019.
+      summary: Climate and climaticwater balance data from 1958-2019.
       description: |
         TerraClimate is a dataset of monthly climate and climatic water balance for global
         terrestrial surfaces from 1958-2019. All data have monthly temporal resolution and a
@@ -56,5 +56,5 @@ sources:
         allowed: ['4000m']
     driver: zarr
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/terraclimate/{{ region }}/{{ resolution }}/raster.zarr'
       consolidated: True

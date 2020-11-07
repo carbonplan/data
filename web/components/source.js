@@ -57,8 +57,10 @@ const Source = ({ name, obj, catId, index }) => {
     openLine = `cat["${name}"]${args}.describe()`
   }
   const code = `
+import os
 from intake import open_catalog
 
+os.environ['CARBONPLAN_DATA'] = 'https://carbonplan.blob.core.windows.net/carbonplan-data'
 ${catLine}
 ${openLine}
 `

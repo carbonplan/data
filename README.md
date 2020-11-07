@@ -18,14 +18,32 @@
 
 This repository includes our master data catalog as well as our pre-processing utilities.
 
+## install
+
+```shell
+pip carbonplan[data]
+```
+
 ## usage
+
+The CarbonPlan data archives are currently mirrored on Google Cloud Storage (US-Central) and
+Microsoft Azure (US-West). Set the `CARBONPLAN_DATA` environment variable before using the
+Intake catalog below:
+
+```shell
+# google (us-central)
+export CARBONPLAN_DATA="https://storage.googleapis.com/carbonplan-data"
+# or
+# azure (us-west)
+export CARBONPLAN_DATA="https://carbonplan.blob.core.windows.net/carbonplan-data"
+```
 
 ```python
 # open the top level catalog
 from carbonplan.data import cat
 
 # extract an entry as a Dask-backed Xarray Dataset
-cat.mtbs.["raster"](region="conus", resolution="4000m").to_dask()
+cat.mtbs["raster"](region="conus", resolution="4000m").to_dask()
 ```
 
 ---

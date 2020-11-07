@@ -97,7 +97,7 @@ sources:
       tags: [forests]
     driver: intake.catalog.local.YAMLFileCatalog
     args:
-      path: '{{CATALOG_DIR}}/nlcd.yaml'
+      path: '{{CATALOG_DIR}}/spawnetal2020.yaml'
 
   grids:
     name: 'Project Grids'

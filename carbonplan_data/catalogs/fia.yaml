@@ -92,10 +92,6 @@ sources:
             veg_subplot_spp,
             veg_visit,
           ]
-      format:
-        description: Pixel resolution in meters
-        type: str
-        default: 'parquet'
-        allowed: [parquet]
     args:
-      urlpath: 'https://carbonplan.blob.core.windows.net/carbonplan-data/raw/fia/{{ name }}.{{ format }}'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/fia/{{ name }}.parquet'
+      engine: 'pyarrow'
