@@ -82,7 +82,7 @@ def albers_ak_transform(res=4000):
 def setup(name):
     if name == "jeremy":
         creds = "/Users/freeman/.config/gcloud/legacy_credentials/jeremy@carbonplan.org/adc.json"
-        workdir = pathlib.Path("/Users/freeman/workdir/carbonplan/")
+        workdir = pathlib.Path("/Users/freeman/workdir/carbonplan-data/")
     if name == "joe":
         creds = "/Users/jhamman/.config/gcloud/legacy_credentials/joe@carbonplan.org/adc.json"
         workdir = pathlib.Path("/Users/jhamman/workdir/carbonplan_data_downloads/")
