@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v3.3.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -17,7 +17,7 @@ repos:
         args: ['--line-length', '100']
 
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.8.3
+    rev: 3.8.4
     hooks:
       - id: flake8
 
@@ -26,7 +26,7 @@ repos:
     hooks:
       - id: seed-isort-config
   - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.5.3
+    rev: v5.6.4
     hooks:
       - id: isort
 
@@ -35,8 +35,8 @@ repos:
     hooks:
       - id: prenotebook
 
-  - repo: https://github.com/prettier/prettier
-    rev: 2.1.2
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: 'v2.2.0'
     hooks:
       - id: prettier
         files: "\\.(\
@@ -50,8 +50,8 @@ repos:
           |yaml|yml\
           )$"
 
-  - repo: https://github.com/prettier/prettier
-    rev: 2.1.2
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: 'v2.2.0'
     hooks:
       - id: prettier
         name: prettier-markdown
