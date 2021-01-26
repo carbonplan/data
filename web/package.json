@@ -25,8 +25,9 @@
     "@carbonplan/components": "^1.0.0",
     "@carbonplan/theme": "^1.1.0",
     "@theme-ui/color": "^0.3.1",
+    "@theme-ui/css": "^0.3.3",
     "@theme-ui/prism": "^0.3.0",
-    "next": "^9.5.1",
+    "next": "^10.0.2",
     "prism-react-renderer": "^1.1.1",
     "react": "^16.13.1",
     "react-animate-height": "^2.0.22",
@@ -41,7 +42,7 @@
     "yaml": "^1.10.0"
   },
   "devDependencies": {
-    "prettier": "2.1.2",
+    "prettier": "2.2.1",
     "redux-devtools-extension": "^2.13.8"
   }
 }
