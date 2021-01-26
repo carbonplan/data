@@ -1,16 +1,11 @@
-import os
-
-import gcsfs
 import numpy as np
-import pandas as pd
 import rasterio
-import rioxarray
 import xarray as xr
-import zarr
 from numcodecs.zlib import Zlib
 from rasterio import Affine
 from rasterio.crs import CRS
 from rasterio.warp import Resampling, reproject, transform
+
 
 def base_crs():
     return (
@@ -31,6 +26,7 @@ def base_crs():
         'PARAMETER["false_northing",0],'
         'UNIT["meters",1]]'
     )
+
 
 def make_dst_band(src_band, src_resolution):
     left = -2493045.0
@@ -56,54 +52,55 @@ def calc_coords(shape, trans, crs):
     x, _ = trans * (np.arange(nx) + 0.5, np.zeros(nx) + 0.5)
     _, y = trans * (np.zeros(ny) + 0.5, np.arange(ny) + 0.5)
     xs, ys = np.meshgrid(x, y)
-    lon, lat = transform(crs, {'init': 'EPSG:4326'}, xs.flatten(), ys.flatten())
+    lon, lat = transform(crs, {"init": "EPSG:4326"}, xs.flatten(), ys.flatten())
 
     return {
-        'x': xr.DataArray(x, dims=('x',)),
-        'y': xr.DataArray(y, dims=('y',)),
-        'lat': xr.DataArray(np.asarray(lat).reshape((ny, nx)), dims=('y', 'x')),
-        'lon': xr.DataArray(np.asarray(lon).reshape((ny, nx)), dims=('y', 'x')),
+        "x": xr.DataArray(x, dims=("x",)),
+        "y": xr.DataArray(y, dims=("y",)),
+        "lat": xr.DataArray(np.asarray(lat).reshape((ny, nx)), dims=("y", "x")),
+        "lon": xr.DataArray(np.asarray(lon).reshape((ny, nx)), dims=("y", "x")),
     }
+
 
 src_nodata = 6
 resampling = Resampling.average
 resolution = 4000
-years = np.arange(1984,2019)
+years = np.arange(1984, 2019)
 months = np.arange(1, 13)
 
 for year in years:
-    print(f'starting year {year}')
-    src_path_year = f'/Users/freeman/workdir/carbonplan-data/raw/mtbs/conus/30m/severity/{year}.tif'
-    
-    with rasterio.open(src_path_year, 'r') as src_raster_year:
-        src_transform = src_raster_year.meta['transform']
-        src_crs = src_raster_year.meta['crs']
+    print(f"starting year {year}")
+    src_path_year = f"/Users/freeman/workdir/carbonplan-data/raw/mtbs/conus/30m/severity/{year}.tif"
+
+    with rasterio.open(src_path_year, "r") as src_raster_year:
+        src_transform = src_raster_year.meta["transform"]
+        src_crs = src_raster_year.meta["crs"]
         src_band_year = src_raster_year.read(1)
         src_resolution = resolution
 
-        dst_band, dst_transform, dst_crs, dst_shape = make_dst_band(
-            src_band_year, src_resolution
-        )
+        dst_band, dst_transform, dst_crs, dst_shape = make_dst_band(src_band_year, src_resolution)
         coords = calc_coords(dst_shape, dst_transform, dst_crs)
-        
-        for month in months:
-            print(f'processing month {month}')
-            varname = f'{year}.{month:02n}'
-            src_path_month = f'/Users/freeman/workdir/carbonplan-data/raw/mtbs/conus/30m/area/{varname}.tif'
 
-            with rasterio.open(src_path_month, 'r') as src_raster_month:
-                if (month == 1):
+        for month in months:
+            print(f"processing month {month}")
+            varname = f"{year}.{month:02n}"
+            src_path_month = (
+                f"/Users/freeman/workdir/carbonplan-data/raw/mtbs/conus/30m/area/{varname}.tif"
+            )
+
+            with rasterio.open(src_path_month, "r") as src_raster_month:
+                if month == 1:
                     src_band_month = src_raster_month.read(1)
                 else:
                     src_band_month += src_raster_month.read(1)
 
         src_band_month[src_band_month > 1] = 1
-        src_band_tmp = src_band_month * ((src_band_year == 3) | (src_band_year == 4)).astype('uint8')
+        src_band_tmp = src_band_month * ((src_band_year == 3) | (src_band_year == 4)).astype(
+            "uint8"
+        )
         src_band_tmp[src_band_year == src_nodata] = src_nodata
 
-        dst_band = dst_band.astype(
-            'float32'
-        )
+        dst_band = dst_band.astype("float32")
 
         # this seems to require rasterio=1.0.25 and gdal=2.4.2
         reproject(
@@ -115,7 +112,7 @@ for year in years:
             dst_crs=dst_crs,
             resampling=resampling,
             src_nodata=src_nodata,
-            dst_nodata=src_raster_year.meta['nodata'],
+            dst_nodata=src_raster_year.meta["nodata"],
         )
 
         meta = src_raster_year.meta
@@ -125,20 +122,14 @@ for year in years:
             dtype=str(dst_band.dtype),
             crs=dst_crs.to_wkt(),
             transform=list(dst_transform),
-            nodata=src_raster_year.meta['nodata'],
+            nodata=src_raster_year.meta["nodata"],
         )
 
-        chunks = {'x': 512, 'y': 512}
-        ds = xr.DataArray(dst_band, dims=('y', 'x'), attrs=meta).to_dataset(
-            name=f'{year}'
-        )
+        chunks = {"x": 512, "y": 512}
+        ds = xr.DataArray(dst_band, dims=("y", "x"), attrs=meta).to_dataset(name=f"{year}")
         ds = ds.assign_coords(coords).chunk(chunks)
 
-        ds.to_zarr(
-            f'{year}.zarr',
-            mode='w', 
-            encoding={f'{year}': {'compressor': Zlib()}}
-        )
+        ds.to_zarr(f"{year}.zarr", mode="w", encoding={f"{year}": {"compressor": Zlib()}})
 
 # results = []
 # for year in years:
@@ -155,6 +146,6 @@ for year in years:
 # chunks = ({'time': 1, 'x': 1209, 'y': 783})
 # ds = ds.chunk(chunks)
 # ds.to_zarr(
-#     '/Users/freeman/workdir/carbonplan-data/processed/mtbs/conus/4000m/annual.zarr', 
+#     '/Users/freeman/workdir/carbonplan-data/processed/mtbs/conus/4000m/annual.zarr',
 #     mode='w', encoding={'annual': {'compressor': Zlib()}}
 # )

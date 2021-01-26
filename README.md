@@ -16,7 +16,7 @@
 [build status]: https://flat.badgen.net/github/checks/carbonplan/data
 [mit license]: https://flat.badgen.net/badge/license/MIT/blue
 
-This repository includes our master data catalog as well as our pre-processing utilities.
+This repository includes our main data catalog as well as our pre-processing utilities.
 
 ## install
 
