@@ -1,6 +1,6 @@
 import os
-import numpy as np
 
+import numpy as np
 from rio_cogeo.cogeo import cog_translate
 from rio_cogeo.profiles import cog_profiles
 
@@ -14,20 +14,12 @@ workdir
 resolution = 30
 
 for region in ["conus"]:
-    for year in np.arange(1984,2019):
+    for year in np.arange(1984, 2019):
         source = (workdir / f"raw/mtbs/{region}/30m/{year}.tif").as_posix()
         print(source)
         crs, extent = projections("albers", region)
         resampling = "nearest"
-        cmd = (
-            "gdalwarp "
-            "-t_srs '%s' "
-            "-te %s "
-            "-tr %s %s "
-            "-r %s "
-            "%s "
-            "%s"
-        ) % (
+        cmd = ("gdalwarp " "-t_srs '%s' " "-te %s " "-tr %s %s " "-r %s " "%s " "%s") % (
             crs,
             extent,
             resolution,
