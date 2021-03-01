@@ -20,7 +20,13 @@ sources:
             CarbonPlan is a registered non-profit public benefit corporation working on
             the science and data of carbon removal.
           url: https://carbonplan.org
+    parameters:
+      region:
+        description: conus or ak
+        type: str
+        default: conus
+        allowed: [conus, ak]
     driver: zarr
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/grids/conus/4000m/domain.zarr/'
+      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/grids/{region}/4000m/domain.zarr/'
       consolidated: True
