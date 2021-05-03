@@ -38,7 +38,7 @@
     "remark": "^13.0.0",
     "remark-react": "^8.0.0",
     "remark-rehype": "^8.0.0",
-    "theme-ui": "^0.3.1",
+    "theme-ui": "^0.7.5",
     "yaml": "^1.10.0"
   },
   "devDependencies": {
