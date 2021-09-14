@@ -1,12 +1,32 @@
+import importlib
 import os
 import pathlib
 import zipfile
+from typing import Dict, Optional
 
+import numpy as np
 import urlpath
 import wget
+import xarray as xr
 import yaml
+from numpy.typing import DTypeLike
 
 root = pathlib.Path(__file__).parents[2]
+
+# from netCDF4 and netCDF4-python
+default_fillvals = {
+    "S1": "\x00",
+    "i1": -127,
+    "u1": 255,
+    "i2": -32767,
+    "u2": 65535,
+    "i4": -2147483647,
+    "u4": 4294967295,
+    "i8": -9223372036854775806,
+    "u8": 18446744073709551614,
+    "f4": 9.969209968386869e36,
+    "f8": 9.969209968386869e36,
+}
 
 
 def projections(name, region):
@@ -158,3 +178,91 @@ def process_sources(name, workdir=None):
                     results["unzip"].append(outdir.glob("**/*"))
 
     return results
+
+
+def set_zarr_encoding(
+    ds: xr.Dataset, codec_config: Optional[Dict] = None, float_dtype: Optional[DTypeLike] = None
+) -> xr.Dataset:
+    """Set zarr encoding for each variable in the dataset
+
+    Parameters
+    ----------
+    ds : xr.Dataset
+        Input dataset
+    codec_config : dict, optional
+        Dictionary of parameters to pass to numcodecs.get_codec, default is {'id': 'zlib', 'level': 1}
+    float_dtype : str or dtype, optional
+        Dtype to cast floating point variables to
+
+    Returns
+    -------
+    ds : xr.Dataset
+        Output dataset with updated variable encodings
+    """
+    import numcodecs
+
+    ds = ds.copy()
+
+    if codec_config is None:
+        codec_config = {"id": "zlib", "level": 1}
+    compressor = numcodecs.get_codec(codec_config)
+
+    for k, da in ds.variables.items():
+
+        # maybe cast float type
+        if np.issubdtype(da.dtype, np.floating) and float_dtype is not None:
+            da = da.astype(float_dtype)
+
+        # remove old encoding
+        da.encoding.clear()
+
+        # update with new encoding
+        da.encoding["compressor"] = compressor
+        da.encoding["_FillValue"] = default_fillvals.get(
+            da.dtype.str[-2:], None
+        )  # TODO: handle date/time types
+
+        ds[k] = da
+
+    return ds
+
+
+def get_versions(
+    packages=[
+        "carbonplan",
+        "carbonplan_data",
+        "xarray",
+        "dask",
+        "numpy",
+        "scipy",
+        "fsspec",
+        "intake",
+        "rasterio",
+        "zarr",
+    ]
+) -> Dict[str, str]:
+    """Helper to fetch commonly used package versions
+    Parameters
+    ----------
+    packages : list
+        List of packages to fetch versions for
+    Returns
+    -------
+    versions : dict
+        Version dictionary with keys of package names and values of version strings
+    """
+    versions = {"docker_image ": os.getenv("REPO_HASH", None)}
+
+    for p in packages:
+        try:
+            mod = importlib.import_module(p)
+            versions[p] = getattr(mod, "__version__", None)
+        except ModuleNotFoundError:
+            versions[p] = None
+
+    return versions
+
+
+def zarr_is_complete(store, check=".zmetadata"):
+    """Return true if Zarr store is complete"""
+    return check in store
