@@ -218,6 +218,10 @@ def set_zarr_encoding(
 
         # update with new encoding
         da.encoding["compressor"] = compressor
+        try:
+            del da.atrrs['_FillValue']
+        except AttributeError:
+            pass
         da.encoding["_FillValue"] = default_fillvals.get(
             da.dtype.str[-2:], None
         )  # TODO: handle date/time types
