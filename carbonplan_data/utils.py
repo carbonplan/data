@@ -181,7 +181,10 @@ def process_sources(name, workdir=None):
 
 
 def set_zarr_encoding(
-    ds: xr.Dataset, codec_config: Optional[Dict] = None, float_dtype: Optional[DTypeLike] = None
+    ds: xr.Dataset,
+    codec_config: Optional[Dict] = None,
+    float_dtype: Optional[DTypeLike] = None,
+    int_dtype: Optional[DTypeLike] = None,
 ) -> xr.Dataset:
     """Set zarr encoding for each variable in the dataset
 
@@ -213,13 +216,16 @@ def set_zarr_encoding(
         if np.issubdtype(da.dtype, np.floating) and float_dtype is not None:
             da = da.astype(float_dtype)
 
+        if np.issubdtype(da.dtype, np.integer) and int_dtype is not None:
+            da = da.astype(int_dtype)
+
         # remove old encoding
         da.encoding.clear()
 
         # update with new encoding
         da.encoding["compressor"] = compressor
         try:
-            del da.atrrs['_FillValue']
+            del da.atrrs["_FillValue"]
         except AttributeError:
             pass
         da.encoding["_FillValue"] = default_fillvals.get(
