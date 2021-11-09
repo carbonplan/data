@@ -21,9 +21,8 @@ def test_set_zarr_encoding(temperature):
     assert ds.air.encoding.get("_FillValue", None)
 
     ds = set_zarr_encoding(temperature, float_dtype="float16")
-    ds.to_zarr(store, mode='w')
+    ds.to_zarr(store, mode="w")
     assert "f2" in ds.air.dtype.str
-
 
 
 def test_get_versions():
