@@ -53,7 +53,7 @@ def make_dst_band(src_band, src_resolution):
 
 
 def prepare_mtbs(year, resolution):
-    src_path = RAW_PATH + "MTBS/%s/mtbs_CONUS_%s.tif" % (year, year)
+    src_path = RAW_PATH + f"MTBS/{year}/mtbs_CONUS_{year}.tif"
     src_raster = rasterio.open(src_path)
     src_transform = src_raster.meta["transform"]
     src_crs = src_raster.meta["crs"]
@@ -96,7 +96,7 @@ def prepare_mtbs(year, resolution):
         nodata=src_raster.meta["nodata"],
     )
 
-    store = zarr.open(PROCESSED_PATH + "MTBS.%s.%sm.zarr" % (year, resolution), "w")
+    store = zarr.open(PROCESSED_PATH + f"MTBS.{year}.{resolution}m.zarr", "w")
     store.attrs.put(meta)
     store.array("0", dst_band, chunks=(512, 512), compressor=Zlib())
 
