@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import getpass
 import os
 import socket
@@ -10,7 +12,7 @@ from . import __version__
 def get_cf_global_attrs(**attrs):
 
     if "history" not in attrs:
-        attrs["history"] = "Created: {}".format(time.ctime(time.time()))
+        attrs["history"] = f"Created: {time.ctime(time.time())}"
 
     if "insitution" not in attrs:
         attrs["institution"] = "CarbonPlan"
