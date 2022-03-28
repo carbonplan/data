@@ -16,6 +16,7 @@ dependencies:
   - pandas
   - pydap
   - pytest
+  - pytest-cov
   - rasterio=1.0.25
   - xarray
   - zarr
