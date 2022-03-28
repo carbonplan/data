@@ -44,10 +44,10 @@ jobs:
           ]
     steps:
       - uses: actions/checkout@v2
-      - name: Install Conda environment from environment.yml
+      - name: Install Conda environment
         uses: mamba-org/provision-with-micromamba@main
         with:
-          environment-file: ci/environment.yml
+          environment-file: ci/environment.yaml
           cache-downloads: true
           extra-specs: |
             python=${{ matrix.python-version }}
