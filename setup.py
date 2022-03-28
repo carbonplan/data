@@ -2,14 +2,14 @@
 
 """The setup script."""
 
+
+import pathlib
 from setuptools import find_packages, setup
 
 with open("requirements.txt") as f:
     INSTALL_REQUIRES = f.read().strip().split("\n")
 
-with open("README.md") as f:
-    LONG_DESCRIPTION = f.read()
-
+LONG_DESCRIPTION = pathlib.Path("README.md").read_text()
 PYTHON_REQUIRES = ">=3.7"
 
 description = "Preprocessing utilities for CarbonPlan's data catalog"
@@ -42,5 +42,4 @@ setup(
     license="MIT",
     keywords="carbon, data, climate",
     use_scm_version={"version_scheme": "post-release", "local_scheme": "dirty-tag"},
-    setup_requires=["setuptools_scm", "setuptools>=30.3.0"],
 )
