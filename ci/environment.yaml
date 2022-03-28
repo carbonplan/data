@@ -8,14 +8,15 @@ dependencies:
   - gcsfs
   - gdal
   - google-cloud-storage
+  - intake
   - intake-geopandas
   - intake-parquet
   - intake-xarray
-  - intake
   - libgdal
   - netcdf4
   - pandas
   - pip
+  - pooch
   - pydap
   - pytest
   - pytest-cov
