@@ -62,4 +62,4 @@ jobs:
         env:
           CARBONPLAN_DATA: ${{ matrix.CARBONPLAN_DATA }}
         run: |
-          python -m pytest --cov=./ --cov-report=xml --verbose ./
+          python -m pytest
