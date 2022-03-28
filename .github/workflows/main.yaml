@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: '*'
+    branches:
+      - main
   pull_request:
-    branches: '*'
 
 jobs:
   build:
@@ -62,10 +62,3 @@ jobs:
           conda list
           python -m pip install --no-deps -e .
           pytest --verbose
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-python@v2.2.2
-      - uses: pre-commit/action@v2.0.3
