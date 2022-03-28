@@ -20,7 +20,7 @@ dependencies:
   - pytest
   - pytest-cov
   - rasterio=1.0.25
-  - urlapth
+  - urlpth
   - xarray
   - zarr
   - pip:
