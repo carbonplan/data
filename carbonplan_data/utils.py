@@ -1,8 +1,9 @@
+from __future__ import annotations
+
 import importlib
 import os
 import pathlib
 import zipfile
-from typing import Dict, Optional
 
 import numpy as np
 import urlpath
@@ -182,9 +183,9 @@ def process_sources(name, workdir=None):
 
 def set_zarr_encoding(
     ds: xr.Dataset,
-    codec_config: Optional[Dict] = None,
-    float_dtype: Optional[DTypeLike] = None,
-    int_dtype: Optional[DTypeLike] = None,
+    codec_config: dict | None = None,
+    float_dtype: DTypeLike | None = None,
+    int_dtype: DTypeLike | None = None,
 ) -> xr.Dataset:
     """Set zarr encoding for each variable in the dataset
 
@@ -250,7 +251,7 @@ def get_versions(
         "rasterio",
         "zarr",
     ]
-) -> Dict[str, str]:
+) -> dict[str, str]:
     """Helper to fetch commonly used package versions
     Parameters
     ----------
