@@ -51,8 +51,8 @@ def _set_check_ids(obj):
         if not obj.keywords:
             return obj.func.__name__
 
-        kwstring = ",".join(["{}={}".format(k, v) for k, v in obj.keywords.items()])
-        return "{}({})".format(obj.func.__name__, kwstring)
+        kwstring = ",".join([f"{k}={v}" for k, v in obj.keywords.items()])
+        return f"{obj.func.__name__}({kwstring})"
 
 
 def parametrize_with_checks(catalog):

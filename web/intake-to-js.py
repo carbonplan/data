@@ -18,7 +18,7 @@ def main():
     data = {}
     for file in files:
         key = file.stem
-        with open(file, "r") as f:
+        with open(file) as f:
             data[key] = yaml.safe_load(f.read())
 
     with open(out_file, "w") as f:
