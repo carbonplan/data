@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import os
 import pathlib
-import warnings
 
 import intake
 from pkg_resources import DistributionNotFound, get_distribution
@@ -21,13 +20,7 @@ KNOWN_DATA_LOCATIONS = [
 ]
 
 # open master catalog
-_catalog_env_vars = ["CARBONPLAN_DATA"]
-for v in _catalog_env_vars:
-    if os.getenv(v) is None:
-        msg = (
-            f"{v} environment variable not set, `carbonplan.data.cat` may not work as expected."
-            f"Known data locations include: {KNOWN_DATA_LOCATIONS}."
-        )
-        warnings.warn(msg)
+if "CARBONPLAN_DATA" not in os.environ:
+    os.environ["CARBONPLAN_DATA"] = "https://storage.googleapis.com/carbonplan-data"
 
 cat = intake.open_catalog(MASTER_CATALOG_PATH)
