@@ -19,7 +19,7 @@ export default (req, res) => {
       JSON.stringify({
         message: 'Not Found',
         documentation_url: 'https://carbonplan.org/data',
-      })
+      }),
     )
   }
 }

@@ -5,7 +5,7 @@ import data from '../data'
 
 const Catalog = ({ visibility, id }) => {
   const anyCatalogs = Object.keys(visibility).some(
-    (key) => visibility[key].show
+    (key) => visibility[key].show,
   )
 
   if (anyCatalogs && !id) {
@@ -32,7 +32,7 @@ const Catalog = ({ visibility, id }) => {
   var sources = []
   if (anyCatalogs) {
     sources = Object.keys(data[id].sources).filter(
-      (e) => visibility[id].sources[e].show
+      (e) => visibility[id].sources[e].show,
     )
   }
 
