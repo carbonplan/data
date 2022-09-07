@@ -23,7 +23,7 @@ function Index() {
 
   const visibility = searchWithTags(state.search[0], activeTags)
   const anyCatalogs = Object.keys(visibility).some(
-    (key) => visibility[key].show
+    (key) => visibility[key].show,
   )
   if (catalog && !anyCatalogs) {
     setCatalog(null)
