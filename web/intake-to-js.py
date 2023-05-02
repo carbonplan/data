@@ -12,7 +12,6 @@ out_file = "data.js"
 
 
 def main():
-
     files = catalog_dir.glob("*yaml")
 
     data = {}
