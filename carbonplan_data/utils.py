@@ -124,7 +124,6 @@ def setup(name):
 
 
 def get_sources():
-
     with open(root / "sources.yaml") as f:
         sources = yaml.load(f, Loader=yaml.FullLoader)
 
@@ -132,7 +131,6 @@ def get_sources():
 
 
 def get_workdir(workdir):
-
     # fallback to cwd
     if workdir is None:
         workdir = os.getcwd()
@@ -148,14 +146,12 @@ def get_workdir(workdir):
 
 
 def process_sources(name, workdir=None):
-
     sources = get_sources()
     workdir = get_workdir(workdir)
 
     results = {"download": [], "unzip": []}
 
     for key, dset in sources[name]["data"].items():
-
         # download
         if "download" in dset["actions"]:
             for url in dset["urlpath"]:
@@ -212,7 +208,6 @@ def set_zarr_encoding(
     compressor = numcodecs.get_codec(codec_config)
 
     for k, da in ds.variables.items():
-
         # maybe cast float type
         if np.issubdtype(da.dtype, np.floating) and float_dtype is not None:
             da = da.astype(float_dtype)

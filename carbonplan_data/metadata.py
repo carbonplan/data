@@ -10,7 +10,6 @@ from . import __version__
 
 
 def get_cf_global_attrs(**attrs):
-
     if "history" not in attrs:
         attrs["history"] = f"Created: {time.ctime(time.time())}"
 
