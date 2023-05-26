@@ -22,7 +22,7 @@ This repository includes our main data catalog as well as our pre-processing uti
 ## install
 
 ```shell
-pip carbonplan[data]
+python -m pip install carbonplan[data]
 ```
 
 ## usage
