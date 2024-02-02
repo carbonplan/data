@@ -52,7 +52,7 @@ cat.mtbs["raster"](region="conus", resolution="4000m").to_dask()
 To run the unit and integration tests for this API, run:
 
 ```shell
-$ py.test -v
+$ pytest -v
 ```
 
 Catalog entries scan be marked as either _skip_ or _xfail_ by setting the `ci` key in the metadata dictionary:
