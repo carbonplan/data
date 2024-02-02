@@ -23,7 +23,7 @@ classifiers = [
 dynamic = ["version"]
 
 dependencies = [
-    "intake",
+    "intake<=0.7.0",
     "validators",
     "wget",
 ]

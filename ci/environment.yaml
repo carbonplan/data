@@ -8,7 +8,7 @@ dependencies:
   - gcsfs
   - gdal
   - google-cloud-storage
-  - intake
+  - intake<=0.7.0
   - intake-geopandas
   - intake-parquet
   - intake-xarray
