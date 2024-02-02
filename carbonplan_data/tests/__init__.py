@@ -78,6 +78,7 @@ def parametrize_with_checks(catalog):
     >>> @parametrize_with_checks(cat)
     ... def test_catalog(entry, check):
     ...     check(entry)
+    ...
 
     """
     import pytest

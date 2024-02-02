@@ -15,7 +15,6 @@
 ![PyPI](https://img.shields.io/pypi/v/carbonplan-data)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-
 This repository includes our main data catalog as well as our pre-processing utilities.
 
 ## install

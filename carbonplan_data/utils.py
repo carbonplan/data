@@ -6,7 +6,7 @@ import pathlib
 import zipfile
 
 import numpy as np
-import urlpath
+import validators
 import wget
 import xarray as xr
 import yaml
@@ -155,7 +155,8 @@ def process_sources(name, workdir=None):
         # download
         if "download" in dset["actions"]:
             for url in dset["urlpath"]:
-                url = urlpath.URL(url)
+                if not validators.url(url):
+                    raise ValueError(f'url "{url}" not valid')
                 out = workdir / url.name
                 if not out.exists():
                     print(f"downloading {url}")

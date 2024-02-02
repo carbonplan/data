@@ -37,19 +37,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python: ['3.8', '3.9', '3.10']
+        python: ['3.9', '3.10', '3.11']
         CARBONPLAN_DATA: [
             # 'https://carbonplan.blob.core.windows.net/carbonplan-data',
             'gs://carbonplan-data',
           ]
     steps:
       - uses: actions/checkout@v3
-      - name: Install Conda environment
-        uses: mamba-org/provision-with-micromamba@main
+      - name: Install Conda environment from environment.yml
+        uses: mamba-org/setup-micromamba@v1
         with:
+          # environment-file is not assumed anymore
           environment-file: ci/environment.yaml
-          cache-downloads: true
-          extra-specs: |
+          create-args: >-
             python=${{ matrix.python-version }}
       - name: Install package
         run: |

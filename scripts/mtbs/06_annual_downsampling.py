@@ -19,7 +19,7 @@ for region in ["conus"]:
         print(source)
         crs, extent = projections("albers", region)
         resampling = "nearest"
-        cmd = ("gdalwarp " "-t_srs '%s' " "-te %s " "-tr %s %s " "-r %s " "%s " "%s") % (
+        cmd = ("gdalwarp " "-t_srs '{}' " "-te {} " "-tr {} {} " "-r {} " "{} " "{}").format(
             crs,
             extent,
             resolution,
