@@ -43,8 +43,8 @@ sources:
         allowed: [foresttype, forestgroup]
     driver: rasterio
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif'
-      chunks: { 'y': 5120, 'x': 5120 }
+      urlpath: "{{env(CARBONPLAN_DATA)}}/raw/nftd/{{ region }}_{{ variable }}/250m/{{ option }}.tif"
+      chunks: { "y": 5120, "x": 5120 }
 
   raster:
     metadata:
@@ -88,5 +88,5 @@ sources:
         allowed: [250m, 4000m]
     driver: rasterio
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif'
-      chunks: { 'y': 5120, 'x': 5120 }
+      urlpath: "{{env(CARBONPLAN_DATA)}}/processed/nftd/{{ region }}/{{ resolution }}/{{ option }}.tif"
+      chunks: { "y": 5120, "x": 5120 }

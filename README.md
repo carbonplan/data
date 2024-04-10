@@ -59,7 +59,7 @@ Catalog entries scan be marked as either _skip_ or _xfail_ by setting the `ci` k
 
 ```yaml
 foo:
-  description: 'skip this entry in the CI tests'
+  description: "skip this entry in the CI tests"
   metadata:
     ci: skip
 ```

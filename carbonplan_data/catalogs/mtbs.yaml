@@ -39,7 +39,7 @@ sources:
     args:
       # urlpath: "https://storage.googleapis.com/carbonplan-data/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
       urlpath: "{{env(CARBONPLAN_DATA)}}/raw/mtbs/{{ region }}/30m/{{ '%d' % year }}.tif"
-      chunks: { 'y': 5120, 'x': 5120 }
+      chunks: { "y": 5120, "x": 5120 }
 
   raster:
     metadata:
@@ -73,11 +73,11 @@ sources:
       resolution:
         description: Pixel resolution in meters
         type: str
-        default: '4000m'
-        allowed: ['4000m']
+        default: "4000m"
+        allowed: ["4000m"]
     driver: zarr
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr'
+      urlpath: "{{env(CARBONPLAN_DATA)}}/processed/mtbs/{{ region }}/{{ resolution }}/raster.zarr"
       consolidated: True
 
   rasterized_perims:
@@ -107,21 +107,21 @@ sources:
       resolution:
         description: Pixel resolution in meters
         type: str
-        default: '30m'
-        allowed: ['30m']
+        default: "30m"
+        allowed: ["30m"]
       size:
         description: Fire size
         type: str
-        default: 'lf'
-        allowed: ['lf', 'vlf']
+        default: "lf"
+        allowed: ["lf", "vlf"]
       date:
-        description: 'Year and month (format: YYYY.MM)'
+        description: "Year and month (format: YYYY.MM)"
         type: str
-        default: '2018.11'
+        default: "2018.11"
     driver: rasterio
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/mtbs/{{ region }}/{{ resolution }}/{{ size }}_{{ date }}.tif'
-      chunks: { 'y': 5120, 'x': 5120 }
+      urlpath: "{{env(CARBONPLAN_DATA)}}/processed/mtbs/{{ region }}/{{ resolution }}/{{ size }}_{{ date }}.tif"
+      chunks: { "y": 5120, "x": 5120 }
 
   fod_shp:
     metadata:
@@ -141,7 +141,7 @@ sources:
       ci: skip
     driver: shapefile
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/mtbs/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp'
+      urlpath: "{{env(CARBONPLAN_DATA)}}/raw/mtbs/mtbs_fod_pts_data/mtbs_fod_pts_DD.shp"
 
   perims_shp:
     metadata:
@@ -161,4 +161,4 @@ sources:
       ci: skip
     driver: shapefile
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/mtbs/mtbs_perimeter_data/mtbs_perims_DD.shp'
+      urlpath: "{{env(CARBONPLAN_DATA)}}/raw/mtbs/mtbs_perimeter_data/mtbs_perims_DD.shp"

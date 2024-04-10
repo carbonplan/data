@@ -93,5 +93,5 @@ sources:
             veg_visit,
           ]
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/fia/{{ name }}.parquet'
-      engine: 'pyarrow'
+      urlpath: "{{env(CARBONPLAN_DATA)}}/raw/fia/{{ name }}.parquet"
+      engine: "pyarrow"
