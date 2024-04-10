@@ -44,5 +44,5 @@ sources:
           ]
     driver: rasterio
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif'
-      chunks: { 'y': 5120, 'x': 5120 }
+      urlpath: "{{env(CARBONPLAN_DATA)}}/raw/2010-harmonized-biomass/global/300m/{{ variable }}.tif"
+      chunks: { "y": 5120, "x": 5120 }

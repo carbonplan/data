@@ -12,7 +12,7 @@
 **data catalog and curation**
 
 [![CI](https://github.com/carbonplan/data/actions/workflows/main.yaml/badge.svg)](https://github.com/carbonplan/data/actions/workflows/main.yaml)
-![PyPI](https://img.shields.io/pypi/v/carbonplan-data)
+[![PyPI](https://img.shields.io/pypi/v/carbonplan-data)](https://pypi.org/project/carbonplan-data/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 This repository includes our main data catalog as well as our pre-processing utilities.
@@ -59,7 +59,7 @@ Catalog entries scan be marked as either _skip_ or _xfail_ by setting the `ci` k
 
 ```yaml
 foo:
-  description: 'skip this entry in the CI tests'
+  description: "skip this entry in the CI tests"
   metadata:
     ci: skip
 ```

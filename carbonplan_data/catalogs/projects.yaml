@@ -17,4 +17,4 @@ sources:
           url: https://carbonplan.org
     driver: csv
     args:
-      urlpath: 'https://api.carbonplan.org/projects.csv'
+      urlpath: "https://api.carbonplan.org/projects.csv"

@@ -27,16 +27,16 @@ sources:
         default: pr
         allowed:
           [
-            'huss',
-            'pr',
-            'rhsmin',
-            'rhsmax',
-            'rsds',
-            'tasmax',
-            'tasmin',
-            'uas',
-            'vas',
-            'vpd',
+            "huss",
+            "pr",
+            "rhsmin",
+            "rhsmax",
+            "rsds",
+            "tasmax",
+            "tasmin",
+            "uas",
+            "vas",
+            "vpd",
           ]
       gcm:
         description: climate model
@@ -47,7 +47,7 @@ sources:
         description: climate scenario
         type: str
         default: historical_1950_2005
-        allowed: ['historical_1950_2005', 'rcp45_2006_2099', 'rcp85_2006_2099']
+        allowed: ["historical_1950_2005", "rcp45_2006_2099", "rcp85_2006_2099"]
     args:
       urlpath: http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_{{ variable }}_{{ gcm }}_r1i1p1_{{ scenario }}_CONUS_daily.nc
       auth: null

@@ -11,23 +11,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-        working-directory: ./web
-      - run: npm run build --if-present
-        working-directory: ./web
-
   test:
     name: test-py${{ matrix.python }}-${{matrix.CARBONPLAN_DATA}}
     runs-on: ubuntu-latest
@@ -37,10 +20,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python: ['3.9', '3.10', '3.11']
+        python: ["3.9", "3.10", "3.11"]
         CARBONPLAN_DATA: [
             # 'https://carbonplan.blob.core.windows.net/carbonplan-data',
-            'gs://carbonplan-data',
+            "gs://carbonplan-data",
           ]
     steps:
       - uses: actions/checkout@v4

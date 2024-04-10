@@ -48,8 +48,8 @@ sources:
         allowed: [conus, ak]
     driver: rasterio
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/raw/nlcd/{{ region }}/30m/{{ option }}.tif'
-      chunks: { 'y': 5120, 'x': 5120 }
+      urlpath: "{{env(CARBONPLAN_DATA)}}/raw/nlcd/{{ region }}/30m/{{ option }}.tif"
+      chunks: { "y": 5120, "x": 5120 }
 
   raster:
     metadata:
@@ -103,5 +103,5 @@ sources:
         allowed: [conus, ak]
     driver: rasterio
     args:
-      urlpath: '{{env(CARBONPLAN_DATA)}}/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif'
-      chunks: { 'y': 5120, 'x': 5120 }
+      urlpath: "{{env(CARBONPLAN_DATA)}}/processed/nlcd/{{ region }}/{{ resolution }}/{{ option }}.tif"
+      chunks: { "y": 5120, "x": 5120 }
