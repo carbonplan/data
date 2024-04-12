@@ -8,11 +8,11 @@ from importlib.metadata import version as _version
 import intake
 
 try:
-    __version__ = _version(__name__)
+    version = _version(__name__)
 except _PackageNotFoundError:
     # package is not installed
-    __version__ = "unknown"
-
+    version = "unknown"
+__version__ = version
 
 CATALOG_DIR_PATH = pathlib.Path(__file__)
 MASTER_CATALOG_PATH = str(CATALOG_DIR_PATH.parent / "catalogs/master.yaml")
