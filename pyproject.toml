@@ -37,15 +37,8 @@ repository = "https://github.com/carbonplan/data"
 include = ["carbonplan_data*"]
 
 [tool.setuptools_scm]
-version_scheme = "post-release"
 local_scheme = "node-and-date"
 fallback_version = "999"
-write_to = "carbonplan_data/_version.py"
-write_to_template = '__version__ = "{version}"'
-
-
-# [tool.setuptools.dynamic]
-# version = { attr = "carbonplan_data.__version__" }
 
 
 [tool.black]

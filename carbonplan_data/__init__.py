@@ -2,15 +2,17 @@ from __future__ import annotations
 
 import os
 import pathlib
+from importlib.metadata import PackageNotFoundError as _PackageNotFoundError
+from importlib.metadata import version as _version
 
 import intake
-from pkg_resources import DistributionNotFound, get_distribution
 
 try:
-    version = get_distribution(__name__).version
-except DistributionNotFound:  # pragma: no cover
-    version = "0.0.0"  # pragma: no cover
-__version__ = version
+    __version__ = _version(__name__)
+except _PackageNotFoundError:
+    # package is not installed
+    __version__ = "unknown"
+
 
 CATALOG_DIR_PATH = pathlib.Path(__file__)
 MASTER_CATALOG_PATH = str(CATALOG_DIR_PATH.parent / "catalogs/master.yaml")
