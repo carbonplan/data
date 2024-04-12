@@ -26,6 +26,8 @@ dependencies = [
     "intake<=0.7.0",
     "validators",
     "wget",
+    "numpy",
+    "xarray",
 ]
 
 [project.urls]
