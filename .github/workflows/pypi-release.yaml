@@ -80,7 +80,7 @@ jobs:
           python -m pip install dist/carbonplan_data*.whl
           python -c "from carbonplan_data.utils import get_versions; print(get_versions())"
       - name: Publish package to TestPyPI
-        uses: pypa/gh-action-pypi-publish@v1.10.0
+        uses: pypa/gh-action-pypi-publish@v1.10.2
         with:
           password: ${{ secrets.TEST_PYPI_TOKEN }}
           repository-url: https://test.pypi.org/legacy/
@@ -96,7 +96,7 @@ jobs:
           name: releases
           path: dist
       - name: Publish package to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.10.0
+        uses: pypa/gh-action-pypi-publish@v1.10.2
         with:
           password: ${{ secrets.PYPI_TOKEN }}
           # verbose: true
