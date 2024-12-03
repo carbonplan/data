@@ -246,7 +246,7 @@ def get_versions(
         "intake",
         "rasterio",
         "zarr",
-    ]
+    ],
 ) -> dict[str, str]:
     """Helper to fetch commonly used package versions
     Parameters
