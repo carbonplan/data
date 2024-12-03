@@ -4,9 +4,10 @@ import numpy as np
 from rio_cogeo.cogeo import cog_translate
 from rio_cogeo.profiles import cog_profiles
 
+from carbonplan_data.utils import projections, setup
+
 dst_profile = cog_profiles.get("deflate")
 
-from carbonplan_data.utils import projections, setup
 
 workdir, upload = setup("jeremy")
 workdir
