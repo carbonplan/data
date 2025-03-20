@@ -26,15 +26,15 @@ python -m pip install carbonplan[data]
 ## usage
 
 The CarbonPlan data archives are currently mirrored on Google Cloud Storage (US-Central) and
-Microsoft Azure (US-West). Set the `CARBONPLAN_DATA` environment variable before using the
+AWS (us-west-2). Set the `CARBONPLAN_DATA` environment variable before using the
 Intake catalog below:
 
 ```shell
 # google (us-central)
 export CARBONPLAN_DATA="https://storage.googleapis.com/carbonplan-data"
 # or
-# azure (us-west)
-export CARBONPLAN_DATA="https://carbonplan.blob.core.windows.net/carbonplan-data"
+# s3 (us-west-2)
+export CARBONPLAN_DATA="https://carbonplan-data.s3.us-west-2.amazonaws.com"
 ```
 
 ```python

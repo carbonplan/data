@@ -18,7 +18,7 @@ CATALOG_DIR_PATH = pathlib.Path(__file__)
 MASTER_CATALOG_PATH = str(CATALOG_DIR_PATH.parent / "catalogs/master.yaml")
 KNOWN_DATA_LOCATIONS = [
     "https://storage.googleapis.com/carbonplan-data",
-    "https://carbonplan.blob.core.windows.net/carbonplan-data",
+    "https://carbonplan-data.s3.us-west-2.amazonaws.com",
 ]
 
 # open master catalog

@@ -22,7 +22,6 @@ jobs:
       matrix:
         python: ["3.9", "3.10", "3.11", "3.12"]
         CARBONPLAN_DATA: [
-            # 'https://carbonplan.blob.core.windows.net/carbonplan-data',
             "gs://carbonplan-data",
           ]
     steps:
