@@ -23,7 +23,7 @@ jobs:
         python: ["3.9", "3.10", "3.11", "3.12"]
         CARBONPLAN_DATA: ["gs://carbonplan-data"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Conda environment from environment.yml
         uses: mamba-org/setup-micromamba@v2
         with:
