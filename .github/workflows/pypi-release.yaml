@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'carbonplan/data'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5.4.0
+      - uses: actions/setup-python@v6.0.0
         name: Install Python
         with:
           python-version: "3.11"
@@ -62,11 +62,11 @@ jobs:
     needs: build-artifacts
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v5.4.0
+      - uses: actions/setup-python@v6.0.0
         name: Install Python
         with:
           python-version: "3.11"
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: releases
           path: dist
@@ -80,7 +80,7 @@ jobs:
           python -m pip install dist/carbonplan_data*.whl
           python -c "from carbonplan_data.utils import get_versions; print(get_versions())"
       - name: Publish package to TestPyPI
-        uses: pypa/gh-action-pypi-publish@v1.12.4
+        uses: pypa/gh-action-pypi-publish@v1.13.0
         with:
           password: ${{ secrets.TEST_PYPI_TOKEN }}
           repository-url: https://test.pypi.org/legacy/
@@ -91,12 +91,12 @@ jobs:
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: releases
           path: dist
       - name: Publish package to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.12.4
+        uses: pypa/gh-action-pypi-publish@v1.13.0
         with:
           password: ${{ secrets.PYPI_TOKEN }}
           # verbose: true
